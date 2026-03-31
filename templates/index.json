@@ -25,6 +25,20 @@
             "text_color": "black"
           }
         },
+        "row_jTCqyT": {
+          "type": "row",
+          "disabled": true,
+          "settings": {
+            "background": "#5f5473",
+            "item_title": "Chewy Wellness",
+            "item_description": "<p>A colourful range of flavourful gummies designed for everyday nutrition, combining convenience, taste, and thoughtfully selected ingredients.</p>",
+            "item_mobile_description": "<p>A colourful range of flavourful gummies designed for everyday nutrition, combining convenience, taste, and thoughtfully selected ingredients.</p>",
+            "button_text": "Shop Now",
+            "button_url": "https://www.canadianvitaminshop.com/search?q=preferred+nutrition+gummies&options%5Bprefix%5D=last&sort_by=relevance&filter.p.vendor=Preferred+Nutrition",
+            "image": "shopify://shop_images/April_Bnnr_PN_Gummies_847_x_462.jpg",
+            "text_color": "black"
+          }
+        },
         "row_3Lj9TF": {
           "type": "row",
           "disabled": true,
@@ -65,19 +79,6 @@
             "text_color": "black"
           }
         },
-        "row_fhAKCF": {
-          "type": "row",
-          "settings": {
-            "background": "#4b016c",
-            "item_title": "LINE DRIVE - 20% OFF",
-            "item_description": "<p>All AOR products on sale 20% off until March 31st! Discount applied once added to cart!</p>",
-            "item_mobile_description": "<p>All AOR products on sale 20% off until March 31st! Discount applied once added to cart!</p>",
-            "button_text": "Shop Now",
-            "button_url": "https://www.canadianvitaminshop.com/search?q=aor&options%5Bprefix%5D=last&sort_by=relevance&filter.p.vendor=AOR",
-            "image": "shopify://shop_images/AOR2.0.png",
-            "text_color": "black"
-          }
-        },
         "row_NbmMjb": {
           "type": "row",
           "settings": {
@@ -88,6 +89,19 @@
             "button_text": "Shop Now",
             "button_url": "https://www.canadianvitaminshop.com/products/nordic-naturals-ultimate-omega-lemon-flavour?_pos=2&_sid=9a30660f7&_ss=r",
             "image": "shopify://shop_images/NN_26.04_April_Promo_Banner_847x462_e7bd06c1-288d-471f-9da4-d5b76257472a.jpg",
+            "text_color": "black"
+          }
+        },
+        "row_fhAKCF": {
+          "type": "row",
+          "settings": {
+            "background": "#4b016c",
+            "item_title": "LINE DRIVE - 20% OFF",
+            "item_description": "<p>All AOR products on sale 20% off until March 31st! Discount applied once added to cart!</p>",
+            "item_mobile_description": "<p>All AOR products on sale 20% off until March 31st! Discount applied once added to cart!</p>",
+            "button_text": "Shop Now",
+            "button_url": "https://www.canadianvitaminshop.com/search?q=aor&options%5Bprefix%5D=last&sort_by=relevance&filter.p.vendor=AOR",
+            "image": "shopify://shop_images/AOR2.0.png",
             "text_color": "black"
           }
         },
@@ -143,20 +157,6 @@
             "text_color": "black"
           }
         },
-        "row_jTCqyT": {
-          "type": "row",
-          "disabled": true,
-          "settings": {
-            "background": "#5f5473",
-            "item_title": "Chewy Wellness",
-            "item_description": "<p>A colourful range of flavourful gummies designed for everyday nutrition, combining convenience, taste, and thoughtfully selected ingredients.</p>",
-            "item_mobile_description": "<p>A colourful range of flavourful gummies designed for everyday nutrition, combining convenience, taste, and thoughtfully selected ingredients.</p>",
-            "button_text": "Shop Now",
-            "button_url": "https://www.canadianvitaminshop.com/search?q=preferred+nutrition+gummies&options%5Bprefix%5D=last&sort_by=relevance&filter.p.vendor=Preferred+Nutrition",
-            "image": "shopify://shop_images/April_Bnnr_PN_Gummies_847_x_462.jpg",
-            "text_color": "black"
-          }
-        },
         "row_U7XALN": {
           "type": "row",
           "disabled": true,
@@ -174,16 +174,16 @@
       },
       "block_order": [
         "row_XGUfyX",
+        "row_jTCqyT",
         "row_3Lj9TF",
         "row_aGr7ee",
         "row_MEHf9b",
-        "row_fhAKCF",
         "row_NbmMjb",
+        "row_fhAKCF",
         "row_zwFVmF",
         "row_FYeFBC",
         "row_wyiMDY",
         "row_4qRD6e",
-        "row_jTCqyT",
         "row_U7XALN"
       ],
       "settings": {
