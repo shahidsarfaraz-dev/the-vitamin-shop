@@ -25,6 +25,19 @@
             "text_color": "black"
           }
         },
+        "row_3Lj9TF": {
+          "type": "row",
+          "disabled": true,
+          "settings": {
+            "background": "#126752",
+            "item_title": "Item Title",
+            "item_description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>",
+            "item_mobile_description": "",
+            "button_text": "Shop Now",
+            "button_url": "",
+            "text_color": "black"
+          }
+        },
         "row_aGr7ee": {
           "type": "row",
           "settings": {
@@ -134,10 +147,10 @@
           "type": "row",
           "disabled": true,
           "settings": {
-            "background": "#51128b",
-            "item_title": "",
-            "item_description": "",
-            "item_mobile_description": "",
+            "background": "#4b91a6",
+            "item_title": "The Power of Omega-3",
+            "item_description": "<p>An omega-3 ideal for people wanting high intensity, therapeutic support in a smaller serving.</p>",
+            "item_mobile_description": "<p>An omega-3 ideal for people wanting high intensity, therapeutic support in a smaller serving.</p>",
             "button_text": "Shop Now",
             "button_url": "https://www.canadianvitaminshop.com/search?q=natures+way+sambucus&options%5Bprefix%5D=last",
             "image": "shopify://shop_images/NN_26.04_April_Promo_Banner_847x462_e7bd06c1-288d-471f-9da4-d5b76257472a.jpg",
@@ -147,6 +160,7 @@
       },
       "block_order": [
         "row_XGUfyX",
+        "row_3Lj9TF",
         "row_aGr7ee",
         "row_MEHf9b",
         "row_fhAKCF",
