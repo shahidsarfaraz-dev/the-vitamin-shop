@@ -15,13 +15,13 @@
         "row_XGUfyX": {
           "type": "row",
           "settings": {
-            "background": "#6c778b",
-            "item_title": "March Savings Are Here!",
+            "background": "#155a00",
+            "item_title": "April Savings Are Here!",
             "item_description": "<p>Stock up on your favourite health essentials and enjoy big savings all month long! Don’t miss out on exclusive deals – click below to shop now!</p>",
             "item_mobile_description": "<p>Stock up on your favourite health essentials and enjoy big savings all month long! Don’t miss out on exclusive deals – click below to shop now!</p>",
             "button_text": "Shop Now",
-            "button_url": "https://www.canadianvitaminshop.com/pages/march-savings",
-            "image": "shopify://shop_images/March_Savings_2.png",
+            "button_url": "",
+            "image": "shopify://shop_images/april-savings-hero-banner.jpg",
             "text_color": "black"
           }
         },
