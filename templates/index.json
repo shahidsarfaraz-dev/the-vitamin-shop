@@ -142,6 +142,20 @@
             "text_color": "black"
           }
         },
+        "row_jTCqyT": {
+          "type": "row",
+          "disabled": true,
+          "settings": {
+            "background": "#5f5473",
+            "item_title": "Chewy Wellness",
+            "item_description": "<p>A colourful range of flavourful gummies designed for everyday nutrition, combining convenience, taste, and thoughtfully selected ingredients.</p>",
+            "item_mobile_description": "<p>A colourful range of flavourful gummies designed for everyday nutrition, combining convenience, taste, and thoughtfully selected ingredients.</p>",
+            "button_text": "Shop Now",
+            "button_url": "https://www.canadianvitaminshop.com/search?q=preferred+nutrition+gummies&options%5Bprefix%5D=last&sort_by=relevance&filter.p.vendor=Preferred+Nutrition",
+            "image": "shopify://shop_images/April_Bnnr_PN_Gummies_847_x_462.jpg",
+            "text_color": "black"
+          }
+        },
         "row_U7XALN": {
           "type": "row",
           "disabled": true,
@@ -168,6 +182,7 @@
         "row_FYeFBC",
         "row_wyiMDY",
         "row_4qRD6e",
+        "row_jTCqyT",
         "row_U7XALN"
       ],
       "settings": {
