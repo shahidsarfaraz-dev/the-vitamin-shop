@@ -29,12 +29,13 @@
           "type": "row",
           "disabled": true,
           "settings": {
-            "background": "#126752",
-            "item_title": "Item Title",
-            "item_description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>",
-            "item_mobile_description": "",
+            "background": "#4e7141",
+            "item_title": "Whole Earth & Sea",
+            "item_description": "<p>A full line of whole-food, plant-based multivitamins made with sustainably sourced ingredients to support everyday nutritional needs.</p>",
+            "item_mobile_description": "<p>A full line of whole-food, plant-based multivitamins made with sustainably sourced ingredients to support everyday nutritional needs.</p>",
             "button_text": "Shop Now",
-            "button_url": "",
+            "button_url": "https://www.canadianvitaminshop.com/search?q=whole+earth+and+sea&options%5Bprefix%5D=last&sort_by=relevance&filter.p.vendor=Whole+Earth+%26+Sea",
+            "image": "shopify://shop_images/April_WebBnnr_TVS_WES_847x462_E.jpg",
             "text_color": "black"
           }
         },
