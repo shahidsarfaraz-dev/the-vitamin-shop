@@ -1,0 +1,228 @@
+<div class="carousel-general promotional-carousel color-{{ section.settings.text_color }}"  data-carousel-type="promotional">
+  <div class="promotional-carousel-container">
+    <h2 class="promotional-carousel-title fade-in-element">{{ section.settings.heading }}</h2>
+    <div class="carousel-container">
+      <div class="carousel-wrapper" data-speed="{{ section.settings.carousel_speed }}">
+        <ul>
+            {%- for block in section.blocks -%}
+              <li class="carousel-item item-style-{{ block.settings.item_type }} fade-in-element">
+                <div class="carousel-item-inner">
+                  {% if block.settings.show_promo_corner == true %}
+                    <div class="carousel-discount{% if block.settings.item_type == "coupon" %} coupon-discount{% elsif block.settings.item_type == "featured" %} featured-discount{% endif %}">
+                      {% if block.settings.item_type == "coupon" %}
+                        <span>${{ block.settings.coupon_amount }}<br>Coupon</span>
+                      {% elsif block.settings.item_type == "featured" %}
+                        <span>Save {{ block.settings.featured_percentage }}%</span>
+                      {% endif %}
+                      {% if block.settings.item_type == "coupon" or block.settings.item_type == "featured" %}
+                        {% if block.settings.use_additional_discount == true %}
+                          <div class="promotional-additional-discount">
+                            <b>+{{ block.settings.additional_discount }}%</b> at checkout
+                          </div>
+                        {% endif %}
+                      {% endif %}
+                    </div>
+                  {% endif %}
+                  <div class="carousel-item-top" style="background-image:url({{ block.settings.background_image | image_url }});">
+                    <img src="{{ block.settings.image | image_url }}" width="" height="" alt="" />
+                  </div>
+                  <div class="carousel-item-bottom">
+                    <div class="carousel-content">
+                      <span class="carousel-item-label">{{ block.settings.item_type }}</span>
+                      <div class="carousel-item-subheading">{{ block.settings.item_subtitle }}</div>
+                      <h3 class="carousel-item-title">{{ block.settings.item_title }}</h3>
+                      <div class="carousel-item-description">{{ block.settings.item_description }}</div>
+                      <a href="{{ block.settings.button_url }}" class="button">{{ block.settings.button_text }}</a>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            {%- endfor -%}
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="carousel-arrows">
+    <div class="carousel-arrow carousel-arrow-left"><i class="gg-chevron-left"></i></div>
+    <div class="carousel-arrow carousel-arrow-right"><i class="gg-chevron-right"></i></div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Promotional Carousel",
+    "tag": "section",
+    "class": "section",
+    "disabled_on": {
+      "groups": ["header", "footer"]
+    },    
+    "settings": [
+      {
+        "type": "text",
+        "id": "heading",
+        "default": "Promotional Carousel",
+        "label": "Title"
+      },
+      {
+        "type": "select",
+        "id": "carousel_speed",
+        "label": "Slider Speed",
+        "options": [
+          {
+            "value": "0",
+            "label": "Disabled"
+          },
+          {
+            "value": "5000",
+            "label": "5 Seconds"
+          },
+          {
+            "value": "7000",
+            "label": "7 Seconds"
+          },
+          {
+            "value": "10000",
+            "label": "10 Seconds"
+          }
+        ],
+        "default": "0"
+      } 
+    ],
+    "blocks": [
+      {
+        "type": "row",
+        "name": "Item",
+        "settings": [
+          {
+            "type": "select",
+            "id": "item_type",
+            "label": "Item Type",
+            "options": [
+              {
+                "value": "featured",
+                "label": "Featured"
+              },
+              {
+                "value": "coupon",
+                "label": "Coupon"
+              }
+            ],
+            "default": "featured"
+          },
+          {
+            "type": "checkbox",
+            "id": "show_promo_corner",
+            "default": true,
+            "label": "Show savings in corner?"
+          },
+          {
+            "type": "range",
+            "id": "featured_percentage",
+            "min": 1,
+            "max": 99,
+            "step": 1,
+            "unit": "%",
+            "label": "Percentage off",
+            "info": "For featured item type",
+            "default": 10
+          },
+          {
+            "type": "range",
+            "id": "coupon_amount",
+            "min": 1,
+            "max": 9,
+            "step": 1,
+            "unit": "$",
+            "label": "Coupon Amount",
+            "info": "For coupon item type",
+            "default": 1
+          },
+          {
+            "type": "checkbox",
+            "id": "use_additional_discount",
+            "default": false,
+            "label": "Show Additional Discount?"
+          },
+          {
+            "type": "range",
+            "id": "additional_discount",
+            "min": 1,
+            "max": 99,
+            "step": 1,
+            "unit": "%",
+            "label": "Additional Discount Percentage",
+            "info": "For featured item type",
+            "default": 10
+          },
+          {
+            "type": "text",
+            "id": "item_title",
+            "default": "Item Title",
+            "label": "Item Title",
+            "info": "Limit: 32 characters"
+          },
+          {
+            "type": "text",
+            "id": "item_subtitle",
+            "default": "Item Subtitle",
+            "label": "Item Subtitle"
+          },
+          {
+            "type": "textarea",
+            "id": "item_description",
+            "default": "Item Description",
+            "label": "Item Description"
+          },
+          {
+            "type": "text",
+            "id": "button_text",
+            "default": "Learn More",
+            "label": "Button Text"
+          },
+          {
+            "type": "url",
+            "id": "button_url",
+            "label": "Button Link"
+          },
+          {
+            "type": "image_picker",
+            "id": "background_image",
+            "label": "Background Image"
+          },
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "select",
+            "id": "text_color",
+            "label": "Text Color",
+            "options": [
+              {
+                "value": "white",
+                "label": "White"
+              },
+              {
+                "value": "black",
+                "label": "Black"
+              }
+            ],
+            "default": "black"
+          }          
+        ]
+      }
+    ],    
+    "presets": [
+    {
+      "name": "Promotional Carousel",
+      "category": "Section",
+      "blocks": [
+        {
+          "type": "row"
+        }
+      ]      
+    }
+    ]
+  }
+{% endschema %}

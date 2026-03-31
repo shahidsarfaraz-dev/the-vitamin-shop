@@ -1,0 +1,57 @@
+.simple-product-wrapper {
+  display: flex;
+  align-items: stretch;
+}
+.simple-product-wrapper .card__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.simple-product-wrapper .card__information {
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0;
+}
+
+.simple-product-wrapper .card__header {
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+.simple-product-wrapper .coupon-card-subtitle {
+  margin-bottom: 8px;
+}
+
+.simple-product-wrapper .quick-add {
+  position: relative !important;
+  bottom: auto;
+  left: auto;
+  transform: none;
+}
+.simple-product-wrapper .quick-add .quick-add__submit {
+  padding: 0.8rem;
+}
+.simple-product-wrapper .quick-add .quick-add-modal {
+  display: none;
+  visibility: hidden;
+}
+
+.simple-product-wrapper .img-container {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.simple-product-wrapper .img-container .card__product-image {
+  padding-bottom: 90%;
+  position: relative;
+  overflow: hidden;
+}
+.simple-product-wrapper .img-container .card__product-image img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+}

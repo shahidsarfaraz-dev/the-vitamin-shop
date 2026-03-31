@@ -1,0 +1,20 @@
+{{ 'component-newsletter-banners.css' | asset_url | stylesheet_tag }}
+
+{% for bottom_banner in collection.metafields.custom.bottom_banners.value %}
+  <div class="section-{{ section.id }}-padding page-width newsletter-banner">
+    {{- bottom_banner | image_url: width: 1540 | image_tag }}
+  </div>
+{% endfor %}
+
+{% schema %}
+{
+  "name": "Newsletter banner list",
+  "class": "section",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Newsletter Banners list"
+    }
+  ]   
+}
+{% endschema %}

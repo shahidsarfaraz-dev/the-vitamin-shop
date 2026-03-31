@@ -1,0 +1,94 @@
+<div class="our-brands" style="background-image:url({{ section.settings.background_image | image_url }});">
+  <div class="page-width our-brands-container">
+    <div class="our-brands-headings fade-in-element">
+      <h2 class="our-brands-title">{{ section.settings.heading }}</h2>
+      <div class="our-brands-subheading">{{ section.settings.subheading }}</div>
+      <a href="{{ section.settings.button_url }}" class="button">{{ section.settings.button_text }}</a>
+    </div>
+    <div class="our-brands-list">
+      <ul>
+      {%- for block in section.blocks -%}
+        <li class="brand-item-column fade-in-element">
+          <a class="brand-item" href="{{ block.settings.brand_link }}" style="background-image:url({{ block.settings.brand_logo | image_url }});">brand item</a>
+        </li>
+      {%- endfor -%}        
+      </ul>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Our Brands",
+    "tag": "section",
+    "class": "section",
+    "disabled_on": {
+      "groups": ["header", "footer"]
+    },    
+    "settings": [
+      {
+        "type": "text",
+        "id": "heading",
+        "default": "Our Brands",
+        "label": "brands-heading"
+      },
+      {
+        "type": "text",
+        "id": "subheading",
+        "default": "Lorem ipsum dolor sit amet consectetur adipiscing elit.",
+        "label": "brands-subheading"
+      },
+      {
+        "type": "text",
+        "id": "button_text",
+        "default": "Shop by Brand",
+        "label": "brands-buttontext"
+      },
+      {
+        "type": "url",
+        "id": "button_url",
+        "label": "brands-buttonlink"
+      },
+      {
+        "type": "image_picker",
+        "id": "background_image",
+        "label": "brands-background"
+      }      
+    ],
+    "blocks": [
+      {
+        "type": "row",
+        "name": "Brand",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "brand_logo",
+            "label": "Brand Logo"
+          },
+          {
+            "type": "url",
+            "id": "brand_link",
+            "label": "Brand url"
+          }          
+        ]
+      }
+    ],    
+    "presets": [
+    {
+      "name": "Our Brands",
+      "category": "Section",
+      "blocks": [
+        {
+          "type": "row"
+        },
+        {
+          "type": "row"
+        },
+        {
+          "type": "row"
+        }
+      ]      
+    }
+  ]
+  }
+{% endschema %}

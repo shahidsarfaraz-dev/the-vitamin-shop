@@ -1,0 +1,27 @@
+{% layout none %}
+{%- assign limit = 20 -%}
+{%- assign count = 0 -%}
+[
+{%- for item in search.results -%}
+  {%- if item.object_type == 'product' -%}
+    {%- if count > 0 -%},{%- endif -%}
+    {
+      "handle": {{ item.handle | json }},
+      "title": {{ item.title | strip | json }},
+      "vendor": {{ item.vendor | json }},
+      "url": {{ item.url | json }},
+      "featured_image": { "src": {{ item.featured_image | img_url: '200x' | json }} },
+      "tags": {{ item.tags | json }},
+      "variants": [
+        {%- for v in item.variants -%}
+          {%- unless v.title == 'Default Title' -%}
+            { "title": {{ v.title | json }} }{% unless forloop.last %},{% endunless %}
+          {%- endunless -%}
+        {%- endfor -%}
+      ]
+    }
+    {%- assign count = count | plus: 1 -%}
+    {%- if count >= limit -%}{% break %}{%- endif -%}
+  {%- endif -%}
+{%- endfor -%}
+]

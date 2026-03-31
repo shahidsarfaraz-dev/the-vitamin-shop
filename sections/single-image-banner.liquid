@@ -1,0 +1,91 @@
+<div class="single-image-banner">
+</div>
+
+<style>
+  .single-image-banner {
+    background-image: url({{ section.settings.image | image_url }});
+    {% if section.settings.use_ranged_pos == true %}
+    background-position: {{ section.settings.image_position_percentage }}%;
+    {% else %}
+    background-position: center {{ section.settings.image_position }};
+    {% endif %}
+    height: {{ section.settings.bg_height_mb }}px;
+      @media only screen and (min-width: 768px) {
+        height: {{ section.settings.bg_height }}px;
+      }
+    }
+</style>
+
+{% schema %}
+  {
+    "name": "Single Image Banner",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+        {
+          "type": "select",
+          "id": "image_position",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            },
+          ],
+          "default": "center",
+          "label": "Image Position"
+        },
+        {
+          "type": "checkbox",
+          "id": "use_ranged_pos",
+          "label": "Use Range for Image Position?",
+          "default": false
+        },
+        {
+          "type": "range",
+          "id": "image_position_percentage",
+          "min": 1,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "label": "Image Position (Range)",
+          "default": 50
+        },
+        {
+          "type": "range",
+          "id": "bg_height",
+          "min": 50,
+          "max": 750,
+          "step": 10,
+          "unit": "px",
+          "label": "Height (Desktop)",
+          "default": 420
+        },
+        {
+          "type": "range",
+          "id": "bg_height_mb",
+          "min": 50,
+          "max": 750,
+          "step": 10,
+          "unit": "px",
+          "label": "Height (Mobile)",
+          "default": 250
+        }
+    ],
+    "presets": [
+      {
+        "name": "Single Image Banner"
+      }
+    ]
+  }
+{% endschema %}

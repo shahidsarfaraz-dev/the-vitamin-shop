@@ -1,0 +1,34 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "vendor_list_Kxn9xh": {
+      "type": "vendor-list",
+      "settings": {
+        "title": "Our Brands",
+        "description": "",
+        "cad_vendors": "Natural Factors, WomenSense, Ultimate, Sea-Licious, Sea-licious, AOR, Purica, Naka, New Roots Herbal, Flora, Enerex, PVL, Suro, North Coast Naturals, Prairie Naturals, Prairie Naturals Sport, Organika, NutriStart Naturally, St Francis, Prairie Doctor Brand, Bell, Aeryon Wellness, AquaOmega, Harmonic Arts, Sierra Sil, Leaf Source, Leafsource, Life Choice, Adeeva, Veeva, Webber Naturals, The Vitamin Shop, Whole Earth & Sea, Abio Cosmetics, Alpha, AromaCrystal, Apothecary, Boiron, Beekeeper's Naturals, BioSteel, Botanical Therapeutic, Celt Naturals, Certified Naturals, Curelle, Carina Organics, Chilliwack River, Derma Soleil, Dutchman`s, DermaMed, Dragonfly Dreaming, Earthwise, Ener-Life, Epsomgel Solutions, Genuine Health, Green Beaver, Giff's Own, Gold Top Organics, Herbaland, Herbasante, Healthology, Hornby Organic, ITL Health, Jackson's Mineral Salts, Joy of the Mountains, KidStar Nutrients, Marseille's Remedy, Nelson Naturals, Nanton Nutraceuticals, Organic Naturals, Pascoe Natural Medicine, Pure Lab Vitamins, Quest, Regenerlife, Suku, Stress-Relax, Sea Wench Naturals, StraussUdo’s Choice, Viva Health, Viva Health Products, Wild Creek Naturals, Wild Rose, Wild Rose Herbal Care, 3 Brains, Attitude, Biovera, CulturedCare, Preferred Nutrition, Genesis Tallow, Hubner, InnoTech, Integrative Therapeutics, Iron Vegan, Jamieson, Maxion Nutrition, Med Marijuana, Medi-C Plus, Natural Balance, Nature's Harmony, No Days Wasted, NutraSea, Organic Formulations, Precision, Progressive, Provita, Pure-le Natural, Replete Nutraceuticals, Smart Solutions, Smith Farms, Source of Life, Strauss, Udo's Choice, CanPrev, Plumpp",
+        "canadian_icon": "shopify://shop_images/maple_fcaf88e7-5e3b-4a7b-ba31-8288c2460fcc.svg"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "vendor_list_Kxn9xh"
+  ]
+}

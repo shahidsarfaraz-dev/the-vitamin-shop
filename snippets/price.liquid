@@ -1,0 +1,131 @@
+{% comment %}
+  Renders a list of product's price (regular, sale)
+
+  Accepts:
+  - product: {Object} Product Liquid object (optional)
+  - use_variant: {Boolean} Renders selected or first variant price instead of overall product pricing (optional)
+  - show_badges: {Boolean} Renders 'Sale' and 'Sold Out' tags if the product matches the condition (optional)
+  - price_class: {String} Adds a price class to the price element (optional)
+
+  Usage:
+  {% render 'price', product: product %}
+{% endcomment %}
+
+{%- liquid
+  if use_variant
+    assign target = product.selected_or_first_available_variant
+  else
+    assign target = product
+  endif
+
+  assign price = target.price | default: 1999
+  assign available = target.available | default: false
+  assign money_price = price | money
+  if settings.currency_code_enabled
+    assign money_price = price | money_with_currency
+  endif
+
+  if target == product and product.price_varies
+    assign money_price = 'products.product.price.from_price_html' | t: price: money_price
+  endif
+
+  assign map_holiday = false
+
+  if customer and customer.accepts_marketing and settings.toggle_map == true
+    assign map_holiday = true
+  else
+    for collection in product.collections
+      if collection.handle == '00-map-holiday'
+        assign map_holiday = true
+        break
+      endif
+    endfor
+  endif
+-%}
+
+<div class="
+    price
+    {%- if price_class %} {{ price_class }}{% endif -%}
+    {%- if available == false %} price--sold-out {% endif -%}
+    {%- if product.price_varies == false and product.compare_at_price_varies %} price--no-compare{% endif -%}
+    {%- if show_badges %} price--show-badge{% endif -%}
+  ">
+  <div class="price__container">
+    
+    <div class="price__regular">
+      
+      {% if template.name == 'product' %}
+          <span class="price-item-label">Price:</span>
+      {% endif %}
+      
+      {%- assign map_price = target.metafields.custom.map_price -%}
+      
+      {%- if map_price != blank and map_price != null and map_holiday != true -%}
+        {%- assign map_price_amount = map_price | split: '"amount":"' | last | split: '","currency_code' | first -%}
+        {%- assign map_price_amount_in_cents = map_price_amount | times: 100 -%}
+        {%- assign price = map_price_amount_in_cents %}
+      {%- else -%}
+        {%- assign map_price_amount_in_cents = null -%}
+      {%- endif -%}
+
+      {%- assign compare_at_price = target.compare_at_price -%}
+      
+        <span class="map-price">
+          <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.regular_price' | t }}</span>
+          {%- if compare_at_price > target.price -%}{{ compare_at_price | money_without_trailing_zeros }}{%- endif -%}
+        </span>
+
+      <span class="price-item price-item--regular {% if compare_at_price > target.price %} has-compare{% endif %}">
+        <span class="visually-hidden visually-hidden--inline">
+          {% if target.compare_at_price %}
+            {{- 'products.product.price.sale_price' | t -}}
+          {% else %}
+            {{- 'products.product.price.regular_price' | t -}}
+          {% endif %}
+        </span>
+        <span class="price-display">{{- price | money_without_trailing_zeros -}}</span> {{ cart.currency.iso_code }}
+      </span>
+            
+    </div>  
+    <small class="unit-price caption{% if product.selected_or_first_available_variant.unit_price_measurement == nil %} hidden{% endif %}">
+      <span class="visually-hidden">{{ 'products.product.price.unit_price' | t }}</span>
+      <span class="price-item price-item--last">
+        <span>{{- product.selected_or_first_available_variant.unit_price | money -}}</span>
+        <span aria-hidden="true">/</span>
+        <span class="visually-hidden">&nbsp;{{ 'accessibility.unit_price_separator' | t }}&nbsp;</span>
+        <span>
+          {%- if product.selected_or_first_available_variant.unit_price_measurement.reference_value != 1 -%}
+            {{- product.selected_or_first_available_variant.unit_price_measurement.reference_value -}}
+          {%- endif -%}
+          {{ product.selected_or_first_available_variant.unit_price_measurement.reference_unit }}
+        </span>
+      </span>
+    </small>
+  </div>
+</div>
+{% if map_price_amount_in_cents > target.price %}
+  <div class="product__tax caption rte" style="margin-top: 0;">
+      Final discount applied at checkout.
+  </div>
+{% endif %}
+
+
+<script>
+  window.variantData = [
+    {% for variant in product.variants %}
+      {
+        id: {{ variant.id }},
+        price: {{ variant.price }},
+        compare_at_price: {{ variant.compare_at_price | default: 0 }},
+        map_price: {% assign map_price = variant.metafields.custom.map_price %}
+                    {%- if map_price != blank and map_price != null -%}
+                      {%- assign map_price_amount = map_price | split: '"amount":"' | last | split: '","currency_code' | first -%}
+                      {%- assign map_price_amount_in_cents = map_price_amount | times: 100 -%}
+                      {{ map_price_amount_in_cents }}
+                    {%- else -%}
+                      null
+                    {%- endif -%}
+      }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ];
+</script>

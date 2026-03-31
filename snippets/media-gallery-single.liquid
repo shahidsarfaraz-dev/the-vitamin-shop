@@ -1,0 +1,17 @@
+<media-gallery class="product__column-sticky">
+  <slider-component class="slider-mobile-gutter">
+    <div class="product-media-container media-type-image media-fit-contain global-media-settings gradient constrain-height">
+         {%- for block in section.blocks -%}
+          {%- case block.type -%}
+            {%- when '@app' -%}
+              {% render block %}
+          {%- endcase -%}
+         {%- endfor -%}
+      <div class="product__media media media--transparent">
+          <div class="product_main-image">
+          <img src="{% if product.featured_image %}{{ product.featured_image | image_url: height: 600 }}{% else %}{{ 'tvs-website-placeholder-image-3.jpg' | asset_url }}{% endif %}" alt="{{ product.title }}" width="auto" height="600">
+          </div>
+      </div>
+    </div>
+  </slider-component>
+</media-gallery>

@@ -1,0 +1,43 @@
+<div class="wholesale-lock-wrapper">
+  <div class="wholesale-lock" data-form-id="{{ settings.wholesale_lock_form_id }}">
+    <h4>{{ settings.wholesale_lock_title }}</h4>
+    <p>{{ settings.wholesale_lock_text }}</p>
+    <div class="wholesale_eflyer_form_wrapper">
+      
+    </div>
+    <a href="/">Return to home</a>
+    <div class="loading-overlay__spinner hidden">
+      <svg
+        aria-hidden="true"
+        focusable="false"
+        class="spinner"
+        viewBox="0 0 66 66"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<style>
+  .announcement-bar-section,
+  .shopify-section-group-header-group,
+  .collection-grid-wrapper,
+  .shopify-section-group-footer-group {
+    filter: blur(5px) !important;
+  }
+  {% unless customer %}
+    .wholesale-lock-wrapper {
+      display: none !important;
+    }
+    .wholesale-modal-wrapper {
+      display: block !important;
+    }
+    .wholesale-modal-wrapper .close-wholesale-modal {
+      display: none !important;
+    }
+  {% endunless %}
+</style>
+
+<script src="{{ 'wholesale-lock.js' | asset_url }}" defer></script>

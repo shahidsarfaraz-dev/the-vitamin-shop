@@ -1,0 +1,84 @@
+{%- liquid
+  assign target = card_product.variants.first
+
+  if blank == priority
+    assign priority = 'coupon-price'
+  endif
+
+  assign map_holiday = false
+
+  if customer
+    assign map_holiday = true
+  else
+    for collection in product.collections
+      if collection.handle == '00-map-holiday'
+        assign map_holiday = true
+        break
+      endif
+    endfor
+  endif
+-%}
+
+{% assign discount_type_text = '' %}
+{% if 'none' != priority %}
+  {% if 'price' != priority %}
+    {% for collection in card_product.collections %}
+      {% if collection.metafields.custom.coupon_discount.value %}
+        {% assign has_coupon = true %}
+        {%- capture discount_type_text -%}
+        <div class="discount-banner coupon">
+          <span class="discount_text">
+            <span class="discount-amount">{{ collection.metafields.custom.coupon_discount | times: 100 | money_without_trailing_zeros }}</span>
+            <span class="discount-label">Coupon</span>
+          </span>
+        </div>
+        {%- endcapture -%}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+  {% if 'coupon' != priority %}
+    {% if '' == discount_type_text or 'price-coupon' == priority %}
+      {% assign current_variant_price = target.price %}
+      
+      {%- assign map_price = target.metafields.custom.map_price -%}
+      {%- if map_price != blank and map_price != null and map_holiday != true -%}
+        {%- assign map_price_amount = map_price | split: '"amount":"' | last | split: '","currency_code' | first -%}
+        {%- assign map_price_amount_in_cents = map_price_amount | times: 100 -%}
+      {%- else -%}
+        {%- assign map_price_amount_in_cents = null -%}
+      {%- endif -%}
+
+      {%- assign current_variant_comp_price = target.compare_at_price -%}
+
+      {% if current_variant_comp_price > current_variant_price %}
+        {% assign has_markdown = true %}
+        {% assign current_variant_price_float = current_variant_price | times: 1.0 %}
+        {% assign current_variant_comp_price_float = current_variant_comp_price | times: 1.0 %}
+        {% assign discount_amount = current_variant_comp_price_float | minus: current_variant_price_float %}
+        {% assign discount_fraction = discount_amount | divided_by: current_variant_comp_price_float %}
+        {% assign discount_percentage = discount_fraction | times: 100 | round: 0 %}
+        {%- capture discount_type_text -%}
+        <div class="discount-banner percentage {% if discount_percentage < 10 %}dp-1{% else %}dp-2{% endif %}">
+          <span class="discount_text{% unless current_variant_comp_price > current_variant_price %} everyday-low-price{% endunless %}{% if card_product.metafields.custom.additional_discount %} additional-discount-banner{% endif %}">
+            <span class="discount-label">{% if current_variant_comp_price > current_variant_price %}Save {% endif %}</span>
+            <span class="discount-amount">{% if current_variant_comp_price > current_variant_price %}{{ discount_percentage }}%{% else %}Everyday low price{% endif %}</span>
+          </span>
+          {% if card_product.metafields.custom.additional_discount %} <div class="additional-discount">+<b>{{ card_product.metafields.custom.additional_discount }}%</b> at checkout</div>{% endif %}
+        </div>
+        {%- endcapture -%}
+      {% endif %}
+    {% endif %}
+  {% endif %}
+  {% unless has_coupon == true or has_markdown == true %}
+    {% if card_product.metafields.custom.additional_discount %}
+        <div class="discount-banner additional-percentage">
+          <span class="discount_text">
+            <span class="discount-label">Save <strong>{{ card_product.metafields.custom.additional_discount }}%</strong></span><br>
+            <span class="discount-amount">at checkout</span>
+          </span>
+        </div>
+    {% endif %}
+  {% endunless %}
+{% endif %}
+
+{{- discount_type_text -}}

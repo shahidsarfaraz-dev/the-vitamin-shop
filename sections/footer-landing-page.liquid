@@ -1,0 +1,32 @@
+{{ 'section-footer-landing-page.css' | asset_url | stylesheet_tag }}
+
+<div class="footer-landing-page" style="background: {{ section.settings.bg }}">
+  <div class="page-width">
+    <a href="/"><img src="{{ section.settings.logo | image_url: width: '180x' }}"></a>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Landing Page Footer",
+    "settings": [
+      {
+        "type": "color",
+        "id": "bg",
+        "label": "Background",
+        "default": "#061f2e"
+      },
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Logo"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Landing Page Footer",
+        "category": "Landing Pages"
+      }
+    ]
+  }
+{% endschema %}

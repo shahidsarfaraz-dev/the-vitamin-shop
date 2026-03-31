@@ -1,0 +1,42 @@
+<div class="page-width">
+  <div class="wishlist__header">
+    <h1>My Favourites</h1>
+  </div>
+  {% unless customer %}
+    <p class="wishlist-no-items"><a href="/account/">Sign in</a> or <a href="/account/register/">sign up for an account</a> to add items to your favourites.</p>  
+  {% endunless %}
+</div>
+
+<style>
+{% if section.settings.hide_price %}
+wishlist-product-card .wk-price {
+  display: none !important;
+}
+{% endif %}
+{% if section.settings.hide_buttons %}
+wishlist-product-card .wk-form {
+  display: none !important;
+}
+{% endif %}
+</style>
+
+{% schema %}
+{
+  "templates": ["page"],
+  "name": "Wishlist Title",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "hide_price",
+      "label": "Hide Price?",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_buttons",
+      "label": "Hide Add to Cart?",
+      "default": false
+    }
+  ]
+}
+{% endschema %}

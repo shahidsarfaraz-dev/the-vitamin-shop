@@ -1,0 +1,64 @@
+<div class="page-width">
+  <div class="flyers">
+    <h1 class="fade-in-element">Flyers</h1>
+    <div class="flyers-archive">
+    {% for flyer in shop.metaobjects.flyers.values %}
+      <div class="single-flyer fade-in-element">
+        {% if flyer.flyer_pdf.value.url %}
+          {% assign flyer_url = flyer.flyer_pdf.value.url  %}
+        {% else %}
+          {% assign flyer_url = flyer.flyer_link.value.url  %}
+        {% endif %}
+        <a href="{{ flyer_url }}" target="_blank">
+          <h3 class="single-flyer-title" style="text-align:{{ section.settings.text_align }}">{{ flyer.title.value }}</h3>
+          <div class="single-flyer-thumbnail" style="background-image:url({{ flyer.flyer_thumbnail_image.value | image_url }});"></div>
+        </a>
+      </div>
+    {% endfor %}    
+    </div>    
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Flyers",
+    "tag": "section",
+    "class": "section",
+    "disabled_on": {
+      "groups": ["header", "footer"]
+    },    
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "select",
+        "id": "text_align",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "center",
+            "label": "Center"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          }
+        ],
+        "default": "left",
+        "label": "Title Text Align"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Flyers",
+        "category": "Section"      
+      }
+    ]    
+  }
+{% endschema %}

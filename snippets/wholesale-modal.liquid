@@ -1,0 +1,142 @@
+<div class="wholesale-modal-wrapper" style="display:none">
+  <div class="wholesale-modal">
+    <button class="close-wholesale-modal"><span class="gg-close"></span></button>
+    <div class="wholesale-modal-left" style="background: url('{{ section.settings.wholesale_modal_image | image_url: width: '600x' }}') no-repeat">
+      <a href="/"><img src="{{ 'arrow-left.svg' | asset_url }}"> Back to home</a>
+      <div>
+        <img src="{{ section.settings.initial_message_image | image_url: width: '65x' }}">
+        <h3>{{ section.settings.wholesale_title }}</h3>
+        <span class="modal-login-form modal-register-form" style="display:none">{{ section.settings.wholesale_subtitle }}</span>
+      </div>
+    </div>
+    <div class="wholesale-modal-right">
+      {% if template == 'collection.wholesale' %}
+        <a href="/" style="font-size: 14px;" class="login-back-to-home-link">{% render 'icon-arrow' %} Back to home</a>
+      {% endif %}
+      <div class="modal-initial-message wholesale-modal-content">
+        {% for block in section.blocks %}
+          {% case block.type %}
+            {% when 'step-1-content-box' %}
+              <div class="content-box">
+                <img src="{{ 'check-icon-wholesale-modal.png' | asset_img_url: width: '34x' }}">
+                {% if block.settings.title %}
+                  <h4>{{ block.settings.title }}</h4>
+                {% endif %}
+                {% if block.settings.text %}
+                  {{ block.settings.text }}
+                {% endif %}
+              </div>
+          {% endcase %}
+        {% endfor %}
+        <button href="#" class="open-modal-register wholesale-modal-btn">Unlock Prices Now</button>
+      </div>
+      <div class="modal-login-form wholesale-modal-content" style="display:none">
+        {% for block in section.blocks %}
+          {% case block.type %}
+            {% when 'step-3-content-box' %}
+              <div class="content-box">
+                <img src="{{ 'check-icon-wholesale-modal.png' | asset_img_url: width: '34x' }}">
+                {% if block.settings.title %}
+                  <h4>{{ block.settings.title }}</h4>
+                {% endif %}
+                {% if block.settings.text %}
+                  {{ block.settings.text }}
+                {% endif %}
+              </div>
+          {% endcase %}
+        {% endfor %}
+        {% form 'customer_login', return_to: '/collections/wholesale/' %}
+
+          {% if form.errors %}
+            <div class="form-errors">
+              <ul>
+                {% for field in form.errors %}
+                  {% assign message = form.errors.messages[field] %}
+                  {% assign label = form.errors.translated_fields[field] | capitalize %}
+                  <li class="{% if message contains 'associated with an account' or message contains 'is too short (minimum is 5 characters)' %}register-error{% else %}login-error{% endif %}">
+                    <li>{% unless label == 'Form' %}{{ label }}: {% endunless %}{{ message }}</li>
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
+          {% endif %}
+          
+          <input type="email" name="customer[email]" id="CustomerEmail" autocomplete="email" placeholder="Email" required>
+        
+          <input type="password" name="customer[password]" id="CustomerPassword" autocomplete="current-password" placeholder="Password" required>
+        
+          <a href="/account/login#recover">Forgot your password?</a>
+        
+          <button type="submit" class="wholesale-modal-btn">Sign In</button>
+        
+          <span>Don't have an account? <button class="modal-show-register-btn open-modal-register">Register here</button></span>
+        {% endform %}
+      </div>
+      <div class="modal-register-form wholesale-modal-content" style="display:none">
+        {% for block in section.blocks %}
+          {% case block.type %}
+            {% when 'step-2-content-box' %}
+              <div class="content-box">
+                <img src="{{ 'check-icon-wholesale-modal.png' | asset_img_url: width: '34x' }}">
+                {% if block.settings.title %}
+                  <h4>{{ block.settings.title }}</h4>
+                {% endif %}
+                {% if block.settings.text %}
+                  {{ block.settings.text }}
+                {% endif %}
+              </div>
+          {% endcase %}
+        {% endfor %}
+        {% form 'create_customer', return_to: '/collections/wholesale' %}
+          
+          {% if form.errors %}
+            <div class="form-errors">
+              <ul>
+                {% for field in form.errors %}
+                  <li>
+                    {% assign message = form.errors.messages[field] %}
+                    {% assign label = form.errors.translated_fields[field] | capitalize %}
+                    {% if message contains 'associated with an account' %}
+                      <li class="{% if message contains 'associated with an account' or message contains 'is too short (minimum is 5 characters)' %}register-error{% else %}login-error{% endif %}">This email address is already associated with an account. If you already have an account, please <a class="open-modal-login" href="#">Sign in here</a></li>
+                    {% else %}
+                      <li class="{% if message contains 'associated with an account' or message contains 'is too short (minimum is 5 characters)' %}register-error{% else %}login-error{% endif %}">{% unless label == 'Form' %}{{ label }}: {% endunless %}{{ message }}</li>
+                    {% endif %}
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
+          {% endif %}
+
+          <input type="text"  name="customer[first_name]" id="FirstName" autocomplete="given-name" placeholder="First Name" required>
+        
+          <input type="text" name="customer[last_name]" id="LastName" autocomplete="family-name" placeholder="Last Name" required>
+        
+          <input type="email" name="customer[email]" id="Email" autocomplete="email" placeholder="Email" required>
+        
+          <input type="password" name="customer[password]" id="CreatePassword" autocomplete="new-password" placeholder="Create Password" required>
+        
+          <input type="hidden" name="customer[note]" value="Wholesale form signup">
+          <div class="marketing_check">
+            <label>
+              <input type="checkbox" name="customer[accepts_marketing]" value="true">
+              <span class="checkbox_custom"></span>
+              Signup for eflyer?
+            </label>
+          </div>
+
+          <button type="submit" class="wholesale-modal-btn">Create Account</button>
+        {% endform %}
+        
+        <span class="back-to-login-wrapper">Already have an account? <button class="open-modal-login back-to-login">Sign in here</button></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script id="wholesale-modal-images" type="application/json">
+  {
+    "bg1": "{{ section.settings.wholesale_modal_image | image_url: width: '600x' }}",
+    "bg2": "{{ section.settings.wholesale_modal_image_2 | image_url: width: '600x' }}",
+    "bg3": "{{ section.settings.wholesale_modal_image_3 | image_url: width: '600x' }}"
+  }
+</script>

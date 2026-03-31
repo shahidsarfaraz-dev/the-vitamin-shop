@@ -1,0 +1,57 @@
+<div class="color-{{ section.settings.color_scheme }} code-block">
+  <div class="page-width page-width--narrow">
+    {{ section.settings.code_block }}
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Code Block",
+    "tag": "section",
+    "class": "section",
+    "disabled_on": {
+      "groups": ["header", "footer"]
+    },
+    "settings": [
+      {
+        "type": "html",
+        "id": "code_block",
+        "label": "Code Snippet"
+      },
+      {
+        "type": "select",
+        "id": "color_scheme",
+        "options": [
+          {
+            "value": "accent-1",
+            "label": "t:sections.all.colors.accent_1.label"
+          },
+          {
+            "value": "accent-2",
+            "label": "t:sections.all.colors.accent_2.label"
+          },
+          {
+            "value": "background-1",
+            "label": "t:sections.all.colors.background_1.label"
+          },
+          {
+            "value": "background-2",
+            "label": "t:sections.all.colors.background_2.label"
+          },
+          {
+            "value": "inverse",
+            "label": "t:sections.all.colors.inverse.label"
+          }
+        ],
+        "default": "background-1",
+        "label": "t:sections.all.colors.label"
+      }      
+    ],
+    "presets": [
+      {
+        "name": "Code Block",
+        "category": "Section"      
+      }
+    ]    
+  }
+{% endschema %}

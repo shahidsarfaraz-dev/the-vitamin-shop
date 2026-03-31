@@ -1,0 +1,58 @@
+<div class="promotional-banner fade-in-element">
+  <div class="page-width">
+
+    
+    <div class="promotional-banner-mobile-content">
+        <h2 class="promotional-banner-title">{{ section.settings.title }}</h2>
+        <div class="promotional-banner-description">{% if collection.description %} {{ collection.description }}{% else %} {{ section.settings.description }}{% endif %}</div>      
+    </div>
+    
+    <div class="promotional-banner-container">
+      <div class="promotional-banner-mobile-background" style="background-image: url({{ section.settings.mobile_background_image | default: section.settings.background_image | image_url }});">{{ section.settings.title }}</div>
+      {% if section.settings.background_image %}<img class="promotional-banner-image" src="{{ section.settings.background_image | image_url }}">{% endif %}
+      <div class="promotional-banner-content">
+        <h2 class="promotional-banner-title">{{ section.settings.title }}</h2>
+        <div class="promotional-banner-description">{{ collection.description }}{% if collection.description %} {{ section.settings.title }}{% else %} {{ section.settings.description }}{% endif %}</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Promotional Banner",
+    "tag": "section",
+    "class": "section",
+    "disabled_on": {
+      "groups": ["header", "footer"]
+    },    
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "textarea",
+        "id": "description",
+        "label": "Subtitle"
+      },
+      {
+        "type": "image_picker",
+        "id": "background_image",
+        "label": "Background Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "mobile_background_image",
+        "label": "Mobile Background Image"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Promotional Banner",
+        "category": "Section"      
+      }
+    ]    
+  }
+{% endschema %}

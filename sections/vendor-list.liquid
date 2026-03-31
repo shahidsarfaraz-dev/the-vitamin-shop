@@ -1,0 +1,125 @@
+{% paginate collections by 1000 %}
+{% for collection in collections %}
+  {% if collection.metafields.custom.special_icon %}
+    {% assign special_collection = collection.title %}
+    {% break %}
+  {% endif %}
+{% endfor %}
+{% endpaginate %}
+
+{% assign terms = section.settings.cad_vendors | split: ", " %}
+
+<div class="vendor-list">
+  <div class="page-width">
+    <div class="vendor-list-header">
+      <h1 class="vendor-list-title">{{ section.settings.title }}</h1>
+      <div class="vendor-list-description">{{ section.settings.description }}</div>
+    </div>
+
+    <div class="vendor-list-index">
+      {% assign alphabet = "#ABCDEFGHIJKLMNOPQRSTUVWXYZ" | split: "" %}
+      <ul>
+        {% for letter in alphabet %}
+          <li><a href="#vendor-{{ letter }}">{{ letter }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+    
+    {% assign sorted_vendors = shop.vendors | sort %}
+    {% assign current_letter = '' %}
+    {% assign collections = collections | where: "published", true %}
+
+    <div class="vendor-list-content">
+      {%- for product_vendor in sorted_vendors -%}
+        {% assign first_letter = product_vendor | slice: 0, 1 | upcase %}
+        {% if first_letter != current_letter %}
+          {% if current_letter != '' %}
+            </div>
+          {% endif %}
+          <div id="vendor-{{ first_letter }}" class="vendor-group">
+            {% if first_letter == "3" %}
+              {% assign first_letter = "#" %}
+            {% endif %}  
+            <h2 class="vendor-group-title">{{ first_letter }}</h2>
+            {% assign current_letter = first_letter %}
+        {% endif %}
+        {% assign matching_collection = collections | where: "title", product_vendor | first %}
+        {% if matching_collection %}
+          {% assign first_product = matching_collection.products.first %}
+          {% assign show_icon = false %}
+          {% for collection in first_product.collections %}
+            {% assign special_icon = collection.metafields.custom.special_icon | image_url: width: '20x' %}
+            {% if collection.title == special_collection %}
+              {% assign show_icon = true %}
+              {% break %}
+            {% endif %}
+          {% endfor %}
+          <div class="vendor-group-item">
+            <a href="{{ matching_collection.url }}">
+              {% if show_icon %}
+                <img src="{{ special_icon }}" style="display: inline-block; vertical-align: top; margin-right: 3px">
+              {% else %}
+                {% assign special_icon_canadian = section.settings.canadian_icon | image_url: width: '20x' %}
+                {% for term in terms %}
+                  {% if term == product_vendor %}
+                    <img src="{{ special_icon_canadian }}" style="display: inline-block; vertical-align: top; margin-right: 3px">
+                  {% endif %}
+                {% endfor %}
+              {% endif %}
+              {{ matching_collection.title }}
+            </a>
+          </div>
+        {% else %}
+          <div class="vendor-group-item">
+              {% assign special_icon = section.settings.canadian_icon | image_url: width: '20x' %}
+              {% for term in terms %}{% if term == product_vendor %}<img src="{{ special_icon }}" style="display: inline-block; vertical-align: top; margin-right: 3px">{% endif %}{% endfor %} {{ product_vendor | link_to_vendor }}
+          </div>
+        {% else %}
+          
+          
+        {% endif %}
+      {%- endfor -%}
+      </div>     
+    </div>  
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Vendor List",
+    "tag": "section",
+    "class": "section",
+    "disabled_on": {
+      "groups": ["header", "footer"]
+    },    
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "richtext",
+        "id": "description",
+        "label": "Description"
+      },
+      {
+        "type": "text",
+        "id": "cad_vendors",
+        "label": "Additional Canadian Vendors",
+        "info": "Format: 'vendor one, vendor two, vendor three'" 
+      },
+      {
+        "type": "image_picker",
+        "id": "canadian_icon",
+        "label": "Maple Leaf Icon",
+      }
+    ],
+    "presets": [
+      {
+        "name": "Vendor List",
+        "category": "Section"      
+      }
+    ]    
+  }
+{% endschema %}

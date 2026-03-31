@@ -1,0 +1,75 @@
+<div class="popular-categories">
+  <div class="page-width popular-categories-container">
+    <h2 class="popular-categories-title fade-in-element">{{ section.settings.heading }}</h2>
+    <div class="popular-categories-list">
+      <ul>
+        {% for block in section.blocks %}
+         <li class="fade-in-element">
+           <a href="{{ block.settings.collection.url }}">
+             <span class="category-list-image" style="background-image: url({{ block.settings.image | image_url }});">{{ block.settings.collection.title }}</span>
+             <span class="category-list-title">{% if block.settings.custom_title != "" %}{{ block.settings.custom_title }}{% else %}{{ block.settings.collection.title }}{% endif %}</span>
+           </a>
+         </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Popular Categories",
+    "tag": "section",
+    "class": "section",
+    "disabled_on": {
+      "groups": ["header", "footer"]
+    },    
+    "settings": [
+      {
+        "type": "text",
+        "id": "heading",
+        "default": "Popular Categories",
+        "label": "Title"
+      }
+    ],
+  "max_blocks": 6,
+  "blocks": [
+     {
+       "name": "Category",
+       "type": "category",
+       "settings": [
+         {
+           "type": "image_picker",
+           "id": "image",
+           "label": "Image"
+         },
+         {
+           "type": "collection",
+           "id": "collection",
+           "label": "Collection"
+         },
+         {
+           "type": "text",
+           "id": "custom_title",
+           "label": "Custom Category Title",
+           "info": "If this field is empty, the selected collection title will be used by default"
+         }   
+       ]
+     }
+  ],    
+    "presets": [
+    {
+      "name": "Popular Categories",
+      "category": "Section",
+      "blocks": [
+        {
+          "type": "category"
+        },
+        {
+          "type": "category"
+        }
+      ]      
+    }      
+    ]    
+  }
+{% endschema %}

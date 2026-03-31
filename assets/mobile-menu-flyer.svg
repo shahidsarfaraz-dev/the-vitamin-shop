@@ -1,0 +1,14 @@
+<svg id="flyer" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18.661" height="24.352" viewBox="0 0 18.661 24.352">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_333" data-name="Rectangle 333" width="18.661" height="24.352" fill="#188ccc"/>
+    </clipPath>
+  </defs>
+  <g id="Group_1023" data-name="Group 1023" clip-path="url(#clip-path)">
+    <path id="Path_1115" data-name="Path 1115" d="M16.475,3.175H13.064V.816A.818.818,0,0,0,12.248,0H2.185A2.19,2.19,0,0,0,0,2.185V18.993a2.19,2.19,0,0,0,2.185,2.185H5.6v.99a2.189,2.189,0,0,0,2.185,2.185h8.695a2.191,2.191,0,0,0,2.186-2.185V5.359a2.191,2.191,0,0,0-2.186-2.185M9.32,1.632,6.058,3.252a.8.8,0,0,0-.458.693l0,15.6H2.186a.555.555,0,0,1-.552-.552V2.186a.555.555,0,0,1,.551-.553ZM17.026,5.36V22.168a.555.555,0,0,1-.551.553H7.782a.555.555,0,0,1-.553-.552V4.808h9.245a.555.555,0,0,1,.552.552M9.887,3.175l1.541-.767v.767Z" transform="translate(0 0)" fill="#188ccc"/>
+    <path id="Path_1116" data-name="Path 1116" d="M15.078,19.85H10.2a.82.82,0,0,0,0,1.634h4.874a.821.821,0,0,0,0-1.634" transform="translate(-0.514 -1.078)" fill="#188ccc"/>
+    <path id="Path_1117" data-name="Path 1117" d="M10.2,9.984h4.874a.82.82,0,0,0,0-1.633H10.2a.82.82,0,0,0,0,1.633" transform="translate(-0.514 -0.453)" fill="#188ccc"/>
+    <path id="Path_1118" data-name="Path 1118" d="M15.816,16.017H9.377a.821.821,0,0,0,0,1.634h6.439a.821.821,0,0,0,0-1.634" transform="translate(-0.469 -0.87)" fill="#188ccc"/>
+    <path id="Path_1119" data-name="Path 1119" d="M15.816,12.184H9.377a.82.82,0,0,0,0,1.633h6.439a.82.82,0,0,0,0-1.633" transform="translate(-0.469 -0.662)" fill="#188ccc"/>
+  </g>
+</svg>

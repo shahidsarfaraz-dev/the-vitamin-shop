@@ -1,0 +1,171 @@
+{% render 'wholesale-modal' %}
+
+{% schema %}
+  {
+    "name": "Wholesale Popup",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Popup Image Banner"
+      },
+      {
+        "type": "image_picker",
+        "id": "initial_message_image",
+        "label": "Image / Logo"
+      },
+      {
+        "type": "text",
+        "id": "wholesale_title",
+        "label": "Title",
+        "default": "Unlock Wholesale Prices"
+      },
+      {
+        "type": "text",
+        "id": "wholesale_subtitle",
+        "label": "Subtitle",
+        "default": "So low we have to keep them hidden."
+      },
+      {
+        "type": "image_picker",
+        "id": "wholesale_modal_image",
+        "label": "Wholesale Popup Image 1"
+      },
+      {
+        "type": "image_picker",
+        "id": "wholesale_modal_image_2",
+        "label": "Wholesale Popup Image 2"
+      },
+      {
+        "type": "image_picker",
+        "id": "wholesale_modal_image_3",
+        "label": "Wholesale Popup Image 3"
+      },
+      {
+        "type": "header",
+        "content": "Step 1"
+      },
+      {
+        "type": "richtext",
+        "id": "wholesale_text",
+        "label": "Text",
+        "default": "<p><strong>Lowest prices</strong> in Canada, guaranteed! Over <strong>500 premium products</strong> from brands YOU trust. Free shipping on orders <strong>over $75</strong>"
+      },
+      {
+        "type": "header",
+        "content": "Step 2"
+      },
+      {
+        "type": "text",
+        "id": "wholesale_login_title",
+        "label": "Title",
+        "default": "Already Have an Account?"
+      },
+      {
+        "type": "textarea",
+        "id": "wholesale_login_text",
+        "label": "Text",
+        "default": "Login to access exclusive wholesale prices."
+      },
+      {
+        "type": "header",
+        "content": "Step 3"
+      },
+      {
+        "type": "text",
+        "id": "wholesale_register_title",
+        "label": "Title",
+        "default": "Don't Have an Account?"
+      },
+      {
+        "type": "textarea",
+        "id": "wholesale_register_text",
+        "label": "Text",
+        "default": "Create an account to keep track of your favourite products, view your order history, and track any orders you currently have in transit."
+      },
+      {
+        "type": "header",
+        "content": "Wholesale Lock"
+      },
+      {
+        "type": "text",
+        "id": "wholesale_lock_form_id",
+        "label": "Form ID",
+        "default": "509412"
+      },
+      {
+        "type": "text",
+        "id": "wholesale_lock_title",
+        "label": "Title",
+        "default": "To unlock our wholesale catalogue you must register for our e-flyer"
+      },
+      {
+        "type": "textarea",
+        "id": "wholesale_lock_text",
+        "label": "Text",
+        "default": "Enter your email below to get signed up!"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "step-1-content-box",
+        "name": "Step 1 - Content Box",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "Lorem Ipsum"
+          },
+          {
+            "type": "richtext",
+            "id": "text",
+            "label": "Text",
+            "default": "<p>Lorem ipsum dolor sit</p>"
+          }
+        ]
+      },
+      {
+        "type": "step-2-content-box",
+        "name": "Step 2 - Content Box",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "Lorem Ipsum"
+          },
+          {
+            "type": "richtext",
+            "id": "text",
+            "label": "Text",
+            "default": "<p>Lorem ipsum dolor sit</p>"
+          }
+        ]
+      },
+      {
+        "type": "step-3-content-box",
+        "name": "Step 3 - Content Box",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "Lorem Ipsum"
+          },
+          {
+            "type": "richtext",
+            "id": "text",
+            "label": "Text",
+            "default": "<p>Lorem ipsum dolor sit</p>"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Wholesale Popup",
+        "category": "Popups"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,141 @@
+<div class="carousel-general hero-carousel color-{{ section.settings.text_color }}" data-carousel-type="hero">
+  <div class="hero-carousel-container">
+    <div class="hero-container">
+      <div class="hero-carousel-wrapper" data-speed="{{ section.settings.carousel_speed }}">
+        <ul>
+            {%- for block in section.blocks -%}
+              <li class="hero-carousel-item fade-in-element">
+                <div class="hero-carousel-item-inner">
+                  <div class="hero-carousel-item-top">
+                    <img src="{{ block.settings.image | image_url }}" width="" height="" alt="" />
+                  </div>
+                  <div class="hero-carousel-item-bottom">
+                    <div class="hero-carousel-content" style="background: {{ block.settings.background }}">
+                      <h3 class="hero-carousel-item-title">{{ block.settings.item_title }}</h3>
+                      <div class="hero-carousel-item-description desktop">{{ block.settings.item_description | truncate: 170 }}</div>
+                      <div class="hero-carousel-item-description mobile">{% if block.settings.item_mobile_description != '' %}{{ block.settings.item_mobile_description | truncate: 70 }}{% else %}{{ block.settings.item_description | truncate: 70 }}{% endif %}</div>
+                      <a href="{{ block.settings.button_url }}" class="button">{{ block.settings.button_text }} <span class="gg-chevron-right"></span></a>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            {%- endfor -%}
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="hero-carousel-arrows">
+    <div class="hero-carousel-arrow hero-carousel-arrow-left" style="display:none"><i class="gg-chevron-left"></i></div>
+    <div class="hero-carousel-arrow hero-carousel-arrow-right" style="display:none"><i class="gg-chevron-right"></i></div>
+  </div>
+  <div class="hero-carousel-bullets" style="display:none">
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Slideshow with Cards",
+    "tag": "section",
+    "class": "section",
+    "disabled_on": {
+      "groups": ["header", "footer"]
+    },    
+    "settings": [
+      {
+        "type": "select",
+        "id": "carousel_speed",
+        "label": "Slider Speed",
+        "options": [
+          {
+            "value": "0",
+            "label": "Disabled"
+          },
+          {
+            "value": "5000",
+            "label": "5 Seconds"
+          },
+          {
+            "value": "7000",
+            "label": "7 Seconds"
+          },
+          {
+            "value": "10000",
+            "label": "10 Seconds"
+          }
+        ],
+        "default": "0"
+      } 
+    ],
+    "blocks": [
+      {
+        "type": "row",
+        "name": "Item",
+        "settings": [
+          {
+            "type": "color",
+            "id": "background",
+            "default": "#126752",
+            "label": "Background Colour"
+          },
+          {
+            "type": "text",
+            "id": "item_title",
+            "default": "Item Title",
+            "label": "Item Title",
+            "info": "Limit: 16 characters"
+          },
+          {
+            "type": "richtext",
+            "id": "item_description",
+            "default": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>",
+            "label": "Item Description",
+            "info": "Limit: 170 characters"
+          },
+          {
+            "type": "richtext",
+            "id": "item_mobile_description",
+            "label": "Item Description (Mobile)",
+            "info": "Limit: 70 characters"
+          },
+          {
+            "type": "text",
+            "id": "button_text",
+            "default": "Shop Now",
+            "label": "Button Text"
+          },
+          {
+            "type": "url",
+            "id": "button_url",
+            "label": "Button Link"
+          },
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "select",
+            "id": "text_color",
+            "label": "Text Color",
+            "options": [
+              {
+                "value": "white",
+                "label": "White"
+              },
+              {
+                "value": "black",
+                "label": "Black"
+              }
+            ],
+            "default": "black"
+          }          
+        ]
+      }
+    ],    
+    "presets": [
+      {
+        "name": "Slideshow with Cards",     
+      }
+    ]
+  }
+{% endschema %}

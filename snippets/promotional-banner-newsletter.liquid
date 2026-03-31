@@ -1,0 +1,35 @@
+{% assign top_colour = collection.metafields.custom.banner_colour_top %}
+{% assign bottom_colour = collection.metafields.custom.banner_colour_bottom %}
+
+<div class="promotional-banner fade-in-element">
+    {% if collection.image %}
+      <div class="promotional-banner-mobile-content">
+          <h2 class="promotional-banner-title">{{ section.settings.promo_title }}</h2>
+          <div class="promotional-banner-description">{{ collection.description }}</div>      
+      </div>
+    {% endif %}
+    <div class="promotional-banner-container" {% if top_colour and bottom_colour %}style="background: linear-gradient(to bottom, {{ top_colour }}, {{ bottom_colour }});"{% endif %}>
+      {% if collection.image %}
+      <div class="promotional-banner-mobile-background" style="background-image: url({{ collection.featured_image | image_url }});">{{ section.settings.promo_title }}</div>
+      <img class="promotional-banner-image" src="{{ collection.featured_image | image_url }}">
+      <img class="promotional-banner-image-mobile" src="{{ collection.featured_image | image_url }}">
+      {% endif %}
+      <div class="promotional-banner-content">
+        <h2 class="promotional-banner-title">{{ section.settings.promo_title }}</h2>
+        <div class="promotional-banner-description">{{ collection.description }}</div>
+      </div>
+    </div>
+</div>
+
+{% unless collection.image %}
+<style>
+.promotional-banner-container .promotional-banner-content {
+  display: block !important;
+  width: 100% !important;
+  padding: 3.5rem 4rem !important;
+}
+.promotional-banner-container {
+    min-height: 110px !important;
+}
+</style>
+{% endunless %}

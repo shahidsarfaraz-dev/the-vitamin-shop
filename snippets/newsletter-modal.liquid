@@ -1,0 +1,61 @@
+{% if settings.show_newsletter_modal == true and template != 'collection.wholesale' %}
+<div class="newsletter-modal" style="display:none" data-form-id="{{ settings.form_id }}">
+  <button class="newsletter-modal-open">
+    <h3>{{ settings.newlsetter_modal_button_text }} <span class="gg-close" id="close_nl_modal_btn"></span></h3>
+  </button>
+  <div class="newsletter-modal-box" style="display:none">
+    <div class="newsletter-modal-left">
+      <img src="{{ settings.newlsetter_modal_img | image_url: width: '300x' }}">
+    </div>
+    <div class="newsletter-modal-right">
+      <span class="gg-close" id="close_nl_modal"></span>
+      <h3>{{ settings.newsletter_modal_title }}</h3>
+      {{ settings.newsletter_modal_text }}
+      <div class="newsletter-modal-form">
+        <button id="no-thanks" type="button">No Thanks</button>
+        <span class="newsletter-disclaimer">{{ settings.newsletter_disclaimer }}</span>
+      </div>
+      {% comment %}
+      {% form 'customer', id: 'NewsletterModal' %}
+        <input type="hidden" name="contact[tags]" value="newsletter">
+        <input type="hidden" name="note" value="Testing test" />
+        <label for="email">*Email</label>
+        <input type="email" name="contact[email]" id="newsletter-email" placeholder="Enter your email..." required>
+        <button id="signup" type="submit">Sign-up!</button>
+        <button id="no-thanks" type="button">No Thanks</button>
+      {% endform %}
+      {% endcomment %}
+    </div>
+  </div>
+</div>
+<input type="hidden" value="{{ settings.refresh_time }}" id="refresh_time">
+<style>
+  div[data-forms-id="forms-root-{{ settings.form_id }}"] {
+    --inline-container-min-height: 0 !important;
+    min-height: 0 !important;
+  }
+  div[data-forms-id="forms-root-{{ settings.form_id }}"] #app-embed {
+    text-align: left !important;
+  }
+  div[data-forms-id="forms-root-{{ settings.form_id }}"] #email {
+    text-align: left !important;
+  }
+  div[data-forms-id="forms-root-{{ settings.form_id }}"] button {
+    font-weight: 600 !important;
+  }
+</style>
+<script src="{{ 'newsletter-modal.js' | asset_url }}" defer="defer"></script>
+{% else %}
+<style>
+  div[data-forms-id="forms-root-{{ settings.form_id }}"] {
+    display:none !important;
+  }
+</style>
+{% endif %}
+{% if customer and customer.accepts_marketing %}
+<style>
+  div[data-forms-id="forms-root-{{ settings.wholesale_lock_form_id }}"] {
+    display:none !important;
+  }
+</style>
+{% endif %}

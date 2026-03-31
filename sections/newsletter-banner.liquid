@@ -1,0 +1,103 @@
+{% assign top_columns = section.blocks | where: 'type', 'top_column' %}
+{% assign bottom_columns = section.blocks | where: 'type', 'bottom_column' %}
+
+<div class="newsletter-banner">
+  <div class="page-width">
+    <div class="newsletter-banner__wrapper fade-in-element">
+      <div class="newsletter-banner__top">
+          {% for block in top_columns %}
+          <div class="newsletter-banner__column">
+            <img src="{{ block.settings.top_image | image_url }}"/>
+            <div>
+              <h3>{{ block.settings.top_heading }}</h3>
+              {{ block.settings.top_description }}
+            </div>
+          </div>
+          {% endfor %}
+      </div>
+      <div class="newsletter-banner__bottom">
+          {% for block in bottom_columns %}
+          <div class="newsletter-banner__column">
+            <img src="{{ block.settings.bottom_image | image_url }}"/>
+            <span>{{ block.settings.bottom_heading }}</span> &nbsp;
+            <a href="tel:{{ block.settings.bottom_description }}">{{ block.settings.bottom_description }}</a>
+          </div>
+          {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Newsletter Banner",
+    "tag": "section",
+    "class": "section",    
+    "settings": [
+      
+    ],
+  "blocks": [
+    {
+      "type": "top_column",
+      "name": "Top Column",
+      "limit": 2,
+      "settings": [        
+        {
+          "type": "text",
+          "id": "top_heading",
+          "default": "Title",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "top_description",
+          "default": "Description",
+          "label": "Description"
+        },        
+        {
+          "type": "image_picker",
+          "id": "top_image",
+          "label": "t:sections.slideshow.blocks.slide.settings.image.label"
+        }        
+      ]
+    },
+    {
+      "type": "bottom_column",
+      "name": "Bottom Column",
+      "limit": 2,
+      "settings": [        
+        {
+          "type": "text",
+          "id": "bottom_heading",
+          "default": "Title",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "bottom_description",
+          "default": "Phone #",
+          "label": "Phone Number"
+        },        
+        {
+          "type": "image_picker",
+          "id": "bottom_image",
+          "label": "t:sections.slideshow.blocks.slide.settings.image.label"
+        }        
+      ]
+    }    
+  ],
+  "presets": [
+    {
+      "name": "Newsletter Banner",
+      "blocks": [
+        {
+          "type": "top_column"
+        },
+        {
+          "type": "bottom_column"
+        }        
+      ]
+    }
+  ]    
+}
+{% endschema %}

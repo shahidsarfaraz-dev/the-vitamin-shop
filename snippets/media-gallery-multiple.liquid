@@ -1,0 +1,48 @@
+<media-gallery class="product__column-sticky">
+  <slider-component class="slider-mobile-gutter">
+    <div class="product-media-container media-type-image media-fit-contain global-media-settings gradient constrain-height">
+         {%- for block in section.blocks -%}
+          {%- case block.type -%}
+            {%- when '@app' -%}
+              {% render block %}
+          {%- endcase -%}
+         {%- endfor -%}
+      <div class="product-gallery-new">
+          <div class="product-thumbnails-wrapper">
+            {% if product.media.size > 7 %}<button class="scroll-arrow scroll-arrow-up"><i class="gg-chevron-up"></i></button>{% endif %}
+            <div class="product-thumbnails-new">
+              {% for image in product.images %}
+                <div>
+                  <img class="thumbnail" src="{{ image | image_url: height: 600 }}" width="auto" height="600" alt="Thumbnail of {{ image.alt }}" data-image-id="{{ image.id }}" data-variant-ids="{% for variant in product.variants %}{% if variant.featured_image and variant.featured_image.id == image.id %}{{ variant.id }},{% endif %}{% endfor %}" />
+                </div>
+              {% endfor %}
+            </div>
+            {% if product.media.size > 7 %}<button class="scroll-arrow scroll-arrow-down"><i class="gg-chevron-down"></i></button>{% endif %}
+          </div>
+          <div class="product-main-image">
+            <img class="variant-images-disabled" id="main-image" src="{{ product.featured_image | image_url: height: 600 }}" alt="{{ initial_variant.title }}" width="auto" height="600" />
+          </div>
+      </div>
+    </div>
+  </slider-component>
+</media-gallery>
+
+<script>
+const scrollContainer = document.querySelector('.product-thumbnails-new');
+const scrollUpButton = document.querySelector('.scroll-arrow-up');
+const scrollDownButton = document.querySelector('.scroll-arrow-down');
+
+scrollUpButton.addEventListener('click', () => {
+    scrollContainer.scrollBy({
+        top: -70,
+        behavior: 'smooth'
+    });
+});
+
+scrollDownButton.addEventListener('click', () => {
+    scrollContainer.scrollBy({
+        top: 70,
+        behavior: 'smooth'
+    });
+});
+</script>

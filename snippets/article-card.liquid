@@ -1,0 +1,84 @@
+{% comment %}
+  Renders an article card for a given blog with settings to either show the image or not.
+
+  Accepts:
+  - blog: {Object} Blog object
+  - article: {Object} Article object
+  - media_aspect_ratio: {String} The setting changes the aspect ratio of the article image, if shown
+  - media_height: {String} The setting changes the height of the article image. Overrides media_aspect_ratio.
+  - show_image: {String} The setting either show the article image or not. If it's not included it will show the image by default
+  - show_date: {String} The setting either show the article date or not. If it's not included it will not show the image by default
+  - show_author: {String} The setting either show the article author or not. If it's not included it will not show the author by default
+  - show_badge: {String} The setting either show the blog badge or not.
+  - lazy_load: {Boolean} Image should be lazy loaded. Default: true (optional)
+
+  Usage:
+  {% render 'article-card' blog: blog, article: article, show_image: section.settings.show_image %}
+{% endcomment %}
+
+{%- if article and article != empty -%}
+  {%- liquid
+    assign ratio = 1
+    if media_aspect_ratio != null
+      assign ratio = media_aspect_ratio
+    endif
+  -%}
+  <div class="article-card-wrapper card-wrapper fade-in-element underline-links-hover">
+    {% if blog.title == 'Health Education Videos' %}
+      <div class="video-library-embed" data-video="{{ article.metafields.custom.video_link }}"> </div>
+      <div class="card__information">
+          <div class="article-card__info caption-with-letter-spacing h5">
+            <span class="card__date"><time datetime="{{ article.created_at }}">{{ article.published_at | time_tag: format: 'date' }}</time></span>
+            <span class="card__author">in {{ article.metafields.custom.category }}</span>    
+          </div>  
+          <h3 class="card__heading">
+            <a href="{{ article.url }}" class="full-unstyled-link">{{ article.title }}</a>
+          </h3>
+          <a href="{{ article.url }}" class="card__readmore">Read More</a>
+        </div>
+    {% endif %}
+    {% comment %} <article aria-labelledby="Article-{{ article.id }}"> {% endcomment %}
+    <div
+      class="
+        card article-card
+        card--{{ settings.blog_card_style }}
+        {% if media_height and media_height != 'adapt' %} article-card__image--{{ media_height }}{% endif %}
+        {% if article.image and show_image %} card--media{% else %} card--text{% endif %}
+        {% if settings.blog_card_style == 'card' %} color-{{ settings.blog_card_color_scheme }} gradient{% endif %}
+        {% if settings.blog_card_style == 'card' and media_height == nil and article.image == empty or show_image == false %} ratio{% endif %}
+      "
+      style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;"
+    >
+      {%- if article.image -%}
+        <div class="card__thumbnail-img" style="background-image: url({{ article.image.src | image_url }});"></div>
+      {%- endif -%}
+      <div class="card__content">
+        <div class="card__information">
+          <div class="article-card__info caption-with-letter-spacing h5">
+            {%- if show_date -%}
+              <span class="card__date">{{ article.published_at | time_tag: format: 'date' }}</span>
+            {%- endif -%}
+            {%- if show_author -%}
+              {% if article.metafields.custom.author %}
+                <span class="card__author">by {{ article.metafields.custom.author }}</span>
+              {% else %}
+                <span class="card__author">in {{ blog.title }}</span>
+              {% endif %}
+            {%- endif -%}
+          </div>  
+          <h3 class="card__heading">
+            <a href="{{ article.url }}" class="full-unstyled-link">
+              {{ article.title | escape }}
+            </a>
+          </h3>
+          <a href="{{ article.url }}" class="card__readmore">Read More</a>
+        </div>
+        {%- if show_badge -%}
+          <div class="card__badge {{ settings.badge_position }}">
+            <span class="badge color-background-1">{{ 'blogs.article.blog' | t }}</span>
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+{%- endif -%}

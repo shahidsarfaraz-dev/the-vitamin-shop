@@ -1,0 +1,309 @@
+{{ 'component-ajax-cart.css' | asset_url | stylesheet_tag }}
+
+<div class="ajax-cart-wrapper" style="display:none">
+  <span class="gg-close close-ajax-cart"></span>
+  <div class="ajax-cart" data-ajax-cart-section>
+    <div class="loading-overlay__spinner ajax-cart-spinner" style="display: none">
+       <svg
+        aria-hidden="true"
+        focusable="false"
+        class="spinner"
+        viewBox="0 0 66 66"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+      </svg>
+    </div>
+
+    {% if cart.item_count == 0 %}
+      <div class="ajax-cart-empty">
+        <h4>Your cart is empty.</h4>
+        <a href="/collections/all" class="ajax-cart-continue">Continue Shopping</a>
+        <p>Have an account?<br><a href="/account/login">Login in</a> to checkout faster.</p>
+      </div>
+    {% endif %}
+
+    <div class="ajax-cart-display" style="display: none">
+    
+    <h2 class="ajax-cart-title">Your Cart</h2>
+
+    {% if cart.currency.iso_code == 'CAD' %}
+      <div class="ajax-cart-progress">
+        {% assign threshold = section.settings.free_shipping_value %}
+        {% assign cart_total = cart.total_price | divided_by: 100.0 %}
+        {% assign cart_percentage = cart_total | times: 100.0 | divided_by: threshold %}
+        {% assign amount_to_reach_free_shipping = threshold | minus: cart_total %}
+    
+          {% if cart_percentage < 100 %}
+            <span>Only {{ amount_to_reach_free_shipping | times: 100 | money_without_trailing_zeros }} until free shipping</span>
+          {% else %}
+            <span style="color:#1a8acc;font-weight:600">Congrats, you have free shipping!</span>
+          {% endif %}
+        <div class="ajax-progress-bar"><div style="width: {{ cart_percentage }}%; max-width:100%;"></div></div>
+      </div>
+    {% endif %}
+    
+    <div class="ajax-cart__items" data-ajax-cart-section-scroll>
+      <!-- Loop through cart items -->
+      {% for line_item in cart.items %}
+        <div class="ajax-cart-item">
+
+          <div class="cart-item-left">
+          
+            {% assign line_item_index = forloop.index %}
+            {% if line_item.variant.image %}
+              {% assign var_img_url = line_item.variant.image | image_url %}
+            {% else %}
+              {% assign var_img_url = '' %}
+            {% endif %}
+
+            {% assign prod_img_url = line_item.image | image_url %}
+
+            {% assign item_discount = 0 %}
+            {%- for discount in line_item.discounts -%}
+              {% assign item_discount = item_discount | plus: discount.amount %}
+            {%- endfor -%}
+
+            <input type="hidden" value="{{ prod_img_url }}">
+
+            <div class="ajax-cart-img"><img src="{% if var_img_url != '' %}{{ var_img_url }}{% else %}{{ prod_img_url }}{% endif %}"></div>
+
+            <div class="ajax-cart-details">
+      
+              <div class="ajax-item-title"><a href="{{ line_item.url }}">{{ line_item.product.title | escape }}</a></div>
+              <div class="ajax-variant-title">
+                <span>SKU: {{ line_item.sku }}</span>
+                <span>Size: {{ line_item.variant.title | escape }}</span>
+                {%- for discount in line_item.discounts -%}
+                  <span style="margin-top: 8px">{%- render 'icon-discount' -%} {{ discount.title }}</span>
+                {%- endfor -%}
+              </div>
+              
+              {% comment %}
+                <div class="ajax-price">{{ line_item.final_price | money }}&nbsp;&nbsp;<s>{{ line_item.variant.compare_at_price | money }}</s></div>
+              {% endcomment %}
+              
+              <div class="ajax-cart-quantity">
+                <ajax-cart-quantity>
+                  <!-- "Minus one" button -->
+                  <a data-ajax-cart-quantity-minus class="ajax-quant-btn"
+                    href="{{ routes.cart_change_url }}?line={{ line_item_index }}&quantity={{ line_item.quantity | minus: 1 }}" >
+                    <img src="{{ 'math-minus.svg' | asset_url }}" {% if line_item.quantity < 2 %}style="background: #bbb"{% endif %}>
+                  </a>
+            
+                  <!-- Item quantity input -->
+                  <input data-ajax-cart-quantity-input="{{ line_item_index }}"
+                    name="updates[]" 
+                    value="{{ line_item.quantity }}" 
+                    type="number"
+                    form="my-ajax-cart-form" />
+          
+                  <!-- "Plus one" button -->
+                  <a data-ajax-cart-quantity-plus class="ajax-quant-btn"
+                    href="{{ routes.cart_change_url }}?line={{ line_item_index }}&quantity={{ line_item.quantity | plus: 1 }}">
+                    <img src="{{ 'math-plus.svg' | asset_url }}">
+                  </a>
+                </ajax-cart-quantity>
+              </div>
+        
+              <!-- Item error messages -->
+              <div class="ajax-cart-item-error" data-ajax-cart-errors="{{ line_item.key }}"></div>
+
+            </div>
+
+          </div>
+          <div class="cart-item-right">
+            {% if section.settings.show_compare_totals == true %}
+              <div><strong>{{ line_item.final_line_price | money }}</strong><br><span style="font-size: 12px; text-align: right; display:block;"><s>{{ line_item.variant.compare_at_price | times: line_item.quantity | money_without_trailing_zeros }}</s></span></div>
+            {% else %}
+              <div><strong>{{ line_item.final_line_price | money }}</strong>{% unless item_discount <= 0 or item_discount == blank %}<br><span style="font-size: 12px; text-align: right; display:block;"><s>{{ item_discount | plus: line_item.final_line_price | money_without_trailing_zeros }}</s></span>{% endunless %}</div>
+            {% endif %}
+            <!-- "Remove item" button -->
+            <a data-ajax-cart-request-button href="{{ line_item.url_to_remove }}">
+              <img src="{{ 'trash.svg' | asset_url }}">
+            </a>
+          </div>
+          
+        </div>
+        
+        <hr/>
+        
+          {% if line_item.variant.compare_at_price %}
+            {% assign price_to_use = line_item.variant.compare_at_price %}
+          {% else %}
+            {% assign price_to_use = line_item.variant.price %}
+          {% endif %}
+          
+          {% assign line_total = line_item.quantity | times: price_to_use %}
+          {% assign total_compare_at_price = total_compare_at_price | plus: line_total %}
+        
+      {% endfor %}
+    </div>
+
+    <div class="ajax-cart-form">
+
+      <button id="ajax-cart-show-more" data-ajax-cart-static-element>Show More <span class="gg-chevron-down"></span></button>
+
+      {% comment %}<input type="checkbox" id="paperCheckbox" name="paperCheckbox"><label for="paperCheckbox">{{ settings.paper_invoice_text }}</label>{% endcomment %}
+
+      {% if settings.show_paper_invoice_checkbox == true %}
+      
+      <label>
+      <!-- Value when the checkbox unchecked -->
+        <input data-ajax-cart-property-input
+          name="attributes[Paper Invoice Requested]"
+          type="hidden" 
+          value="">
+        <!-- The checkbox itself -->
+        <input data-ajax-cart-property-input
+          type="checkbox" 
+          name="attributes[Paper Invoice Requested]" 
+          form="my-ajax-cart-form"
+          style="margin: 0 .5rem 0 0; vertical-align: middle"
+          value="Yes"
+          {% if cart.attributes['Paper Invoice Requested'] == 'Yes' %} checked {% endif %}>
+        {{ settings.paper_invoice_text }}
+      </label>
+
+      {% endif %}
+      
+      {% if settings.show_cart_note == true %}
+      
+      <label class="ajax-cart-note-label" for="cartNote" data-ajax-cart-static-element>Delivery Instructions <span class="gg-chevron-down"></span></label>
+      
+      {% comment %}<textarea class="ajax-cart-note-imposter" placeholder="{{ settings.cart_note_placeholder }}"></textarea>{% endcomment %}
+      
+      <textarea data-ajax-cart-property-input
+        name="note"
+        placeholder="{{ settings.cart_note_placeholder }}"
+        form="my-ajax-cart-form"
+        class="ajax-cart-note"
+        id="cartNote">
+        {{ cart.note }}
+      </textarea>
+
+      {% endif %}
+
+      {% assign total_markdown = total_compare_at_price | minus: cart.total_price %}
+      {% assign total_coupons = cart.total_discount %}
+      {% assign total_combined_discounts = total_markdown | plus: total_coupons %}
+
+      <div class="ajax-totals">
+        {% comment %}{% if cart_percentage >= 100 %}<span class="ajax-cart-shipping">Shipping: <strong><i>Free</i></strong></span>{% endif %}{% endcomment %}
+        {% comment %}{% if cart.total_discount > 0 %}<span class="ajax-cart-savings">Coupon Savings: <strong>{{ cart.total_discount | money_with_currency }}</strong></span>{% endif %}{% endcomment %}
+        {% comment %}{% if total_compare_at_price > cart.total_price %}<span class="ajax-cart-original">Cart total: <strong><s>{{ total_compare_at_price  | money_with_currency }}</s></strong></span>{% endif %}{% endcomment %}
+        {% if total_compare_at_price > cart.total_price and section.settings.show_compare_totals == true %}
+          <span class="ajax-cart-savings">Savings: <strong>{{ total_combined_discounts | money_with_currency }}</strong></span>
+        {% endif %}
+        {% if cart.total_discount > 0 and section.settings.show_compare_totals != true %}
+          <span class="ajax-cart-savings">Savings: <strong>{{ total_coupons | money_with_currency }}</strong></span>
+        {% endif %}
+        <span class="ajax-cart-total">Subtotal: <strong>{{ cart.total_price | money_with_currency }}</strong>{% if section.settings.show_compare_totals == true %} <s>{{ total_compare_at_price  | money_with_currency }}</s>{% endif %}</span>
+      </div>
+      
+      {% form 'cart', cart, id: 'my-ajax-cart-form' %}
+        <button type="submit" name="checkout">
+          Checkout
+        </button> 
+        <span>Taxes and <a href="">shipping</a> calculated at checkout.</span>
+      {% endform %}
+    </div>
+  </div>
+</div>
+</div>
+<div class="ajax-cart-overlay" style="display:none"></div>
+
+<script>
+  function initAjaxCartShowMore(containerSelector, buttonSelector) {
+    const container = document.querySelector(containerSelector);
+    const button = document.querySelector(buttonSelector);
+  
+    if (!container || !button) return;
+  
+    function updateShowMoreVisibility() {
+      const maxScrollTop = container.scrollHeight - container.clientHeight;
+  
+      if (maxScrollTop <= 0) {
+        button.style.display = 'none';
+      } else if (container.scrollTop >= maxScrollTop - 5) {
+        button.style.display = 'none';
+      } else {
+        button.style.display = '';
+      }
+    }
+  
+    button.addEventListener("click", function () {
+      const maxScrollTop = container.scrollHeight - container.clientHeight;
+      const newScrollTop = container.scrollTop + container.clientHeight;
+      container.scrollTo({
+        top: Math.min(newScrollTop, maxScrollTop),
+        behavior: 'smooth'
+      });
+    });
+  
+    container.addEventListener('scroll', updateShowMoreVisibility);
+  
+    new ResizeObserver(updateShowMoreVisibility).observe(container);
+  
+    updateShowMoreVisibility();
+  }
+  
+  initAjaxCartShowMore('.ajax-cart__items', '#ajax-cart-show-more');
+  
+  document.addEventListener('liquid-ajax-cart:request-end', event => {
+    initAjaxCartShowMore('.ajax-cart__items', '#ajax-cart-show-more');
+  });
+  
+  document.addEventListener('liquid-ajax-cart:request-end', event => {
+    const {requestState} = event.detail;
+    if (requestState.requestType === 'add' && requestState.responseData?.ok) {
+      document.body.classList.add('js-show-ajax-cart');
+    }
+  });
+  document.querySelector('.close-ajax-cart').addEventListener('click', () => {
+    document.body.classList.remove('js-show-ajax-cart');
+  });
+  document.querySelector('.ajax-cart-overlay').addEventListener('click', () => {
+    document.body.classList.remove('js-show-ajax-cart');
+  });
+  document.querySelector(".ajax-cart-note-label").addEventListener("click", function() {
+    var element = document.querySelector(".ajax-cart-note");
+    var spanElement = document.querySelector(".ajax-cart-note-label span");
+
+    if (element.style.display === "none") {
+      element.style.display = "block";
+    } else {
+      element.style.display = "none";
+    }
+
+    if (spanElement.style.transform === "rotate(180deg)") {
+      spanElement.style.transform = "rotate(0deg)";
+    } else {
+      spanElement.style.transform = "rotate(180deg)";
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Ajax cart",
+  "settings": [
+    {
+      "type": "range",
+      "id": "free_shipping_value",
+      "min": 50,
+      "max": 150,
+      "step": 1,
+      "default": 79,
+      "label": "Free Shipping Value",
+      "info": "This setting must be the same as the Canada shipping profile in Settings > Shipping"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_compare_totals",
+      "default": false,
+      "label": "Show compare at price totals?"
+    }
+  ]
+}
+{% endschema %}

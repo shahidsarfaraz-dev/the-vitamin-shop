@@ -1,0 +1,36 @@
+{{ 'component-newsletter-collection.css' | asset_url | stylesheet_tag }}
+
+{% if collection.metafields.custom.line_drives %}
+<div class="line_drive page-width">
+  <div class="line_drive_grid">
+    {% for line_drive in collection.metafields.custom.line_drives.value %}
+      <div class="line_drive_banner">
+        {% if line_drive.show_image_first == true %}<div><img src="{{ line_drive.image | image_url: width: '1000x' }}"></div>{% endif %}
+        <div {% if line_drive.section_id != '' %}id="{{ line_drive.section_id }}" {% endif %}class="line_drive_banner_text" style="background: {{ line_drive.color }};{% if line_drive.use_dark_text == true %} color: #000;{% endif %}">
+          <div>
+            <span {% if line_drive.use_dark_text == true %}style="background: #1A8ACC30; color: #1A8ACC"{% endif %}>Savings</span>
+            <h3 {% if line_drive.use_dark_text == true %}style="color: #000 !important"{% endif %}>{{ line_drive.title }}</h3>
+            <p>{{ line_drive.text }}</p>
+            {% if line_drive.button_link %}{{ line_drive.button_link | metafield_tag }}{% endif %}
+          </div>
+        </div>
+        {% unless line_drive.show_image_first == true %}<div><img src="{{ line_drive.image | image_url: width: '1000x' }}"></div>{% endunless %}
+        </div>
+      <ul class="product-grid-id grid product-grid grid--2-col-tablet-down grid--4-col-desktop ">
+        {% for product in line_drive.products.value %}
+          <li class="grid__item{% if line_drive.columns %} grid__item_size-{{ line_drive.columns }}{% endif %}">
+            {% render 'card-product', card_product: product, show_quick_add: true %}
+          </li>
+        {% endfor %}
+      </ul>
+    {% endfor %}
+  </div>
+</div>
+{% endif %}
+
+{% schema %}
+  {
+    "name": "Newsletter Products",
+    "settings": []
+  }
+{% endschema %}

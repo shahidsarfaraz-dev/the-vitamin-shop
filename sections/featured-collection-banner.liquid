@@ -1,0 +1,82 @@
+<div class="featured-collection-banner page-width">
+    {% if section.settings.image_first == true %}
+      <div class="featured-banner-image">
+        <img src="{{ section.settings.image | image_url: width: '600x' }}">
+      </div>
+    {% endif %}
+    <div class="featured-banner-text">
+      <span>Savings</span>
+      <h2>{{ section.settings.title }}</h2>
+      {{ section.settings.text }}
+      <a href="">Shop Now</a>
+    </div>
+    {% unless section.settings.image_first == true %}
+      <div class="featured-banner-image">
+        <img src="{{ section.settings.image | image_url: width: '600x' }}">
+      </div>
+    {% endunless %}
+</div>
+
+<style>
+.featured-collection-banner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.featured-collection-banner div {
+  flex: 1 1 calc(100% - 8px);
+}
+
+.featured-banner-text {
+  padding: 40px;
+  border-radius: 8px;
+  background: #1a8acc;
+  color: #fff;
+}
+
+.featured-banner-text h2 {
+  color: #fff !important;
+}
+
+@media (min-width: 800px) {
+  .featured-collection-banner div {
+    flex: 1 1 calc(50% - 8px);
+  }
+}
+</style>
+
+{% schema %}
+  {
+    "name": "Featured Banner",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "image_first",
+        "label": "Image First?"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "default": "Lorem Ipsum",
+        "label": "Title"
+      },
+      {
+        "type": "richtext",
+        "id": "text",
+        "default": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sit amet turpis ex. Duis euismod, purus vitae finibus mollis, est felis semper mauris, sed ullamcorper nulla dui ut enim.</p>",
+        "label": "Title"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      }
+    ],    
+    "presets": [
+      {
+        "name": "Featured Banner",
+      }
+    ]
+  }
+{% endschema %}

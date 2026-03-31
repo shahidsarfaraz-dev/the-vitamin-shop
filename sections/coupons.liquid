@@ -1,0 +1,55 @@
+<div class="page-coupons">
+  <div class="page-width">
+    <div class="product-grid-header">
+      <div class="product-grid-breadcrumbs"><a href="/">Home</a> > <span style="color:#1A8ACC;">Coupons</span></div>
+      <h1 class="product-grid-title">Latest Coupons</h1>
+    </div>
+    
+    <div class="collection">
+
+      <ul id="product-grid" class="grid product-grid">
+      {% for collection in section.settings.collection_list %}
+        {% for product in collection.products %}
+         <li class="grid__item coupon-grid-item">   
+          {% render 'card-product',
+            card_product: product,
+            media_aspect_ratio: section.settings.image_ratio,
+            show_secondary_image: section.settings.show_secondary_image,
+            show_vendor: section.settings.show_vendor,
+            show_rating: section.settings.show_rating,
+            lazy_load: lazy_load,
+            show_quick_add: section.settings.enable_quick_add,
+            section_id: section.id
+          %}           
+         </li>
+        {% endfor %}  
+      {% endfor %}      
+      </ul>
+      
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Coupon Collections",
+    "tag": "section",
+    "class": "section",
+    "disabled_on": {
+      "groups": ["header", "footer"]
+    },    
+    "settings": [
+      {
+        "type": "collection_list",
+        "id": "collection_list",
+        "label": "Collections"
+      }      
+    ],
+    "presets": [
+      {
+        "name": "Coupon Collections",
+        "category": "Section"      
+      }
+    ]    
+  }
+{% endschema %}

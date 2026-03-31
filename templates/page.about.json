@@ -1,0 +1,111 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "single_image_banner_NqDMLh": {
+      "type": "single-image-banner",
+      "settings": {
+        "image": "shopify://shop_images/Group_603.jpg",
+        "image_position": "right",
+        "use_ranged_pos": true,
+        "image_position_percentage": 91,
+        "bg_height": 420,
+        "bg_height_mb": 250
+      }
+    },
+    "rich_text_7CURE7": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_rjNjVB": {
+          "type": "heading",
+          "settings": {
+            "heading": "<p>About us</p>",
+            "heading_size": "h1"
+          }
+        },
+        "text_d4zQV3": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Welcome to The Canadian Vitamin Shop, the online Division of The Vitamin Shop.</strong></p><p>The Vitamin Shop was established in 1984 by founder Bruce D. Reid. His mission is to offer consumers high quality brand-name nutritional supplements at discounted prices with uncompromising customer service. As Canada's Premier Vitamin and Nutritional Supplement Dispensary, The Vitamin Shop remains committed to giving our customers the best products at the best prices with the best service.</p><p>The Vitamin Shop has over 35 employees, including licensed herbalists and certified product advisors, dedicated to promoting healthy nutrition and holistic lifestyles by providing unparalleled customer service. Join the thousands of customers throughout Canada and around the world who trust and respect our expertise. Our longevity and success are the testimony of our customers' satisfaction.</p><p>The Vitamin Shop carries all major brand supplements that comply with Canadian Health Regulations. The Vitamin Shop features nutritional products from reputable, reliable, exceptional quality companies such as Natural Factors, Sisu, Genuine Health, Renew Life, Preferred Nutrition, WomenSense, AOR, Body Plus, CanPrev, Enerex, Flora, Prairie Naturals, Purica, A. Vogel, Naka, NutriStart, New Chapter, Nature's Way, Sea-Licious, Genestra and more.</p><p>If you are looking for a great selection of Sports Nutrition, meal replacement and protein products The Vitamin Shop carries a wide range from Natural Factors, Genuine Health, Enerex, Bulletproof, Prairie Naturals, Progressive Nutrition, PVL Essentials, North Coast Naturals, Omega Nutrition, Garden of Life, and more.</p><p>For our clients who are searching for Homeopathic and herbal remedies, The Vitamin Shop provides a spectrum of products from Standard Homeopathic, Martin and Pleasance, Boiron, Pascoe, Bach Flower, St. Francis Herb Farm, Prairie Doctor and more. The Vitamin Shop has an extensive Beauty Bar carrying beauty and grooming products from Andalou Naturals, Derma E, Prairie Naturals, Sukin, Viva, Annemarie Borlind, Weleda, Jason, and more.</p><p>If you are unable to find the product you are looking for contact us via Special Instructions or e-mail and we will do our best to help you. The Vitamin Shop is ready to help you achieve your natural health and well-being goals! We are proud of our customer service record and look forward to providing you with our prompt, safe and secure on-line delivery services.</p>"
+          }
+        },
+        "image_picker_f8CxWd": {
+          "type": "image_picker",
+          "disabled": true,
+          "settings": {
+            "richtext_image": "shopify://shop_images/istockphoto-1454436110-2048x2048.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "heading_rjNjVB",
+        "text_d4zQV3",
+        "image_picker_f8CxWd"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "left",
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "rich_text_R9netr": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_akCf7i": {
+          "type": "heading",
+          "settings": {
+            "heading": "<p>Have questions? get in touch.</p>",
+            "heading_size": "h1"
+          }
+        },
+        "button_4b67hn": {
+          "type": "button",
+          "settings": {
+            "button_label": "Contact us",
+            "button_link": "shopify://pages/contact",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_akCf7i",
+        "button_4b67hn"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "background-2",
+        "full_width": true,
+        "padding_top": 52,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": [
+    "main",
+    "single_image_banner_NqDMLh",
+    "rich_text_7CURE7",
+    "rich_text_R9netr"
+  ]
+}

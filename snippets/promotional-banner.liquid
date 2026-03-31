@@ -1,0 +1,54 @@
+{% assign collection_search = false %}
+{% assign active_label = '' %}
+{% if template.name == 'search' and template.suffix != 'wholesale' %}
+  {% assign collection_search = true %}
+  {% for filter in search.filters %}
+    {% for active in filter.active_values %}
+      {% assign active_label = active.label %}
+      {% break %}
+    {% endfor %}
+    {% if active_label != '' %}
+      {% break %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{% assign top_colour = collection.metafields.custom.banner_colour_top %}
+{% assign bottom_colour = collection.metafields.custom.banner_colour_bottom %}
+
+<div class="promotional-banner fade-in-element promotional-banner-standard">
+    {% unless template.name == 'collection' and template.suffix == blank or template.name == 'collection' and template.suffix == 'branded' %}
+      <div class="promotional-banner-mobile-content">
+          <h2 class="promotional-banner-title">{% if collection_search == true %}{{ active_label | capitalize }}{% else %}{{ section.settings.promo_title }}{% endif %}</h2>
+          <div class="promotional-banner-description">{{ collection.description }}</div>      
+      </div>
+    {% endunless %}
+    <div class="promotional-banner-container" {% if top_colour and bottom_colour %}style="background: linear-gradient(to bottom, {{ top_colour }}, {{ bottom_colour }});"{% endif %}>
+      {% if section.settings.promo_background_image %}
+      <div class="promotional-banner-mobile-background" style="background-image: url({% if collection.image %}{{ collection.featured_image | image_url }}{% else %}{{ section.settings.promo_mobile_background_image | default: section.settings.promo_background_image | image_url }}{% endif %});">{% if collection_search == true %}{{ active_label | capitalize }}{% else %}{{ section.settings.promo_title }}{% endif %}</div>
+      <img class="promotional-banner-image" src="{% if collection.image %}{{ collection.featured_image | image_url }}{% else %}{{ section.settings.promo_background_image | image_url }}{% endif %}">
+      {% if section.settings.promo_mobile_background_image %}
+        <img class="promotional-banner-image-mobile" src="{% if collection.image %}{{ collection.featured_image | image_url }}{% else %}{{ section.settings.promo_mobile_background_image | image_url }}{% endif %}">
+      {% else %}
+        <img class="promotional-banner-image-mobile" src="{% if collection.image %}{{ collection.featured_image | image_url }}{% else %}{{ section.settings.promo_background_image | image_url }}{% endif %}">
+      {% endif %}
+      {% endif %}
+      <div class="promotional-banner-content">
+        <h2 class="promotional-banner-title">{% if collection_search == true %}{{ active_label | capitalize }}{% else %}{{ section.settings.promo_title }}{% endif %}</h2>
+        <div class="promotional-banner-description">{{ collection.description }}</div>
+      </div>
+    </div>
+</div>
+
+{% if template.name == 'collection' and template.suffix == blank or template.name == 'collection' and template.suffix == 'branded' %}
+<style>
+.promotional-banner-container .promotional-banner-content {
+  display: block !important;
+  width: 100% !important;
+  padding: 3.5rem 4rem !important;
+}
+.promotional-banner-container {
+    min-height: 110px !important;
+}
+</style>
+{% endif %}
