@@ -1,0 +1,132 @@
+{{ 'faqs-sec.css' | asset_url | stylesheet_tag }}
+{%- if collection -%}
+  {% assign faqs = collection.metafields.prc.faqs.value %}
+{%- else -%}
+  {% assign faqs = product.metafields.prc.faqs.value %}
+{%- endif -%}
+
+{%- if faqs != blank -%}
+  <section></section>
+  <div class="page-width" style="margin-top: clamp(40px, 5vw, 60px); margin-bottom: clamp(40px, 5vw, 60px);">
+
+    {%- if section.settings.main_title != blank -%}
+      <{{ section.settings.headingTag }} class="section-header__title" style="text-align: center">
+        {{ section.settings.main_title }}
+        </{{ section.settings.headingTag }}>
+      {%- endif -%}
+
+      <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {% for faq in faqs %}
+              {
+                "@type": "Question",
+                "name": {{ faq.question | json }},
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": {{ faq.answer | json }}
+                }
+              }{% unless forloop.last %},{% endunless %}
+            {% endfor %}
+          ]
+        }
+      </script>
+      <div class="faq-container">
+        {% for faq in faqs %}
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>{{ faq.question }}</span>
+              <span class="chevron"></span>
+            </button>
+            <div class="faq-answer">
+              <p>{{ faq.answer }}</p>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+      const items = document.querySelectorAll(".faq-item");
+      
+      items.forEach(item => {
+        const btn = item.querySelector(".faq-question");
+      
+        btn.addEventListener("click", () => {
+          
+          // Close others (remove if you want multiple open)
+          items.forEach(i => {
+      if (i !== item) {
+        i.classList.remove("active");
+        i.querySelector(".faq-answer").style.maxHeight = null;
+      }
+          });
+      
+          // Toggle current
+          item.classList.toggle("active");
+      
+          const answer = item.querySelector(".faq-answer");
+      
+          if (item.classList.contains("active")) {
+      answer.style.maxHeight = answer.scrollHeight + "px";
+          } else {
+      answer.style.maxHeight = null;
+          }
+      
+        });
+      });
+      });
+    </script>
+  {%- endif -%}
+
+
+  {% schema %}
+    {
+      "name": "FAQ",
+      "settings": [
+        {
+          "type": "text",
+          "id": "main_title",
+          "label": "Section Heading"
+        }, {
+          "type": "select",
+          "id": "headingTag",
+          "label": "Heading Tag",
+          "options": [
+            {
+              "value": "h1",
+              "label": "H1"
+            },
+            {
+              "value": "h2",
+              "label": "H2"
+            },
+            {
+              "value": "h3",
+              "label": "H3"
+            },
+            {
+              "value": "h4",
+              "label": "H4"
+            }, {
+              "value": "span",
+              "label": "span"
+            }
+          ],
+          "default": "h2"
+        }, {
+          "type": "richtext",
+          "id": "content",
+          "label": "Section Text"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Collection/Product FAQs"
+        }
+      ]
+    }
+  {% endschema %}
