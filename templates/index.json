@@ -157,6 +157,20 @@
             "text_color": "black"
           }
         },
+        "row_KwtdLt": {
+          "type": "row",
+          "disabled": true,
+          "settings": {
+            "background": "#126752",
+            "item_title": "NutraVege Omega-3",
+            "item_description": "<p>Omega-3 inspired by the power of nature</p>",
+            "item_mobile_description": "<p>Omega-3 inspired by the power of nature</p>",
+            "button_text": "Shop Now",
+            "button_url": "https://www.canadianvitaminshop.com/search?q=nutraverge&options%5Bprefix%5D=last&sort_by=relevance&filter.p.vendor=NutraVege",
+            "image": "shopify://shop_images/NWAD-0993_NutraSea_VitaminShop_1920x694_P3A_002.jpg",
+            "text_color": "black"
+          }
+        },
         "row_U7XALN": {
           "type": "row",
           "disabled": true,
@@ -184,6 +198,7 @@
         "row_FYeFBC",
         "row_wyiMDY",
         "row_4qRD6e",
+        "row_KwtdLt",
         "row_U7XALN"
       ],
       "settings": {
