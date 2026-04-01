@@ -69,12 +69,12 @@
           "disabled": true,
           "settings": {
             "background": "#126752",
-            "item_title": "NutraVege Omega-3",
-            "item_description": "<p>Omega-3 inspired by the power of nature</p>",
-            "item_mobile_description": "<p>Omega-3 inspired by the power of nature</p>",
+            "item_title": "Add more superfoods to your every day!",
+            "item_description": "<p>These nutrient-dense staples, rooted in tradition, help support digestion, energy, and overall wellness, making it easier to feel your best, naturally.</p>",
+            "item_mobile_description": "<p>Add more superfoods to your every day with organic, fermented superfood blends from Prairie Naturals. These nutrient-dense staples, rooted in tradition, help support digestion, energy, and overall wellness, making it easier to feel your best, naturally.</p>",
             "button_text": "Shop Now",
             "button_url": "https://www.canadianvitaminshop.com/search?q=nutraverge&options%5Bprefix%5D=last&sort_by=relevance&filter.p.vendor=NutraVege",
-            "image": "shopify://shop_images/NWAD-0993_NutraSea_VitaminShop_1920x694_P3A_002.jpg",
+            "image": "shopify://shop_images/PN_-_Superfoods_-_Web_Banner_-_April_2026.jpg",
             "text_color": "black"
           }
         },
