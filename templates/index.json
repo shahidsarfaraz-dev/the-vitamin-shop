@@ -66,6 +66,7 @@
         },
         "row_KwtdLt": {
           "type": "row",
+          "disabled": true,
           "settings": {
             "background": "#126752",
             "item_title": "NutraVege Omega-3",
