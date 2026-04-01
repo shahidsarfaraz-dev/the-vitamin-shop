@@ -208,108 +208,68 @@
     "promotional_carousel_PR8UwA": {
       "type": "promotional-carousel",
       "blocks": {
-        "row_XR36CD": {
+        "row_zwyPRU": {
           "type": "row",
           "settings": {
             "item_type": "coupon",
             "show_promo_corner": true,
-            "featured_percentage": 15,
+            "featured_percentage": 1,
             "coupon_amount": 3,
             "use_additional_discount": false,
             "additional_discount": 1,
-            "item_title": "Help absorb calcium!",
-            "item_subtitle": "$3.00 Coupon",
-            "item_description": "Vitamin D3 and K2 support the maintenance and long-term health of strong bones and teeth.",
+            "item_title": "Magnesium with Melatonin",
+            "item_subtitle": "Save $3.00!",
+            "item_description": "Designed to help people relax, reset their circadian biological clocks, get better sleep while reducing the time needed to fall asleep.",
             "button_text": "Shop Now",
-            "button_url": "shopify://products/canprev-d3-k2",
-            "background_image": "shopify://shop_images/canprev-k3-d3-bg-march-2026.jpg",
-            "image": "shopify://shop_images/canprev-k3-d3-product-march-2026.png",
+            "button_url": "shopify://products/canprev-magnesium-sleep",
+            "background_image": "shopify://shop_images/canprev-magnesium-bg-april-2026-1.jpg",
+            "image": "shopify://shop_images/canprev-magnesium-product-april-2026.png",
             "text_color": "black"
           }
         },
-        "row_zwyPRU": {
+        "row_XR36CD": {
           "type": "row",
           "settings": {
             "item_type": "featured",
             "show_promo_corner": true,
-            "featured_percentage": 24,
-            "coupon_amount": 3,
+            "featured_percentage": 64,
+            "coupon_amount": 1,
             "use_additional_discount": false,
             "additional_discount": 1,
-            "item_title": "Relieve allergy symptoms!",
-            "item_subtitle": "Save 24%",
-            "item_description": "Two-pronged allergy solution that combines targeted homeopathic to relieve allergy symptoms like itchiness, watery eyes, sneezing, congestion and runny nose.",
+            "item_title": "Improve skin health naturally!",
+            "item_subtitle": "Save 64%!",
+            "item_description": "Beautiful healthy hair, stronger nails and bones, which can also be used externally for skin irritations and blemishes.",
             "button_text": "Shop Now",
-            "button_url": "shopify://products/st-francis-allergy-relief-nasal-spray-value-pack",
-            "background_image": "shopify://shop_images/St-Francis-featured-image-march-2026-bg.jpg",
-            "image": "shopify://shop_images/St-Francis-featured-image-march-2026.png",
+            "button_url": "shopify://products/hubner-original-silicea",
+            "background_image": "shopify://shop_images/naka-silicea-featured-image-April-2026-bg.jpg",
+            "image": "shopify://shop_images/naka-silicea-featured-image-April-2026.png",
             "text_color": "black"
           }
         },
         "row_dLMe6e": {
           "type": "row",
           "settings": {
-            "item_type": "featured",
+            "item_type": "coupon",
             "show_promo_corner": true,
-            "featured_percentage": 29,
-            "coupon_amount": 1,
-            "use_additional_discount": false,
-            "additional_discount": 1,
-            "item_title": "Empower your workout!",
-            "item_subtitle": "Save 29%!",
-            "item_description": "Increase maximum strength and endurance by up to 15%, power output and energy release by up to 30%.",
-            "button_text": "Shop Now",
-            "button_url": "shopify://products/naka-creatine-3000-mg",
-            "background_image": "shopify://shop_images/Naka-_Creatine-featured-image-march-2026-bg.jpg",
-            "image": "shopify://shop_images/Naka-_Creatine-featured-image-march-2026.png",
-            "text_color": "black"
-          }
-        },
-        "row_HBEDd6": {
-          "type": "row",
-          "settings": {
-            "item_type": "featured",
-            "show_promo_corner": true,
-            "featured_percentage": 11,
+            "featured_percentage": 1,
             "coupon_amount": 5,
             "use_additional_discount": false,
-            "additional_discount": 10,
-            "item_title": "Delicious Vegan Protein",
-            "item_subtitle": "Save 11%!",
-            "item_description": "Each serving contains 17 grams of raw, plant-based protein derived from 5 organic non-GMO sprouted grains and seeds.",
-            "button_text": "Shop Now",
-            "button_url": "shopify://products/iron-vegan-sprouted-protein-natural-vanilla-flavour",
-            "background_image": "shopify://shop_images/iron-vegan-featured-image-march-2026-bg_bb6ddb34-2592-49ab-8dd7-5cee9a5989c5.jpg",
-            "image": "shopify://shop_images/iron-vegan-featured-image-march-2026.png",
-            "text_color": "black"
-          }
-        },
-        "row_adRWEV": {
-          "type": "row",
-          "settings": {
-            "item_type": "featured",
-            "show_promo_corner": true,
-            "featured_percentage": 17,
-            "coupon_amount": 1,
-            "use_additional_discount": false,
             "additional_discount": 1,
-            "item_title": "Whole Food Protein!",
-            "item_subtitle": "Save 17%!",
-            "item_description": "A complete protein containing all 9 essential amino acids and a good source of magnesium and zinc.",
+            "item_title": "Versatile Amino Acid",
+            "item_subtitle": "Save $5.00!",
+            "item_description": "Improve sleep quality, support emotional balance, enhance energy production, sharper memory function, and healthy blood sugar management.",
             "button_text": "Shop Now",
-            "button_url": "shopify://products/north-coast-naturals-cold-pressed-pumpkin-protein",
-            "background_image": "shopify://shop_images/ncn-featured-image-march-2026-bg.jpg",
-            "image": "shopify://shop_images/ncn-featured-image-march-2026.png",
+            "button_url": "shopify://products/aor-glycine",
+            "background_image": "shopify://shop_images/aor-glycine-bg-april-2026.jpg",
+            "image": "shopify://shop_images/aor-glycine-product-april-2026.png",
             "text_color": "black"
           }
         }
       },
       "block_order": [
-        "row_XR36CD",
         "row_zwyPRU",
-        "row_dLMe6e",
-        "row_HBEDd6",
-        "row_adRWEV"
+        "row_XR36CD",
+        "row_dLMe6e"
       ],
       "settings": {
         "heading": "Canada's Most Trusted Vitamin and Nutritional Supplement Dispensary",
