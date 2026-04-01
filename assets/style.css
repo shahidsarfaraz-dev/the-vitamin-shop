@@ -4203,3 +4203,7 @@ input[type="checkbox"][id^="popuptoggle"]:checked + .popup-container {
 .tvs-theme .field .toggle-password:hover::after {
   color: var(--gradient-base-accent-2);
 }
+
+.template-collection .content-for-layout {
+  padding-top: 0;
+}

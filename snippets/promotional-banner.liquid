@@ -60,5 +60,64 @@
 .promotional-banner-container {
     min-height: 110px !important;
 }
+
+.promotional-banner-description{
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+  color: white;
+}
+.promotional-banner-description *{
+  color: white;
+}
+
+.promotional-banner-description.expanded{
+  -webkit-line-clamp:unset;
+  overflow:visible;
+}
+
+.promo-read-more-btn{
+  display:none;
+  margin-top:8px;
+  background:none;
+  border:none;
+  cursor:pointer;
+  font-weight:600;
+  color: white;
+  padding:0;
+  text-decoration: underline;
+}
 </style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function(){
+
+  const desc = document.querySelector(".js-collection-desc");
+  const btn = document.querySelector(".js-read-more");
+
+  if(!desc || !btn) return;
+
+  function checkOverflow(){
+    if(desc.scrollHeight > desc.clientHeight){
+      btn.style.display = "inline-block";
+    }
+  }
+
+  checkOverflow();
+
+  btn.addEventListener("click", function(){
+
+    desc.classList.toggle("expanded");
+
+    if(desc.classList.contains("expanded")){
+      btn.textContent = "Read less";
+    } else {
+      btn.textContent = "Read more";
+    }
+
+  });
+
+});
+</script>
 {% endif %}
