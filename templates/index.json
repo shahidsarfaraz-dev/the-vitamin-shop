@@ -27,7 +27,6 @@
         },
         "row_jTCqyT": {
           "type": "row",
-          "disabled": true,
           "settings": {
             "background": "#5f5473",
             "item_title": "Chewy Wellness",
@@ -41,7 +40,6 @@
         },
         "row_3Lj9TF": {
           "type": "row",
-          "disabled": true,
           "settings": {
             "background": "#4e7141",
             "item_title": "Whole Earth & Sea",
@@ -50,32 +48,6 @@
             "button_text": "Shop Now",
             "button_url": "https://www.canadianvitaminshop.com/search?q=whole+earth+and+sea&options%5Bprefix%5D=last&sort_by=relevance&filter.p.vendor=Whole+Earth+%26+Sea",
             "image": "shopify://shop_images/April_WebBnnr_TVS_WES_847x462_E.jpg",
-            "text_color": "black"
-          }
-        },
-        "row_aGr7ee": {
-          "type": "row",
-          "settings": {
-            "background": "#25957e",
-            "item_title": "Clearer Breathing",
-            "item_description": "<p>Soothe your airways and relieve cough with this herbal formula featuring NAC, bromelain, and traditional botanicals to help thin mucus and support respiratory comfort.</p>",
-            "item_mobile_description": "<p>Soothe your airways and relieve cough with this herbal formula featuring NAC, bromelain, and traditional botanicals to help thin mucus and support respiratory comfort.</p>",
-            "button_text": "Shop Now",
-            "button_url": "https://www.canadianvitaminshop.com/collections/allergy-defense?sort_by=best-selling&filter.p.vendor=Natural+Factors",
-            "image": "shopify://shop_images/Bnnr_AllergySupport_TVS_MAR25_847_x_462.jpg",
-            "text_color": "black"
-          }
-        },
-        "row_MEHf9b": {
-          "type": "row",
-          "settings": {
-            "background": "#226e8f",
-            "item_title": "Core Support",
-            "item_description": "<p>From hormone balance to stress, iron, and menopause support—WomenSense Core Four offers clean, targeted solutions to help women thrive at every life stage.</p>",
-            "item_mobile_description": "<p>From hormone balance to stress, iron, and menopause support—WomenSense Core Four offers clean, targeted solutions to help women thrive at every life stage.</p>",
-            "button_text": "Shop Now",
-            "button_url": "https://www.canadianvitaminshop.com/search?q=womensense+bonus&options%5Bprefix%5D=last",
-            "image": "shopify://shop_images/Bnnr_WS_TVS_847x462_APR26.jpg",
             "text_color": "black"
           }
         },
@@ -92,55 +64,16 @@
             "text_color": "black"
           }
         },
-        "row_fhAKCF": {
+        "row_KwtdLt": {
           "type": "row",
           "settings": {
-            "background": "#4b016c",
-            "item_title": "LINE DRIVE - 20% OFF",
-            "item_description": "<p>All AOR products on sale 20% off until March 31st! Discount applied once added to cart!</p>",
-            "item_mobile_description": "<p>All AOR products on sale 20% off until March 31st! Discount applied once added to cart!</p>",
+            "background": "#126752",
+            "item_title": "NutraVege Omega-3",
+            "item_description": "<p>Omega-3 inspired by the power of nature</p>",
+            "item_mobile_description": "<p>Omega-3 inspired by the power of nature</p>",
             "button_text": "Shop Now",
-            "button_url": "https://www.canadianvitaminshop.com/search?q=aor&options%5Bprefix%5D=last&sort_by=relevance&filter.p.vendor=AOR",
-            "image": "shopify://shop_images/AOR2.0.png",
-            "text_color": "black"
-          }
-        },
-        "row_zwFVmF": {
-          "type": "row",
-          "settings": {
-            "background": "#599e57",
-            "item_title": "Natures Way Calcium Magnesium",
-            "item_description": "<p>Liquid calcium and magnesium with vitamin D3 and collagen to help keep bones and teeth strong.</p>",
-            "item_mobile_description": "<p>Liquid calcium and magnesium with vitamin D3 and collagen to help keep bones and teeth strong.</p>",
-            "button_text": "Shop Now",
-            "button_url": "https://www.canadianvitaminshop.com/search?q=calcium+magnesium+natures+way&options%5Bprefix%5D=last&sort_by=relevance&filter.p.vendor=Nature%27s+Way",
-            "image": "shopify://shop_images/NWAD-1052_CalMag_VitaminShop_847x462_VF_Banner_March_2026.jpg",
-            "text_color": "black"
-          }
-        },
-        "row_FYeFBC": {
-          "type": "row",
-          "settings": {
-            "background": "#2d452a",
-            "item_title": "MegaFood Bonus Packs—Stock Up!",
-            "item_description": "<p>Providing a fantastic opportunity for health-conscious individuals to stock up on their favorite supplements at a reduced price.</p>",
-            "item_mobile_description": "<p>Providing a fantastic opportunity for health-conscious individuals to stock up on their favorite supplements at a reduced price.</p>",
-            "button_text": "Shop Now",
-            "button_url": "https://www.canadianvitaminshop.com/search?q=megafood+bonus&options%5Bprefix%5D=last&sort_by=relevance&filter.p.vendor=MegaFood",
-            "image": "shopify://shop_images/MF_26.02_VitaminShop_Feb2026_Banners_847x462_c05ee1f0-643b-42ff-b913-4e4c41bd9db7.jpg",
-            "text_color": "black"
-          }
-        },
-        "row_wyiMDY": {
-          "type": "row",
-          "settings": {
-            "background": "#457ea3",
-            "item_title": "FAST ACTING PRODUCTS FOR IBS & INFLAMMATION",
-            "item_description": "<p>Don't miss this rare opportunity to get 2 for the price of 1 on two Purica top sellers.  Purica - proudly made on Vancouver Island since 1999</p>",
-            "item_mobile_description": "<p>Don't miss this rare opportunity to get 2 for the price of 1 on two Purica top sellers.  Purica - proudly made on Vancouver Island since 1999</p>",
-            "button_text": "Shop Now",
-            "button_url": "https://www.canadianvitaminshop.com/search?q=Purica+Duo-Packs+&options%5Bprefix%5D=last",
-            "image": "shopify://shop_images/Curcumin_and_Probiotic_intensive_-_BOGO_v2_847x462_1.jpg",
+            "button_url": "https://www.canadianvitaminshop.com/search?q=nutraverge&options%5Bprefix%5D=last&sort_by=relevance&filter.p.vendor=NutraVege",
+            "image": "shopify://shop_images/NWAD-0993_NutraSea_VitaminShop_1920x694_P3A_002.jpg",
             "text_color": "black"
           }
         },
@@ -157,17 +90,87 @@
             "text_color": "black"
           }
         },
-        "row_KwtdLt": {
+        "row_aGr7ee": {
           "type": "row",
           "disabled": true,
           "settings": {
-            "background": "#126752",
-            "item_title": "NutraVege Omega-3",
-            "item_description": "<p>Omega-3 inspired by the power of nature</p>",
-            "item_mobile_description": "<p>Omega-3 inspired by the power of nature</p>",
+            "background": "#25957e",
+            "item_title": "Clearer Breathing",
+            "item_description": "<p>Soothe your airways and relieve cough with this herbal formula featuring NAC, bromelain, and traditional botanicals to help thin mucus and support respiratory comfort.</p>",
+            "item_mobile_description": "<p>Soothe your airways and relieve cough with this herbal formula featuring NAC, bromelain, and traditional botanicals to help thin mucus and support respiratory comfort.</p>",
             "button_text": "Shop Now",
-            "button_url": "https://www.canadianvitaminshop.com/search?q=nutraverge&options%5Bprefix%5D=last&sort_by=relevance&filter.p.vendor=NutraVege",
-            "image": "shopify://shop_images/NWAD-0993_NutraSea_VitaminShop_1920x694_P3A_002.jpg",
+            "button_url": "https://www.canadianvitaminshop.com/collections/allergy-defense?sort_by=best-selling&filter.p.vendor=Natural+Factors",
+            "image": "shopify://shop_images/Bnnr_AllergySupport_TVS_MAR25_847_x_462.jpg",
+            "text_color": "black"
+          }
+        },
+        "row_MEHf9b": {
+          "type": "row",
+          "disabled": true,
+          "settings": {
+            "background": "#226e8f",
+            "item_title": "Core Support",
+            "item_description": "<p>From hormone balance to stress, iron, and menopause support—WomenSense Core Four offers clean, targeted solutions to help women thrive at every life stage.</p>",
+            "item_mobile_description": "<p>From hormone balance to stress, iron, and menopause support—WomenSense Core Four offers clean, targeted solutions to help women thrive at every life stage.</p>",
+            "button_text": "Shop Now",
+            "button_url": "https://www.canadianvitaminshop.com/search?q=womensense+bonus&options%5Bprefix%5D=last",
+            "image": "shopify://shop_images/Bnnr_WS_TVS_847x462_APR26.jpg",
+            "text_color": "black"
+          }
+        },
+        "row_fhAKCF": {
+          "type": "row",
+          "disabled": true,
+          "settings": {
+            "background": "#4b016c",
+            "item_title": "LINE DRIVE - 20% OFF",
+            "item_description": "<p>All AOR products on sale 20% off until March 31st! Discount applied once added to cart!</p>",
+            "item_mobile_description": "<p>All AOR products on sale 20% off until March 31st! Discount applied once added to cart!</p>",
+            "button_text": "Shop Now",
+            "button_url": "https://www.canadianvitaminshop.com/search?q=aor&options%5Bprefix%5D=last&sort_by=relevance&filter.p.vendor=AOR",
+            "image": "shopify://shop_images/AOR2.0.png",
+            "text_color": "black"
+          }
+        },
+        "row_zwFVmF": {
+          "type": "row",
+          "disabled": true,
+          "settings": {
+            "background": "#599e57",
+            "item_title": "Natures Way Calcium Magnesium",
+            "item_description": "<p>Liquid calcium and magnesium with vitamin D3 and collagen to help keep bones and teeth strong.</p>",
+            "item_mobile_description": "<p>Liquid calcium and magnesium with vitamin D3 and collagen to help keep bones and teeth strong.</p>",
+            "button_text": "Shop Now",
+            "button_url": "https://www.canadianvitaminshop.com/search?q=calcium+magnesium+natures+way&options%5Bprefix%5D=last&sort_by=relevance&filter.p.vendor=Nature%27s+Way",
+            "image": "shopify://shop_images/NWAD-1052_CalMag_VitaminShop_847x462_VF_Banner_March_2026.jpg",
+            "text_color": "black"
+          }
+        },
+        "row_FYeFBC": {
+          "type": "row",
+          "disabled": true,
+          "settings": {
+            "background": "#2d452a",
+            "item_title": "MegaFood Bonus Packs—Stock Up!",
+            "item_description": "<p>Providing a fantastic opportunity for health-conscious individuals to stock up on their favorite supplements at a reduced price.</p>",
+            "item_mobile_description": "<p>Providing a fantastic opportunity for health-conscious individuals to stock up on their favorite supplements at a reduced price.</p>",
+            "button_text": "Shop Now",
+            "button_url": "https://www.canadianvitaminshop.com/search?q=megafood+bonus&options%5Bprefix%5D=last&sort_by=relevance&filter.p.vendor=MegaFood",
+            "image": "shopify://shop_images/MF_26.02_VitaminShop_Feb2026_Banners_847x462_c05ee1f0-643b-42ff-b913-4e4c41bd9db7.jpg",
+            "text_color": "black"
+          }
+        },
+        "row_wyiMDY": {
+          "type": "row",
+          "disabled": true,
+          "settings": {
+            "background": "#457ea3",
+            "item_title": "FAST ACTING PRODUCTS FOR IBS & INFLAMMATION",
+            "item_description": "<p>Don't miss this rare opportunity to get 2 for the price of 1 on two Purica top sellers.  Purica - proudly made on Vancouver Island since 1999</p>",
+            "item_mobile_description": "<p>Don't miss this rare opportunity to get 2 for the price of 1 on two Purica top sellers.  Purica - proudly made on Vancouver Island since 1999</p>",
+            "button_text": "Shop Now",
+            "button_url": "https://www.canadianvitaminshop.com/search?q=Purica+Duo-Packs+&options%5Bprefix%5D=last",
+            "image": "shopify://shop_images/Curcumin_and_Probiotic_intensive_-_BOGO_v2_847x462_1.jpg",
             "text_color": "black"
           }
         },
@@ -190,15 +193,15 @@
         "row_XGUfyX",
         "row_jTCqyT",
         "row_3Lj9TF",
+        "row_NbmMjb",
+        "row_KwtdLt",
+        "row_4qRD6e",
         "row_aGr7ee",
         "row_MEHf9b",
-        "row_NbmMjb",
         "row_fhAKCF",
         "row_zwFVmF",
         "row_FYeFBC",
         "row_wyiMDY",
-        "row_4qRD6e",
-        "row_KwtdLt",
         "row_U7XALN"
       ],
       "settings": {
