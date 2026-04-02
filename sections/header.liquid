@@ -370,7 +370,7 @@
               {%- endif -%}              
               
             </div>
-            <a href="{% if customer %}{{ routes.account_url }}{% else %}{{ routes.storefront_login_url }}{% endif %}" class="button header-login-button"><img src="{{ 'user.svg' | asset_url }}"/>
+            <a href="{% if customer %}{{ routes.account_url }}{% else %}#{{routes.account_login_url }}{% endif %}" class="button header-login-button"><img src="{{ 'user.svg' | asset_url }}"/>
               {% if customer %}
                 Account
               {% else %}
