@@ -17,7 +17,7 @@
 
     {% if cart.item_count == 0 %}
       <div class="ajax-cart-empty">
-        <h4>Your cart is empty.</h4>
+        <span class="h4">Your cart is empty.</span>
         <a href="/collections/all" class="ajax-cart-continue">Continue Shopping</a>
         <p>Have an account?<br><a href="/account/login">Login in</a> to checkout faster.</p>
       </div>
@@ -25,7 +25,7 @@
 
     <div class="ajax-cart-display" style="display: none">
     
-    <h2 class="ajax-cart-title">Your Cart</h2>
+    <span class="ajax-cart-title h2">Your Cart</span>
 
     {% if cart.currency.iso_code == 'CAD' %}
       <div class="ajax-cart-progress">
