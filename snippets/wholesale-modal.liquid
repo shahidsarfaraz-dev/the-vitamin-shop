@@ -5,7 +5,7 @@
       <a href="/"><img src="{{ 'arrow-left.svg' | asset_url }}"> Back to home</a>
       <div>
         <img src="{{ section.settings.initial_message_image | image_url: width: '65x' }}">
-        <h3>{{ section.settings.wholesale_title }}</h3>
+        <span class="h3">{{ section.settings.wholesale_title }}</span>
         <span class="modal-login-form modal-register-form" style="display:none">{{ section.settings.wholesale_subtitle }}</span>
       </div>
     </div>
@@ -20,7 +20,7 @@
               <div class="content-box">
                 <img src="{{ 'check-icon-wholesale-modal.png' | asset_img_url: width: '34x' }}">
                 {% if block.settings.title %}
-                  <h4>{{ block.settings.title }}</h4>
+                  <span class="h4">{{ block.settings.title }}</span>
                 {% endif %}
                 {% if block.settings.text %}
                   {{ block.settings.text }}
@@ -37,7 +37,7 @@
               <div class="content-box">
                 <img src="{{ 'check-icon-wholesale-modal.png' | asset_img_url: width: '34x' }}">
                 {% if block.settings.title %}
-                  <h4>{{ block.settings.title }}</h4>
+                  <span class="h4">{{ block.settings.title }}</span>
                 {% endif %}
                 {% if block.settings.text %}
                   {{ block.settings.text }}
@@ -79,7 +79,7 @@
               <div class="content-box">
                 <img src="{{ 'check-icon-wholesale-modal.png' | asset_img_url: width: '34x' }}">
                 {% if block.settings.title %}
-                  <h4>{{ block.settings.title }}</h4>
+                  <span class="h4">{{ block.settings.title }}</span>
                 {% endif %}
                 {% if block.settings.text %}
                   {{ block.settings.text }}
