@@ -3,7 +3,7 @@
 
     
     <div class="promotional-banner-mobile-content">
-        <h2 class="promotional-banner-title">{{ section.settings.title }}</h2>
+        <h1 class="promotional-banner-title">{{ section.settings.title }}</h1>
         <div class="promotional-banner-description">{% if collection.description %} {{ collection.description }}{% else %} {{ section.settings.description }}{% endif %}</div>      
     </div>
     
@@ -11,7 +11,7 @@
       <div class="promotional-banner-mobile-background" style="background-image: url({{ section.settings.mobile_background_image | default: section.settings.background_image | image_url }});">{{ section.settings.title }}</div>
       {% if section.settings.background_image %}<img class="promotional-banner-image" src="{{ section.settings.background_image | image_url }}">{% endif %}
       <div class="promotional-banner-content">
-        <h2 class="promotional-banner-title">{{ section.settings.title }}</h2>
+        <h1 class="promotional-banner-title">{{ section.settings.title }}</h1>
         <div class="promotional-banner-description">{{ collection.description }}{% if collection.description %} {{ section.settings.title }}{% else %} {{ section.settings.description }}{% endif %}</div>
       </div>
     </div>

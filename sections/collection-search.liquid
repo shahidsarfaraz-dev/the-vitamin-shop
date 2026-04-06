@@ -34,7 +34,7 @@
 
 <div class="section-{{ section.id }}-padding page-width search-results-wrapper collection-grid-wrapper">
   <div class="collection-sidebar fade-in-element">
-    <h3 class="collection-sidebar-title">{{ section.settings.sidebar_menu_title }}</h3>
+    <span class="h3 collection-sidebar-title">{{ section.settings.sidebar_menu_title }}</span>
     <ul>
     {% for link in section.settings.sidebar_menu.links %}
       <li><a href="{{ link.url }}">{{ link.title }}</a></li>
@@ -49,9 +49,9 @@
 
           <div class="facet-filters sorting caption">
             <div class="facet-filters__field">
-              <h2 class="facet-filters__label caption-large text-body">
+              <span class="h2 facet-filters__label caption-large text-body">
                 <label for="SortBy">{{ 'products.facets.sort_by_label' | t }}</label>
-              </h2>
+              </span>
               <div class="select">
                 {%- assign sort_by = search.sort_by | default: search.default_sort_by -%}
                 <select
