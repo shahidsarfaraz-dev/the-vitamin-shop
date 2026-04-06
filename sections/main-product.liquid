@@ -78,7 +78,7 @@
     <div class="grid__item fade-in-element product__media-wrapper{% if section.settings.media_position == 'right' %} medium-hide large-up-hide{% endif %}">
       
       <div class="product-header-mobile">
-        <h1 class="product-title-mobile"><div class="product-subtitle-mobile">{{ product.vendor }} - {% for variant in product.variants %}<span class="variant variant-title" id="variant-title-{{ variant.id }}" style="display: none;">{{ variant.title }}</span>{% endfor %}</div>    {{ product.title }}</h1>     
+        <span class="h1 product-title-mobile"><div class="product-subtitle-mobile">{{ product.vendor }} - {% for variant in product.variants %}<span class="variant variant-title" id="variant-title-{{ variant.id }}" style="display: none;">{{ variant.title }}</span>{% endfor %}</div>    {{ product.title }}</span>     
       </div>
 
       {% assign variant_media_count = 0 %}
