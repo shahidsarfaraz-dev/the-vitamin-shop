@@ -19,7 +19,7 @@
 <div class="promotional-banner fade-in-element promotional-banner-standard">
     {% unless template.name == 'collection' and template.suffix == blank or template.name == 'collection' and template.suffix == 'branded' %}
       <div class="promotional-banner-mobile-content">
-          <h2 class="promotional-banner-title">{% if collection_search == true %}{{ active_label | capitalize }}{% else %}{{ section.settings.promo_title }}{% endif %}</h2>
+          <h1 class="promotional-banner-title">{% if collection_search == true %}{{ active_label | capitalize }}{% else %}{{ section.settings.promo_title }}{% endif %}</h1>
           <div class="promotional-banner-description">{{ collection.description }}</div>      
       </div>
     {% endunless %}
@@ -34,7 +34,7 @@
       {% endif %}
       {% endif %}
       <div class="promotional-banner-content">
-        <h2 class="promotional-banner-title">{% if collection_search == true %}{{ active_label | capitalize }}{% else %}{{ section.settings.promo_title }}{% endif %}</h2>
+        <h1 class="promotional-banner-title">{% if collection_search == true %}{{ active_label | capitalize }}{% else %}{{ section.settings.promo_title }}{% endif %}</h1>
           <div class="promo-description-wrapper">
 
             <div class="promotional-banner-description js-collection-desc">

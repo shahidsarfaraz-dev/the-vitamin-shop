@@ -4,7 +4,7 @@
 <div class="promotional-banner fade-in-element">
     {% if collection.image %}
       <div class="promotional-banner-mobile-content">
-          <h2 class="promotional-banner-title">{{ section.settings.promo_title }}</h2>
+          <h1 class="promotional-banner-title">{{ section.settings.promo_title }}</h1>
           <div class="promotional-banner-description">{{ collection.description }}</div>      
       </div>
     {% endif %}
@@ -15,7 +15,7 @@
       <img class="promotional-banner-image-mobile" src="{{ collection.featured_image | image_url }}">
       {% endif %}
       <div class="promotional-banner-content">
-        <h2 class="promotional-banner-title">{{ section.settings.promo_title }}</h2>
+        <h1 class="promotional-banner-title">{{ section.settings.promo_title }}</h1>
         <div class="promotional-banner-description">{{ collection.description }}</div>
       </div>
     </div>

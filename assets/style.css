@@ -53,14 +53,22 @@ body.tvs-theme .title-wrapper-with-link{
 
 body.tvs-theme h1,
 body.tvs-theme h2,
-body.tvs-theme h3{
+body.tvs-theme h3,
+body.tvs-theme .h1,
+body.tvs-theme .h2,
+body.tvs-theme .h3{
   font-weight: 700;
 }
 body.tvs-theme h1,
 body.tvs-theme h2,
 body.tvs-theme h3,
 body.tvs-theme h4,
-body.tvs-theme h5{
+body.tvs-theme h5,
+body.tvs-theme .h1,
+body.tvs-theme .h2,
+body.tvs-theme .h3,
+body.tvs-theme .h4,
+body.tvs-theme .h5{
   letter-spacing: 0;
   margin-top: 0;
   margin-bottom: 20px;
@@ -68,10 +76,12 @@ body.tvs-theme h5{
   font-family: "Figtree", sans-serif !important;
   line-height: 1.25;
 }
-body.tvs-theme h2{
+body.tvs-theme h2,
+body.tvs-theme .h2{
   font-size: 32px;
 }
-body.tvs-theme h3{
+body.tvs-theme h3,
+body.tvs-theme .h3{
   font-size: 22px;
 }
 
