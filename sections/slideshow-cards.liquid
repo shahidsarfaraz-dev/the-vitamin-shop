@@ -11,7 +11,7 @@
                   </div>
                   <div class="hero-carousel-item-bottom">
                     <div class="hero-carousel-content" style="background: {{ block.settings.background }}">
-                      <h2 class="hero-carousel-item-title">{{ block.settings.item_title }}</h2>
+                      <span class="hero-carousel-item-title" style="display: block;">{{ block.settings.item_title }}</span>
                       <div class="hero-carousel-item-description desktop">{{ block.settings.item_description | truncate: 170 }}</div>
                       <div class="hero-carousel-item-description mobile">{% if block.settings.item_mobile_description != '' %}{{ block.settings.item_mobile_description | truncate: 70 }}{% else %}{{ block.settings.item_description | truncate: 70 }}{% endif %}</div>
                       <a href="{{ block.settings.button_url }}" class="button">{{ block.settings.button_text }} <span class="gg-chevron-right"></span></a>
