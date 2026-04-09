@@ -50,7 +50,7 @@
     </div>
 </div>
 
-{% if template.name == 'collection' and template.suffix == blank or template.name == 'collection' and template.suffix == 'branded' %}
+{% if request.page_type == "collection" %}
 <style>
 .promotional-banner-container .promotional-banner-content {
   display: block !important;
