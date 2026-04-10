@@ -72,7 +72,9 @@
         {% else %}
           <div class="vendor-group-item">
               {% assign special_icon = section.settings.canadian_icon | image_url: width: '20x' %}
-              {% for term in terms %}{% if term == product_vendor %}<img src="{{ special_icon }}" style="display: inline-block; vertical-align: top; margin-right: 3px">{% endif %}{% endfor %} {{ product_vendor | link_to_vendor }}
+              {% for term in terms %}{% if term == product_vendor %}<img src="{{ special_icon }}" style="display: inline-block; vertical-align: top; margin-right: 3px">{% endif %}{% endfor %} <a href="/vendors?q={{ product_vendor | url_encode }}" rel="nofollow">
+                {{ product_vendor }}
+              </a>
           </div>
         {% else %}
           
