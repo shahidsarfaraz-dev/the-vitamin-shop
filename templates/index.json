@@ -25,6 +25,19 @@
             "text_color": "black"
           }
         },
+        "row_CwLct4": {
+          "type": "row",
+          "disabled": true,
+          "settings": {
+            "background": "#126752",
+            "item_title": "Item Title",
+            "item_description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>",
+            "item_mobile_description": "",
+            "button_text": "Shop Now",
+            "button_url": "",
+            "text_color": "black"
+          }
+        },
         "row_jTCqyT": {
           "type": "row",
           "settings": {
@@ -190,6 +203,7 @@
       },
       "block_order": [
         "row_XGUfyX",
+        "row_CwLct4",
         "row_jTCqyT",
         "row_3Lj9TF",
         "row_MEHf9b",
