@@ -2625,7 +2625,10 @@ body.tvs-theme .product__savings img{
 }
 
 body.tvs-theme #product-accordion-description,
-body.tvs-theme #product-accordion-ingredients {
+body.tvs-theme #product-accordion-ingredients,
+body.tvs-theme #product-accordion-learnmore,
+body.tvs-theme #product-accordion-faqs
+ {
   display: none;
 }
 body.tvs-theme .product-accordion-content{
@@ -2672,6 +2675,49 @@ body.tvs-theme #product-accordion-description-mobile,
 body.tvs-theme #product-accordion-ingredients-mobile{
   display: none;
 }
+
+body.tvs-theme #product-accordion-learnmore ~ .learnmore .product-accordion-content {
+  display: none;
+}
+body.tvs-theme #product-accordion-learnmore:checked ~ .learnmore .product-accordion-content {
+  display: block;
+}
+body.tvs-theme #product-accordion-learnmore:checked ~ .learnmore .product-accordion-title {
+  background-color: #1A8ACC;
+  color: #fff;
+}
+body.tvs-theme #product-accordion-learnmore:checked ~ .learnmore .product-accordion-title:after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3C!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--%3E%3Cpath d='M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z' fill='%23fff' /%3E%3C/svg%3E");
+  transform: rotate(180deg);
+}
+/* mobile accordion */
+body.tvs-theme #product-accordion-description-mobile,
+body.tvs-theme #product-accordion-learnmore-mobile{
+  display: none;
+}
+
+/* faqs */
+body.tvs-theme #product-accordion-faqs ~ .faqs .product-accordion-content {
+  display: none;
+}
+body.tvs-theme #product-accordion-faqs:checked ~ .faqs .product-accordion-content {
+  display: block;
+}
+body.tvs-theme #product-accordion-faqs:checked ~ .faqs .product-accordion-title {
+  background-color: #1A8ACC;
+  color: #fff;
+}
+body.tvs-theme #product-accordion-faqs:checked ~ .faqs .product-accordion-title:after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3C!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--%3E%3Cpath d='M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z' fill='%23fff' /%3E%3C/svg%3E");
+  transform: rotate(180deg);
+}
+/* mobile accordion */
+body.tvs-theme #product-accordion-description-mobile,
+body.tvs-theme #product-accordion-faqs-mobile{
+  display: none;
+}
+
+
 body.tvs-theme #product-accordion-description-mobile ~ .description .product-accordion-content {
   display: none;
 }
@@ -2704,6 +2750,39 @@ body.tvs-theme .product-accordion span.ingredient{
   display: block;
   margin-bottom: 1rem;
 }
+
+body.tvs-theme #product-accordion-learnmore-mobile ~ .learnmore .product-accordion-content {
+  display: none;
+}
+body.tvs-theme #product-accordion-learnmore-mobile:checked ~ .learnmore .product-accordion-content {
+  display: block;
+}
+body.tvs-theme #product-accordion-learnmore-mobile:checked ~ .learnmore .product-accordion-title {
+  background-color: #1A8ACC;
+  color: #fff;
+}
+body.tvs-theme #product-accordion-learnmore-mobile:checked ~ .learnmore .product-accordion-title:after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3C!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--%3E%3Cpath d='M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z' fill='%23fff' /%3E%3C/svg%3E");
+  transform: rotate(180deg);
+}
+
+/* faqs */
+
+body.tvs-theme #product-accordion-faqs-mobile ~ .faqs .product-accordion-content {
+  display: none;
+}
+body.tvs-theme #product-accordion-faqs-mobile:checked ~ .faqs .product-accordion-content {
+  display: block;
+}
+body.tvs-theme #product-accordion-faqs-mobile:checked ~ .faqs .product-accordion-title {
+  background-color: #1A8ACC;
+  color: #fff;
+}
+body.tvs-theme #product-accordion-faqs-mobile:checked ~ .faqs .product-accordion-title:after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3C!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--%3E%3Cpath d='M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z' fill='%23fff' /%3E%3C/svg%3E");
+  transform: rotate(180deg);
+}
+
 body.tvs-theme .product-accordion .ingredient-list{
   margin-top: 2rem;
   margin-bottom: 2rem;

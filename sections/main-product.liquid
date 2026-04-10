@@ -111,6 +111,12 @@
       <div class="product-accordion-group" id="productAccordion">
         <input type="checkbox" id="product-accordion-description" value="description" name="product-accordion" checked>
         <input type="checkbox" id="product-accordion-ingredients" value="ingredients" name="product-accordion">
+        {%- if product.metafields.custom.learnmore != blank -%}
+          <input type="checkbox" id="product-accordion-learnmore" value="learnmore" name="product-accordion">
+        {%- endif -%}
+        {%- if product.metafields.custom.faqs != blank -%}
+          <input type="checkbox" id="product-accordion-faqs" value="faqs" name="product-accordion">
+        {%- endif -%}
         <div class="product-accordion description">
           <label for="product-accordion-description" class="product-accordion-title">Description</label>
           <div class="product-accordion-content">{{ product.description }}</div>
@@ -125,7 +131,30 @@
                 {{ product.metafields.custom.additional_ingredients | metafield_tag }}
               </div>
           </div>
-        </div>        
+        </div>
+        {%- if product.metafields.custom.learnmore != blank -%}
+          <div class="product-accordion learnmore">
+            <label for="product-accordion-learnmore" class="product-accordion-title">Learn More</label>
+            <div class="product-accordion-content">
+              {{ product.metafields.custom.learnmore | metafield_tag }}
+            </div>
+          </div> 
+        {%- endif -%}
+        {%- if product.metafields.custom.faqs != blank -%}
+          <div class="product-accordion faqs">
+            <label for="product-accordion-faqs" class="product-accordion-title">Frequently Asked Questions</label>
+            <div class="product-accordion-content"style="margin-top: 1em">
+              {% assign faqs = product.metafields.custom.faqs.value %}
+              {% for faq in faqs %}
+                <div class="faq-item">
+                  <span style="display: block; font-size: 18px; font-weight: 600">{{ forloop.index }}. {{ faq.question }}</span>
+                  <p style="font-size: 16px; padding-left: 19px;">{{ faq.answer }}</p>
+                </div>
+              {% endfor %}
+            </div>
+          </div> 
+        {%- endif -%}
+
       </div>
     </div>
     <div class="product__info-wrapper fade-in-element grid__item{% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %}">
@@ -575,6 +604,8 @@
   <div class="product-accordion-group accordion-group-mobile">
     <input type="checkbox" id="product-accordion-description-mobile" value="description" name="product-accordion-mobile" checked>
     <input type="checkbox" id="product-accordion-ingredients-mobile" value="ingredients" name="product-accordion-mobile">
+    <input type="checkbox" id="product-accordion-learnmore-mobile" value="learnmore" name="product-accordion-mobile">
+    <input type="checkbox" id="product-accordion-faqs-mobile" value="faqs" name="product-accordion-mobile">
     <div class="product-accordion description" id="productAccordionMobile">
       <label for="product-accordion-description-mobile" class="product-accordion-title">Description</label>
       <div class="product-accordion-content">{{ product.description }}</div>
@@ -589,7 +620,29 @@
             {{ product.metafields.custom.additional_ingredients | metafield_tag }}
           </div>
       </div>
-    </div>        
+    </div>
+     {%- if product.metafields.custom.learnmore != blank -%}
+          <div class="product-accordion learnmore">
+            <label for="product-accordion-learnmore-mobile" class="product-accordion-title">Learn More</label>
+            <div class="product-accordion-content">
+              {{ product.metafields.custom.learnmore | metafield_tag }}
+            </div>
+          </div> 
+        {%- endif -%}
+        {%- if product.metafields.custom.faqs != blank -%}
+          <div class="product-accordion faqs">
+            <label for="product-accordion-faqs-mobile" class="product-accordion-title">Frequently Asked Questions</label>
+            <div class="product-accordion-content"style="margin-top: 1em">
+              {% assign faqs = product.metafields.custom.faqs.value %}
+              {% for faq in faqs %}
+                <div class="faq-item">
+                  <span style="display: block; font-size: 18px; font-weight: 600">{{ forloop.index }}. {{ faq.question }}</span>
+                  <p style="font-size: 16px; padding-left: 19px;">{{ faq.answer }}</p>
+                </div>
+              {% endfor %}
+            </div>
+          </div> 
+      {%- endif -%}      
   </div>
 
   {% render 'product-media-modal' variant_images: variant_images %}
