@@ -51,6 +51,19 @@
             "text_color": "black"
           }
         },
+        "row_MEHf9b": {
+          "type": "row",
+          "settings": {
+            "background": "#6e4c91",
+            "item_title": "Get a Free Frother",
+            "item_description": "<p>Receive a free frother with the purchase of any Natural Factors Total Body Collagen Powders</p>",
+            "item_mobile_description": "<p>Receive a free frother with the purchase of any Natural Factors Total Body Collagen Powders</p>",
+            "button_text": "Shop Now",
+            "button_url": "https://www.canadianvitaminshop.com/search?q=total+body+collagen&options%5Bprefix%5D=last&sort_by=relevance&filter.p.vendor=Natural+Factors",
+            "image": "shopify://shop_images/DgtlGphcs_TBC-Frother_APR26-Flyr_1200_Ce_u_Ce630.jpg",
+            "text_color": "black"
+          }
+        },
         "row_NbmMjb": {
           "type": "row",
           "settings": {
@@ -101,19 +114,6 @@
             "button_text": "Shop Now",
             "button_url": "https://www.canadianvitaminshop.com/search?q=nutraverge&options%5Bprefix%5D=last&sort_by=relevance&filter.p.vendor=NutraVege",
             "image": "shopify://shop_images/NWAD-0993_NutraSea_VitaminShop_1920x694_P3B_002.jpg",
-            "text_color": "black"
-          }
-        },
-        "row_MEHf9b": {
-          "type": "row",
-          "settings": {
-            "background": "#6e4c91",
-            "item_title": "Get a Free Frother",
-            "item_description": "<p>Receive a free frother with the purchase of any Natural Factors Total Body Collagen Powders</p>",
-            "item_mobile_description": "<p>Receive a free frother with the purchase of any Natural Factors Total Body Collagen Powders</p>",
-            "button_text": "Shop Now",
-            "button_url": "https://www.canadianvitaminshop.com/search?q=total+body+collagen&options%5Bprefix%5D=last&sort_by=relevance&filter.p.vendor=Natural+Factors",
-            "image": "shopify://shop_images/DgtlGphcs_TBC-Frother_APR26-Flyr_1200_Ce_u_Ce630.jpg",
             "text_color": "black"
           }
         },
@@ -192,11 +192,11 @@
         "row_XGUfyX",
         "row_jTCqyT",
         "row_3Lj9TF",
+        "row_MEHf9b",
         "row_NbmMjb",
         "row_KwtdLt",
         "row_4qRD6e",
         "row_aGr7ee",
-        "row_MEHf9b",
         "row_fhAKCF",
         "row_zwFVmF",
         "row_FYeFBC",
