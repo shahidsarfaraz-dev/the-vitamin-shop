@@ -1,0 +1,312 @@
+{%- comment -%}
+GLOBAL JSON-LD SCHEMA (Single file)
+- WebSite + SearchAction (global)
+- Homepage: Organization + LocalBusiness + WebPage (NO BreadcrumbList)
+- Product: BreadcrumbList includes parent category
+- Collection: CollectionPage + Organization + FAQPage (only if FAQs exist)
+- Social profiles pulled from your theme settings IDs:
+  settings.social_facebook, social_twitter, social_pinterest, social_instagram,
+  social_vimeo, social_tumblr, social_youtube, social_tiktok, social_linkedin,
+  social_snapchat, social_fancy
+{%- endcomment -%}
+
+{%- assign shop_url = shop.url -%}
+
+{%- comment -%} Build sameAs array from your settings {%- endcomment -%}
+{%- assign socials = '' -%}
+{%- if settings.social_facebook_link  != blank -%}{%- assign socials = socials | append: settings.social_facebook_link  | append: '||' -%}{%- endif -%}
+{%- if settings.social_twitter_link   != blank -%}{%- assign socials = socials | append: settings.social_twitter_link   | append: '||' -%}{%- endif -%}
+{%- if settings.social_pinterest_link != blank -%}{%- assign socials = socials | append: settings.social_pinterest_link | append: '||' -%}{%- endif -%}
+{%- if settings.social_instagram_link != blank -%}{%- assign socials = socials | append: settings.social_instagram_link | append: '||' -%}{%- endif -%}
+{%- if settings.social_vimeo_link     != blank -%}{%- assign socials = socials | append: settings.social_vimeo_link     | append: '||' -%}{%- endif -%}
+{%- if settings.social_tumblr_link    != blank -%}{%- assign socials = socials | append: settings.social_tumblr_link    | append: '||' -%}{%- endif -%}
+{%- if settings.social_youtube_link   != blank -%}{%- assign socials = socials | append: settings.social_youtube_link   | append: '||' -%}{%- endif -%}
+{%- if settings.social_tiktok_link    != blank -%}{%- assign socials = socials | append: settings.social_tiktok_link    | append: '||' -%}{%- endif -%}
+{%- if settings.social_linkedin_link  != blank -%}{%- assign socials = socials | append: settings.social_linkedin_link  | append: '||' -%}{%- endif -%}
+{%- if settings.social_snapchat_link  != blank -%}{%- assign socials = socials | append: settings.social_snapchat_link  | append: '||' -%}{%- endif -%}
+{%- if settings.social_fancy_link     != blank -%}{%- assign socials = socials | append: settings.social_fancy_link     | append: '||' -%}{%- endif -%}
+
+{%- assign socials_arr = socials | split: '||' -%}
+{%- assign has_social = false -%}
+{%- for s in socials_arr -%}
+  {%- if s != blank -%}{%- assign has_social = true -%}{%- break -%}{%- endif -%}
+{%- endfor -%}
+
+{%- comment -%} 1) WebSite + SearchAction (global, do not duplicate per-page) {%- endcomment -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "{{ shop_url }}#website",
+  "url": {{ shop_url | json }},
+  "name": {{ shop.name | json }},
+  "publisher": { "@id": "{{ shop_url }}#organization" },
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "{{ shop_url }}/search?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+
+{%- comment -%} 2) Page-specific schema via if/elsif (single output, no conflicts) {%- endcomment -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+
+  {%- if request.page_type == 'index' -%}
+
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "{{ shop_url }}#organization",
+      "name": {{ shop.name | json }},
+      "url": {{ shop_url | json }},
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "{{ shop_url }}#logo",
+        "url": "https://www.canadianvitaminshop.com/cdn/shop/files/full-logo.svg",
+        "contentUrl": "https://www.canadianvitaminshop.com/cdn/shop/files/full-logo.svg"
+      }
+      {%- if has_social -%}
+      ,
+      "sameAs": [
+        {%- for s in socials_arr -%}
+          {%- if s != blank -%}{{ s | json }}{%- unless forloop.last -%},{%- endunless -%}{%- endif -%}
+        {%- endfor -%}
+      ]
+      {%- endif -%}
+    },  
+    {
+      "@type": "LocalBusiness",
+      "@id": "{{ shop_url }}#localbusiness",
+      "name": {{ shop.name | json }},
+      "url": {{ shop_url | json }},
+      "image": "https://www.canadianvitaminshop.com/cdn/shop/files/full-logo.svg",
+      "parentOrganization": { "@id": "{{ shop_url }}#organization" }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "{{ shop_url }}#webpage",
+      "url": {{ shop_url | json }},
+      "name": {{ shop.name | json }},
+      "isPartOf": { "@id": "{{ shop_url }}#website" },
+      "about": { "@id": "{{ shop_url }}#organization" },
+      "primaryImageOfPage": { "@id": "{{ shop_url }}#logo" }
+    }
+  ]
+
+  {%- elsif request.page_type == 'product' and product -%}
+
+  "@type": "BreadcrumbList",
+  "@id": "{{ shop_url }}{{ product.url }}#breadcrumb",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "{{ shop_url }}"
+    }
+    {%- assign primary_collection = collection | default: product.collections.first -%}
+    {%- if primary_collection -%}
+    ,
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": {{ primary_collection.title | json }},
+      "item": {{ shop_url | append: primary_collection.url | json }}
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": {{ product.title | json }},
+      "item": {{ shop_url | append: product.url | json }}
+    }
+    {%- else -%}
+    ,
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": {{ product.title | json }},
+      "item": {{ shop_url | append: product.url | json }}
+    }
+    {%- endif -%}
+  ]
+
+  {%- elsif request.page_type == 'collection' and collection -%}
+    {% assign faq_html = collection.metafields.custom.seo_text_.value %}
+
+"@graph": [
+
+  {
+    "@type": "Organization",
+    "@id": "{{ shop_url }}#organization",
+    "name": {{ shop.name | json }},
+    "url": {{ shop_url | json }},
+    "logo": {
+      "@type": "ImageObject",
+      "@id": "{{ shop_url }}#logo",
+      "url": "https://www.canadianvitaminshop.com/cdn/shop/files/full-logo.svg",
+      "contentUrl": "https://www.canadianvitaminshop.com/cdn/shop/files/full-logo.svg"
+    }
+    {%- if has_social -%}
+    ,
+    "sameAs": [
+      {%- for s in socials_arr -%}
+        {%- if s != blank -%}{{ s | json }}{%- unless forloop.last -%},{%- endunless -%}{%- endif -%}
+      {%- endfor -%}
+    ]
+    {%- endif -%}
+  },
+
+  {
+    "@type": "CollectionPage",
+    "@id": "{{ shop_url }}{{ collection.url }}#collectionpage",
+    "url": {{ shop_url | append: collection.url | json }},
+    "name": {{ collection.title | json }},
+    {%- if collection.description != blank -%}
+    "description": {{ collection.description | strip_html | strip_newlines | json }},
+    {%- endif -%}
+    "isPartOf": { "@id": "{{ shop_url }}#website" },
+    "about": { "@id": "{{ shop_url }}#organization" }
+    {% if faq_html contains 'Frequently Asked Questions' %}
+      ,
+    "hasPart": {
+      "@id": "{{ request.origin }}{{ request.path }}#faq"
+      } 
+    {%- endif -%}
+
+  },
+
+  {
+    "@type": "ItemList",
+    "@id": "{{ shop_url }}{{ collection.url }}#itemlist",
+    "name": {{ collection.title | append: ' Products' | json }},
+    "itemListOrder": "https://schema.org/ItemListOrderAscending",
+    "itemListElement": [
+
+      {%- for product in collection.products -%}
+      {
+        "@type": "ListItem",
+        "position": {{ forloop.index }},
+        "url": {{ shop_url | append: product.url | json }},
+        "name": {{ product.title | json }},
+        "image": {{ product.featured_image | image_url: width: 800 | prepend: "https:" | json }}
+      }{%- unless forloop.last -%},{%- endunless -%}
+
+      {%- endfor -%}
+
+    ]
+  }
+]
+  {%- endif -%}
+}
+</script>
+
+{%- if request.page_type == 'product' and product -%}
+{%- assign shop_url = shop.url -%}
+{%- assign primary_collection = collection | default: product.collections.first -%}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+
+    {
+      "@type": "BreadcrumbList",
+      "@id": "{{ shop_url }}{{ product.url }}#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "{{ shop_url }}"
+        }
+        {%- if primary_collection -%}
+        ,
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": {{ primary_collection.title | json }},
+          "item": {{ shop_url | append: primary_collection.url | json }}
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": {{ product.title | json }},
+          "item": {{ shop_url | append: product.url | json }}
+        }
+        {%- else -%}
+        ,
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": {{ product.title | json }},
+          "item": {{ shop_url | append: product.url | json }}
+        }
+        {%- endif -%}
+      ]
+    },
+
+    {
+      "@type": "Product",
+      "@id": "{{ shop_url }}{{ product.url }}#product",
+      "name": {{ product.title | json }},
+      "url": {{ shop_url | append: product.url | json }},
+      {%- if product.featured_image -%}
+      "image": [
+        {{ product.featured_image | image_url: width: 1200 | prepend: "https:" | json }}
+      ],
+      {%- endif -%}
+      {%- if product.description != blank -%}
+      "description": {{ product.description | strip_html | strip_newlines | json }},
+      {%- endif -%}
+      "sku": {{ product.selected_or_first_available_variant.sku | default: product.id | json }},
+      "brand": {
+        "@type": "Brand",
+        "name": {{ shop.name | json }}
+      },
+
+      {%- comment -%} Optional: add GTIN if you store it in variant barcode {%- endcomment -%}
+      {%- if product.selected_or_first_available_variant.barcode != blank -%}
+      "gtin": {{ product.selected_or_first_available_variant.barcode | json }},
+      {%- endif -%}
+
+      {%- if product.vendor != blank and product.vendor != shop.name -%}
+      "manufacturer": {
+        "@type": "Organization",
+        "name": {{ product.vendor | json }}
+      },
+      {%- endif -%}
+
+      "offers": [
+        {%- for variant in product.variants -%}
+        {
+          "@type": "Offer",
+          "url": {{ shop_url | append: variant.url | json }},
+          "priceCurrency": {{ cart.currency.iso_code | json }},
+          "price": {{ variant.price | money_without_currency | replace: ',', '' | json }},
+          "availability": "https://schema.org/{% if variant.available %}InStock{% else %}OutOfStock{% endif %}",
+          "itemCondition": "https://schema.org/NewCondition",
+          "sku": {{ variant.sku | default: variant.id | json }}
+          {%- if variant.barcode != blank -%}
+          ,
+          "gtin": {{ variant.barcode | json }}
+          {%- endif -%}
+        }{%- unless forloop.last -%},{%- endunless -%}
+        {%- endfor -%}
+      ]
+      {%- if product.metafields.reviews.rating.value != blank and product.metafields.reviews.rating_count.value != blank -%}
+      ,
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": {{ product.metafields.reviews.rating.value }},
+        "reviewCount": {{ product.metafields.reviews.rating_count.value | json }}
+      }
+      {%- endif -%}
+
+    }
+  ]
+}
+</script>
+{%- endif -%}
