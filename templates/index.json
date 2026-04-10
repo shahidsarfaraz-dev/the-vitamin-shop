@@ -106,15 +106,14 @@
         },
         "row_MEHf9b": {
           "type": "row",
-          "disabled": true,
           "settings": {
-            "background": "#226e8f",
-            "item_title": "Core Support",
-            "item_description": "<p>From hormone balance to stress, iron, and menopause support—WomenSense Core Four offers clean, targeted solutions to help women thrive at every life stage.</p>",
-            "item_mobile_description": "<p>From hormone balance to stress, iron, and menopause support—WomenSense Core Four offers clean, targeted solutions to help women thrive at every life stage.</p>",
+            "background": "#6e4c91",
+            "item_title": "Get a Free Frother",
+            "item_description": "<p>Receive a free frother with the purchase of any Natural Factors Total Body Collagen Powders</p>",
+            "item_mobile_description": "<p>Receive a free frother with the purchase of any Natural Factors Total Body Collagen Powders</p>",
             "button_text": "Shop Now",
-            "button_url": "https://www.canadianvitaminshop.com/search?q=womensense+bonus&options%5Bprefix%5D=last",
-            "image": "shopify://shop_images/Bnnr_WS_TVS_847x462_APR26.jpg",
+            "button_url": "https://www.canadianvitaminshop.com/search?q=total+body+collagen&options%5Bprefix%5D=last&sort_by=relevance&filter.p.vendor=Natural+Factors",
+            "image": "shopify://shop_images/DgtlGphcs_TBC-Frother_APR26-Flyr_1200_Ce_u_Ce630.jpg",
             "text_color": "black"
           }
         },
