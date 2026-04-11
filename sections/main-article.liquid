@@ -1,6 +1,6 @@
 {{ 'section-blog-post.css' | asset_url | stylesheet_tag }}
 
-<article class="article-template" itemscope itemtype="http://schema.org/BlogPosting">
+<article class="article-template">
   {%- for block in section.blocks -%}
     {%- case block.type -%}
       {%- when '@app' -%}
@@ -13,7 +13,6 @@
             <div class="article-template__hero-container" {{ block.shopify_attributes }}>
               <div
                 class="article-template__hero-{{ block.settings.image_height }} media"
-                itemprop="image"
                 {% if block.settings.image_height == 'adapt' and article.image %}
                   style="padding-bottom: {{ 1 | divided_by: article.image.aspect_ratio | times: 100 }}%;"
                 {% endif %}
@@ -51,7 +50,7 @@
                 <span class="article-author">in {{ blog.title }}</span>
               {% endif %}           
           </div>
-          <h1 class="article-template__title" itemprop="headline">{{ article.title | escape }}</h1>
+          <h1 class="article-template__title">{{ article.title | escape }}</h1>
         </header>
 
       {% if article.metafields.custom.video_link %}
@@ -65,7 +64,6 @@
       {%- when 'content' -%}
         <div
           class="article-template__content page-width page-width--narrow rte"
-          itemprop="articleBody"
           {{ block.shopify_attributes }}
         >
           {{ article.content }}
