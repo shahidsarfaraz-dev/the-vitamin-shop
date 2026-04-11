@@ -508,28 +508,28 @@
         "include_margins": true
       }
     },
-    "rich_text_LnM9BP": {
-      "type": "rich-text",
-      "blocks": {
-        "text_bU4Cpn": {
-          "type": "text",
-          "settings": {
-            "text": "<h2><strong>The Vitamin Shop – Canada’s Best Online Vitamin Store & Health Shop</strong></h2><p>At The Vitamin Shop, our health food store stocks the best natural health products in Canada from trusted vitamin brands including AOR, NOW and Progressive.</p><p>Get the nutrients you need without breaking the bank. We offer affordable prices on quality supplements. As a dedicated vitamin shop, we work hard to ensure every Canadian has access to the nutrition they need.</p><h3><strong>Shop Vitamins & Supplements For the Whole Family</strong></h3><p>With free delivery on all orders over $79, there’s even more reason to stock up on trusted vitamins and supplement supplies with Canada’s best online vitamin store.</p><p>We guarantee that you’ll love our quality vitamins, personalized customer service and super-fast shipping. If you run into any problems with your order, we offer quick, easy and hassle-free returns, making your life that much easier.</p><p>We carry everything your family needs to stay healthy. From high-quality multivitamins to support daily energy, to specialized formulas like men’s and women’s blends, we have it all. We even make it easy to look after your little ones with tasty kids’ multivitamins options.</p><h3><strong>Ordering Vitamins Online in Canada with The Vitamin Shop</strong></h3><p>Ordering vitamins online shouldn’t mean you have to pay more to get the supplements you need. With everyday low prices, fast and free shipping, we deliver a personalized shopping experience that you won’t find anywhere else, online or in-store.</p><p>With a wide range of vitamins available, from multivitamins to magnesium and protein to collagen, we’re here to support your journey to better health.</p><p>When you visit The Vitamin Shop, you’ll find that we prioritize natural ingredients and clear labels. We want you to feel confident in every vitamin and health product you bring home. Whether you need reliable protein powders for recovery or daily essentials, we are the shop that cares about your results.</p><h3><strong>Why Choose The Vitamin Shop?</strong></h3><ul><li><strong>Customer Satisfaction Guarantee:</strong> Your wellness is our priority<br/></li><li><strong>Guaranteed Lowest Prices:</strong> Quality supplements at the best value<br/></li><li><strong>Quality for Every Need:</strong> From daily essentials to premium formulas<br/></li></ul><p>By choosing The Vitamin Shop, you aren’t just buying vitamins — you’re joining a community that values simple, effective nutrition.</p><p>So go ahead, explore our extensive catalog, browse our health resources, and let us help you achieve your wellness goals with the best supplements and vitamins Canada has to offer.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "text_bU4Cpn"
-      ],
-      "name": "t:sections.rich-text.presets.name",
+    "richtext_read_more_HzjTj4": {
+      "type": "richtext-read-more",
+      "name": "Rich text read more",
       "settings": {
-        "use_landing_page_styles": false,
-        "desktop_content_position": "left",
-        "content_alignment": "left",
-        "color_scheme": "background-1",
-        "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 52
+        "heading": "",
+        "content": "<h2><strong>The Vitamin Shop – Canada’s Best Online Vitamin Store & Health Shop</strong></h2><p>At The Vitamin Shop, our health food store stocks the best natural health products in Canada from trusted vitamin brands including AOR, NOW and Progressive.</p><p>Get the nutrients you need without breaking the bank. We offer affordable prices on quality supplements. As a dedicated vitamin shop, we work hard to ensure every Canadian has access to the nutrition they need.</p><h3><strong>Shop Vitamins & Supplements For the Whole Family</strong></h3><p>With free delivery on all orders over $79, there’s even more reason to stock up on trusted vitamins and supplement supplies with Canada’s best online vitamin store.</p><p>We guarantee that you’ll love our quality vitamins, personalized customer service and super-fast shipping. If you run into any problems with your order, we offer quick, easy and hassle-free returns, making your life that much easier.</p><p>We carry everything your family needs to stay healthy. From high-quality multivitamins to support daily energy, to specialized formulas like men’s and women’s blends, we have it all. We even make it easy to look after your little ones with tasty kids’ multivitamins options.</p><h3><strong>Ordering Vitamins Online in Canada with The Vitamin Shop</strong></h3><p>Ordering vitamins online shouldn’t mean you have to pay more to get the supplements you need. With everyday low prices, fast and free shipping, we deliver a personalized shopping experience that you won’t find anywhere else, online or in-store.</p><p>With a wide range of vitamins available, from multivitamins to magnesium and protein to collagen, we’re here to support your journey to better health.</p><p>When you visit The Vitamin Shop, you’ll find that we prioritize natural ingredients and clear labels. We want you to feel confident in every vitamin and health product you bring home. Whether you need reliable protein powders for recovery or daily essentials, we are the shop that cares about your results.</p><h3><strong>Why Choose The Vitamin Shop?</strong></h3><ul><li><strong>Customer Satisfaction Guarantee:</strong> Your wellness is our priority<br/></li><li><strong>Guaranteed Lowest Prices:</strong> Quality supplements at the best value<br/></li><li><strong>Quality for Every Need:</strong> From daily essentials to premium formulas<br/></li></ul><p>By choosing The Vitamin Shop, you aren’t just buying vitamins — you’re joining a community that values simple, effective nutrition.</p><p>So go ahead, explore our extensive catalog, browse our health resources, and let us help you achieve your wellness goals with the best supplements and vitamins Canada has to offer.</p>",
+        "read_more_text": "Read More",
+        "read_less_text": "Read Less",
+        "collapsed_lines": 16,
+        "content_width": 900,
+        "text_alignment": "left",
+        "background_color": "#ffffff",
+        "heading_color": "#111111",
+        "text_color": "#333333",
+        "button_bg_color": "#ffffff",
+        "button_text_color": "#111111",
+        "button_border_color": "#111111",
+        "button_bg_hover_color": "#111111",
+        "button_text_hover_color": "#ffffff",
+        "button_border_hover_color": "#111111",
+        "padding_top": 32,
+        "padding_bottom": 32
       }
     },
     "collapsible_content_YgQpUF": {
@@ -607,7 +607,7 @@
     "popular_categories_74KeQw",
     "featured_blog_GyGQdq",
     "1736203168da73c477",
-    "rich_text_LnM9BP",
+    "richtext_read_more_HzjTj4",
     "collapsible_content_YgQpUF",
     "177368830660feddaf"
   ]
