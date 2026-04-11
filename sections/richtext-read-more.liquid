@@ -1,0 +1,395 @@
+{% liquid
+  assign section_id = 'richtext-readmore-' | append: section.id
+%}
+
+<section
+  id="{{ section_id }}"
+  class="richtext-readmore-section"
+  style="
+    --section-bg: {{ section.settings.background_color }};
+    --heading-color: {{ section.settings.heading_color }};
+    --text-color: {{ section.settings.text_color }};
+    --button-bg: {{ section.settings.button_bg_color }};
+    --button-text: {{ section.settings.button_text_color }};
+    --button-border: {{ section.settings.button_border_color }};
+    --button-bg-hover: {{ section.settings.button_bg_hover_color }};
+    --button-text-hover: {{ section.settings.button_text_hover_color }};
+    --button-border-hover: {{ section.settings.button_border_hover_color }};
+    --content-width: {{ section.settings.content_width }}px;
+    --collapsed-lines: {{ section.settings.collapsed_lines }};
+    --fade-height: 40%;
+    --padding-top: {{ section.settings.padding_top }}px;
+    --padding-bottom: {{ section.settings.padding_bottom }}px;
+  "
+>
+  <div class="page-width">
+    <div class="richtext-readmore__inner richtext-readmore__inner--{{ section.settings.text_alignment }}">
+      {% if section.settings.heading != blank %}
+        <h2 class="richtext-readmore__heading">
+          {{ section.settings.heading }}
+        </h2>
+      {% endif %}
+
+      {% if section.settings.content != blank %}
+        <div class="richtext-readmore" data-readmore data-lines="{{ section.settings.collapsed_lines }}">
+          <div class="richtext-readmore__content-wrap">
+            <div class="richtext-readmore__content rte" data-readmore-content>
+              {{ section.settings.content }}
+            </div>
+          </div>
+
+          <button
+            type="button"
+            class="richtext-readmore__button"
+            data-readmore-button
+            aria-expanded="false"
+            hidden
+          >
+            <span class="richtext-readmore__button-text richtext-readmore__button-text--more">
+              {{ section.settings.read_more_text }}
+            </span>
+            <span class="richtext-readmore__button-text richtext-readmore__button-text--less">
+              {{ section.settings.read_less_text }}
+            </span>
+          </button>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+
+  <style>
+    #{{ section_id }} {
+      background: var(--section-bg);
+      padding-top: var(--padding-top);
+      padding-bottom: var(--padding-bottom);
+    }
+
+    #{{ section_id }} .richtext-readmore__inner {
+      max-width: var(--content-width);
+      margin: 0 auto;
+    }
+
+    #{{ section_id }} .richtext-readmore__inner--left {
+      text-align: left;
+    }
+
+    #{{ section_id }} .richtext-readmore__inner--center {
+      text-align: center;
+    }
+
+    #{{ section_id }} .richtext-readmore__inner--right {
+      text-align: right;
+    }
+
+    #{{ section_id }} .richtext-readmore__heading {
+      margin: 0 0 18px;
+      color: var(--heading-color);
+    }
+
+    #{{ section_id }} .richtext-readmore {
+      position: relative;
+    }
+
+    #{{ section_id }} .richtext-readmore__content-wrap {
+      position: relative;
+    }
+
+    #{{ section_id }} .richtext-readmore__content {
+      color: var(--text-color);
+      overflow: hidden;
+      transition: max-height 0.35s ease;
+      position: relative;
+    }
+
+    #{{ section_id }} .richtext-readmore.is-collapsed .richtext-readmore__content-wrap::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: var(--fade-height);
+      pointer-events: none;
+      z-index: 2;
+      background: linear-gradient(
+        to top,
+        var(--section-bg) 5%,
+        rgba(255, 255, 255, 0) 100%
+      );
+    }
+
+    #{{ section_id }} .richtext-readmore__content p:last-child {
+      margin-bottom: 0;
+    }
+
+    #{{ section_id }} .richtext-readmore__button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin: 18px auto 0;
+      padding: 11px 24px;
+      min-width: 140px;
+      border-radius: 999px;
+      border: 1px solid var(--button-border);
+      background: var(--button-bg);
+      color: var(--button-text);
+      cursor: pointer;
+      text-decoration: none;
+      font: inherit;
+      line-height: 1.2;
+      transition: all 0.25s ease;
+    }
+
+    #{{ section_id }} .richtext-readmore__button:hover {
+      background: var(--button-bg-hover);
+      color: var(--button-text-hover);
+      border-color: var(--button-border-hover);
+    }
+
+    #{{ section_id }} .richtext-readmore__button-text--less {
+      display: none;
+    }
+
+    #{{ section_id }} .richtext-readmore__button[aria-expanded="true"] .richtext-readmore__button-text--more {
+      display: none;
+    }
+
+    #{{ section_id }} .richtext-readmore__button[aria-expanded="true"] .richtext-readmore__button-text--less {
+      display: inline;
+    }
+
+    #{{ section_id }} .richtext-readmore__inner--left .richtext-readmore__button,
+    #{{ section_id }} .richtext-readmore__inner--center .richtext-readmore__button,
+    #{{ section_id }} .richtext-readmore__inner--right .richtext-readmore__button {
+      display: inline-flex;
+    }
+
+    #{{ section_id }} .richtext-readmore {
+      text-align: center;
+    }
+  </style>
+
+  <script>
+    (function() {
+      var section = document.getElementById('{{ section_id }}');
+      if (!section) return;
+
+      function initReadMore() {
+        var blocks = section.querySelectorAll('[data-readmore]');
+
+        blocks.forEach(function(block) {
+          var content = block.querySelector('[data-readmore-content]');
+          var button = block.querySelector('[data-readmore-button]');
+          if (!content || !button) return;
+
+          block.classList.remove('is-ready', 'is-collapsed', 'is-expanded');
+          content.style.maxHeight = 'none';
+          button.hidden = true;
+          button.setAttribute('aria-expanded', 'false');
+
+          var lines = parseInt(block.getAttribute('data-lines'), 10) || 4;
+          var computedStyle = window.getComputedStyle(content);
+          var lineHeight = computedStyle.lineHeight;
+
+          if (lineHeight === 'normal') {
+            var fontSize = parseFloat(computedStyle.fontSize) || 16;
+            lineHeight = fontSize * 1.2;
+          } else {
+            lineHeight = parseFloat(lineHeight);
+          }
+
+          var collapsedHeight = Math.round(lineHeight * lines);
+          var fullHeight = content.scrollHeight;
+
+          if (fullHeight <= collapsedHeight + 4) {
+            content.style.maxHeight = 'none';
+            button.hidden = true;
+            return;
+          }
+
+          block.classList.add('is-ready', 'is-collapsed');
+          content.style.maxHeight = collapsedHeight + 'px';
+          button.hidden = false;
+
+          if (!button.hasAttribute('data-readmore-bound')) {
+            button.addEventListener('click', function() {
+              var expanded = button.getAttribute('aria-expanded') === 'true';
+
+              if (expanded) {
+                button.setAttribute('aria-expanded', 'false');
+                block.classList.remove('is-expanded');
+                block.classList.add('is-collapsed');
+                content.style.maxHeight = collapsedHeight + 'px';
+              } else {
+                button.setAttribute('aria-expanded', 'true');
+                block.classList.remove('is-collapsed');
+                block.classList.add('is-expanded');
+                content.style.maxHeight = content.scrollHeight + 'px';
+              }
+            });
+
+            button.setAttribute('data-readmore-bound', 'true');
+          }
+        });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initReadMore);
+      } else {
+        initReadMore();
+      }
+
+      var resizeTimer;
+      window.addEventListener('resize', function() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(initReadMore, 180);
+      });
+
+      document.addEventListener('shopify:section:load', function(event) {
+        if (event.target && event.target.id === '{{ section_id }}') {
+          initReadMore();
+        }
+      });
+    })();
+  </script>
+</section>
+
+{% schema %}
+{
+  "name": "Rich text read more",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Rich text heading"
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "Content",
+      "default": "<p>Add your rich text here. This section supports a Read More button with a soft gradient fade from bottom to top.</p><p>You can control how many lines stay visible before the visitor expands the full content.</p><p>The button is centered and styled as a pill.</p>"
+    },
+    {
+      "type": "text",
+      "id": "read_more_text",
+      "label": "Read more text",
+      "default": "Read More"
+    },
+    {
+      "type": "text",
+      "id": "read_less_text",
+      "label": "Read less text",
+      "default": "Read Less"
+    },
+    {
+      "type": "range",
+      "id": "collapsed_lines",
+      "label": "Visible lines before expand",
+      "min": 2,
+      "max": 20,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "content_width",
+      "label": "Content width",
+      "min": 400,
+      "max": 1400,
+      "step": 20,
+      "default": 900,
+      "unit": "px"
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "label": "Text alignment",
+      "default": "left",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ]
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Section background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#111111"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#333333"
+    },
+    {
+      "type": "color",
+      "id": "button_bg_color",
+      "label": "Button background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button text",
+      "default": "#111111"
+    },
+    {
+      "type": "color",
+      "id": "button_border_color",
+      "label": "Button border",
+      "default": "#111111"
+    },
+    {
+      "type": "color",
+      "id": "button_bg_hover_color",
+      "label": "Button hover background",
+      "default": "#111111"
+    },
+    {
+      "type": "color",
+      "id": "button_text_hover_color",
+      "label": "Button hover text",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_border_hover_color",
+      "label": "Button hover border",
+      "default": "#111111"
+    },
+    {
+  "type": "range",
+  "id": "padding_top",
+  "label": "Top padding",
+  "min": 0,
+  "max": 160,
+  "step": 4,
+  "default": 32,
+  "unit": "px"
+},
+{
+  "type": "range",
+  "id": "padding_bottom",
+  "label": "Bottom padding",
+  "min": 0,
+  "max": 160,
+  "step": 4,
+  "default": 32,
+  "unit": "px"
+}
+  ],
+  "presets": [
+    {
+      "name": "Rich text read more"
+    }
+  ]
+}
+{% endschema %}
