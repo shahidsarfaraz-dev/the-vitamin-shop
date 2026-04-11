@@ -11,13 +11,25 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "padding_top": 52,
+        "padding_bottom": 52
+      }
+    },
+    "custom_liquid_q3YQUb": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "custom_liquid": "<section>\n<div class=\"page-width\">\n<h3 style=\"font-size: 20px\"><strong>Main product categories</strong></h3>\n        <ul style=\"margin-bottom: 30px;\">\n          {% for collection in collections %}\n            {% unless collection.handle == 'frontpage' %}\n              <li><a href=\"{{ collection.url }}\">{{ collection.title }}</a></li>\n            {% endunless %}\n          {% endfor %}\n        </ul>\n      \n        <h3 style=\"font-size: 20px\"><strong>Popular products</strong></h3>\n        <ul style=\"margin-bottom: 30px;\">\n          {% for product in collections['all'].products limit: 50 %}\n            <li><a href=\"{{ product.url }}\">{{ product.title }}</a></li>\n          {% endfor %}\n        </ul>\n      \n        <h3 style=\"font-size: 20px\"><strong>Help / Policy pages</strong></h3>\n        <ul>\n          {% for p in pages %}\n            <li><a href=\"{{ p.url }}\">{{ p.title }}</a></li>\n          {% endfor %}\n        </ul>\n      \n        {% if blogs.size > 0 %}\n          <h3><strong>Blog</strong></h3>\n          {% for blog in blogs %}\n            <h4>{{ blog.title }}</h4>\n            <ul>\n              {% for article in blog.articles limit: 20 %}\n                <li><a href=\"{{ article.url }}\">{{ article.title }}</a></li>\n              {% endfor %}\n            </ul>\n          {% endfor %}\n        {% endif %}\n</div>\n</section>",
+        "color_scheme": "background-1",
+        "padding_top": 40,
         "padding_bottom": 52
       }
     }
   },
   "order": [
-    "main"
+    "main",
+    "custom_liquid_q3YQUb"
   ]
 }
