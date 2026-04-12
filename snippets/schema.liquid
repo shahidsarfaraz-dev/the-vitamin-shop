@@ -1,6 +1,7 @@
 {%- comment -%}
 GLOBAL JSON-LD SCHEMA (Single file)
 - WebSite + SearchAction (global)
+- OnlineStore + MerchantReturnPolicy (global)
 - Homepage: Organization + LocalBusiness + WebPage (NO BreadcrumbList)
 - Product: BreadcrumbList + Product in @graph
 - Collection: CollectionPage + Organization + ItemList + optional FAQ reference
@@ -53,7 +54,54 @@ GLOBAL JSON-LD SCHEMA (Single file)
 }
 </script>
 
-{%- comment -%} 2) Page-specific schema via if/elsif (single output, no conflicts) {%- endcomment -%}
+{%- comment -%} 2) OnlineStore + MerchantReturnPolicy (global) {%- endcomment -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "OnlineStore",
+  "@id": "{{ shop_url }}#organization",
+  "name": {{ shop.name | json }},
+  "url": {{ shop_url | json }},
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://www.canadianvitaminshop.com/cdn/shop/files/full-logo.svg",
+    "contentUrl": "https://www.canadianvitaminshop.com/cdn/shop/files/full-logo.svg"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "Customer Support",
+    "email": "sales@canadianvitaminshop.com"
+  }
+  {%- if has_social -%},
+  "sameAs": [
+    {%- assign first_social = true -%}
+    {%- for s in socials_arr -%}
+      {%- if s != blank -%}
+        {%- unless first_social -%},{%- endunless -%}
+        {{ s | json }}
+        {%- assign first_social = false -%}
+      {%- endif -%}
+    {%- endfor -%}
+  ]
+  {%- endif -%},
+  "hasMerchantReturnPolicy": {
+    "@type": "MerchantReturnPolicy",
+    "@id": "{{ shop_url }}/policies/refund-policy#returnpolicy",
+    "merchantReturnLink": "{{ shop_url }}/policies/refund-policy",
+    "applicableCountry": "CA",
+    "returnPolicyCountry": "CA",
+    "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+    "merchantReturnDays": 30,
+    "itemCondition": "https://schema.org/NewCondition",
+    "returnMethod": "https://schema.org/ReturnByMail",
+    "refundType": "https://schema.org/FullRefund",
+    "customerRemorseReturnFees": "https://schema.org/ReturnShippingFees",
+    "customerRemorseReturnLabelSource": "https://schema.org/ReturnLabelCustomerResponsibility"
+  }
+}
+</script>
+
+{%- comment -%} 3) Page-specific schema via if/elsif (single output, no conflicts) {%- endcomment -%}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -277,6 +325,9 @@ GLOBAL JSON-LD SCHEMA (Single file)
 
   {%- elsif request.page_type == 'product' and product -%}
   {%- assign primary_collection = collection | default: product.collections.first -%}
+  {%- assign product_brand = product.vendor | default: shop.name -%}
+  {%- assign next_year = 'now' | date: '%Y' | plus: 1 -%}
+  {%- assign price_valid_until = next_year | append: '-12-31' -%}
 
   "@graph": [
     {
@@ -325,19 +376,17 @@ GLOBAL JSON-LD SCHEMA (Single file)
       {%- if product.description != blank -%}
       "description": {{ product.description | strip_html | strip_newlines | json }},
       {%- endif -%}
-      "sku": {{ product.selected_or_first_available_variant.sku | default: product.id | json }},
+      "sku": {{ product.selected_or_first_available_variant.sku | default: product.selected_or_first_available_variant.id | json }},
       "brand": {
         "@type": "Brand",
-        "name": {{ shop.name | json }}
+        "name": {{ product_brand | json }}
+      },
+      "manufacturer": {
+        "@type": "Organization",
+        "name": {{ product_brand | json }}
       }
       {%- if product.selected_or_first_available_variant.barcode != blank -%},
       "gtin": {{ product.selected_or_first_available_variant.barcode | json }}
-      {%- endif -%}
-      {%- if product.vendor != blank and product.vendor != shop.name -%},
-      "manufacturer": {
-        "@type": "Organization",
-        "name": {{ product.vendor | json }}
-      }
       {%- endif -%},
       "offers": [
         {%- for variant in product.variants -%}
@@ -346,9 +395,13 @@ GLOBAL JSON-LD SCHEMA (Single file)
           "url": {{ shop_url | append: variant.url | json }},
           "priceCurrency": {{ cart.currency.iso_code | json }},
           "price": {{ variant.price | money_without_currency | replace: ',', '' | json }},
+          "priceValidUntil": {{ price_valid_until | json }},
           "availability": "https://schema.org/{% if variant.available %}InStock{% else %}OutOfStock{% endif %}",
           "itemCondition": "https://schema.org/NewCondition",
-          "sku": {{ variant.sku | default: variant.id | json }}
+          "sku": {{ variant.sku | default: variant.id | json }},
+          "seller": {
+            "@id": "{{ shop_url }}#organization"
+          }
           {%- if variant.barcode != blank -%},
           "gtin": {{ variant.barcode | json }}
           {%- endif -%}
