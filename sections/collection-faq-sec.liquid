@@ -37,7 +37,7 @@
         {% for faq in faqs %}
           <div class="faq-item">
             <button class="faq-question">
-              <span>{{ faq.question }}</span>
+              <h3 style="margin-bottom: 0;">{{ forloop.index }}. {{ faq.question }}</h3>
               <span class="chevron"></span>
             </button>
             <div class="faq-answer">

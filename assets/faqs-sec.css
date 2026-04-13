@@ -5,7 +5,7 @@
 
 .faq-item {
   background: #fff;
-  border-radius: 8px;
+  border-radius: 3px;
   margin-bottom: 12px;
   overflow: hidden;
   border: 1px solid #e5e5e5;
@@ -24,6 +24,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-radius: 3px;
+}
+.faq-question h3 {
+  font-size: 18px !important;
 }
 
 /* Chevron */
@@ -39,7 +43,16 @@
 /* Rotate when active */
 .faq-item.active .chevron {
   transform: rotate(-135deg);
+  border-color: white;
 }
+.faq-item.active .faq-question {
+  background-color: #1A8ACC;
+  color: white;
+}
+.faq-item.active .faq-question h3 {
+  color: white;
+}
+
 
 .faq-answer {
   max-height: 0;
