@@ -1,0 +1,36 @@
+{% assign faqs = faqs.value %}
+
+{% if faqs != blank %}
+  <div class="product-faq-accordion" id="product-faq-accordion-{{ section.id }}">
+    {% for faq in faqs %}
+      <div class="faq-item {% if forloop.first %}is-open{% endif %}">
+        <button
+          type="button"
+          class="faq-question"
+          aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}"
+        >
+          <span class="faq-question-text">
+            {{ forloop.index }}. {{ faq.question }}
+          </span>
+          <span class="faq-icon">
+            <span class="faq-icon-plus">+</span>
+            <span class="faq-icon-minus">−</span>
+          </span>
+        </button>
+
+        <div
+          class="faq-answer-wrapper"
+          {% if forloop.first %}
+            style="display:block;"
+          {% else %}
+            style="display:none;"
+          {% endif %}
+        >
+          <div class="faq-answer rte">
+            {{ faq.answer }}
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+{% endif %}
