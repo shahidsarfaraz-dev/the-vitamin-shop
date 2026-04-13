@@ -49,6 +49,27 @@
         "padding_bottom": 36
       }
     },
+    "collection_feature_readmore_gTePf6": {
+      "type": "collection-feature-readmore",
+      "name": "Collection SEO Content",
+      "settings": {
+        "image": "shopify://shop_images/collection-seo-section-image.webp",
+        "read_more_label": "Learn More",
+        "read_less_label": "Read Less",
+        "collapsed_lines_desktop": 8,
+        "collapsed_lines_mobile": 6,
+        "content_max_width": 760,
+        "image_max_width": 620,
+        "radius": 20,
+        "padding_top": 36,
+        "padding_bottom": 0,
+        "padding_side": 44,
+        "bg_color": "#edf2f4",
+        "text_color": "#2f2f2f",
+        "button_bg": "#f78b2d",
+        "button_color": "#ffffff"
+      }
+    },
     "collection_faq_sec_WkYLWV": {
       "type": "collection-faq-sec",
       "name": "Collection/Product FAQs",
@@ -63,6 +84,7 @@
     "banner",
     "promotional_banner_zAtN3j",
     "product-grid",
+    "collection_feature_readmore_gTePf6",
     "collection_faq_sec_WkYLWV"
   ]
 }
