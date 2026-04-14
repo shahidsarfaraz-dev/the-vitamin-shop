@@ -1,0 +1,166 @@
+{{ 'faqs-sec.css' | asset_url | stylesheet_tag }}
+
+{%- if section.blocks.size > 0 -%}
+  <section style="padding: 32px 0">
+    <div class="page-width">
+
+      {%- if section.settings.main_title != blank -%}
+        <{{ section.settings.headingTag }} class="section-header__title" style="text-align: center;">
+          {{ section.settings.main_title }}
+        </{{ section.settings.headingTag }}>
+      {%- endif -%}
+
+      {%- if section.settings.content != blank -%}
+        <div class="rte" style="text-align: center; margin-bottom: 24px;">
+          {{ section.settings.content }}
+        </div>
+      {%- endif -%}
+
+      <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {% for block in section.blocks %}
+              {
+                "@type": "Question",
+                "name": {{ block.settings.question | json }},
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": {{ block.settings.answer | strip_html | json }}
+                }
+              }{% unless forloop.last %},{% endunless %}
+            {% endfor %}
+          ]
+        }
+      </script>
+
+      <div class="faq-container">
+        {% for block in section.blocks %}
+          <div class="faq-item" {{ block.shopify_attributes }}>
+            <button class="faq-question" type="button" aria-expanded="false">
+              <h3 style="margin-bottom: 0;">{{ forloop.index }}. {{ block.settings.question }}</h3>
+              <span class="chevron"></span>
+            </button>
+
+            <div class="faq-answer">
+                {{ block.settings.answer }}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const items = document.querySelectorAll(".faq-item");
+
+      items.forEach(item => {
+        const btn = item.querySelector(".faq-question");
+        const answer = item.querySelector(".faq-answer");
+
+        btn.addEventListener("click", () => {
+          items.forEach(i => {
+            if (i !== item) {
+              i.classList.remove("active");
+              i.querySelector(".faq-question").setAttribute("aria-expanded", "false");
+              i.querySelector(".faq-answer").style.maxHeight = null;
+            }
+          });
+
+          item.classList.toggle("active");
+
+          if (item.classList.contains("active")) {
+            btn.setAttribute("aria-expanded", "true");
+            answer.style.maxHeight = answer.scrollHeight + "px";
+          } else {
+            btn.setAttribute("aria-expanded", "false");
+            answer.style.maxHeight = null;
+          }
+        });
+      });
+    });
+  </script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "FAQ",
+  "settings": [
+    {
+      "type": "text",
+      "id": "main_title",
+      "label": "Section Heading"
+    },
+    {
+      "type": "select",
+      "id": "headingTag",
+      "label": "Heading Tag",
+      "options": [
+        {
+          "value": "h1",
+          "label": "H1"
+        },
+        {
+          "value": "h2",
+          "label": "H2"
+        },
+        {
+          "value": "h3",
+          "label": "H3"
+        },
+        {
+          "value": "h4",
+          "label": "H4"
+        },
+        {
+          "value": "span",
+          "label": "span"
+        }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "Section Text"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq",
+      "name": "FAQ Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "Sample question"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQs",
+      "blocks": [
+        {
+          "type": "faq"
+        },
+        {
+          "type": "faq"
+        },
+        {
+          "type": "faq"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

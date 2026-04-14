@@ -6,7 +6,7 @@
 {%- endif -%}
 
 {%- if faqs != blank -%}
-  <section></section>
+  <section>
   <div class="page-width" style="margin-top: clamp(40px, 5vw, 60px); margin-bottom: clamp(40px, 5vw, 60px);">
 
     {%- if section.settings.main_title != blank -%}
@@ -47,6 +47,7 @@
         {% endfor %}
       </div>
     </div>
+  </section>
 
     <script>
       document.addEventListener("DOMContentLoaded", function () {
