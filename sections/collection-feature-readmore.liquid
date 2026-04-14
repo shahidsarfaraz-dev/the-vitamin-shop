@@ -10,8 +10,8 @@
     --section-padding-top: {{ section.settings.padding_top }}px;
     --section-padding-bottom: {{ section.settings.padding_bottom }}px;
     --section-padding-side: {{ section.settings.padding_side }}px;
-    --content-max-width: {{ section.settings.content_max_width }}px;
     --image-max-width: {{ section.settings.image_max_width }}px;
+    --image-gap: {{ section.settings.image_gap }}px;
     --collapsed-lines-desktop: {{ section.settings.collapsed_lines_desktop }};
     --collapsed-lines-mobile: {{ section.settings.collapsed_lines_mobile }};
     --bg-color: {{ section.settings.bg_color }};
@@ -22,52 +22,54 @@
   ">
   <div class="collection-feature-readmore__inner page-width">
     <div class="collection-feature-readmore__box">
-      <div class="collection-feature-readmore__grid">
 
-        <div class="collection-feature-readmore__media">
-          <div class="collection-feature-readmore__media-wrap">
-            {% if section.settings.show_ring %}
-              <div class="collection-feature-readmore__ring"></div>
-            {% endif %}
-
-            {% if section.settings.image != blank %}
-              {{ section.settings.image
- | image_url: width: 1200
- | image_tag:
- class: 'collection-feature-readmore__image',
- loading: 'lazy',
- widths: '400, 600, 800, 1000, 1200',
- sizes: '(max-width: 749px) 100vw, 45vw',
- alt: collection.title
-              }}
-            {% elsif collection.image != blank %}
-              {{ collection.image
- | image_url: width: 1200
- | image_tag:
- class: 'collection-feature-readmore__image',
- loading: 'lazy',
- widths: '400, 600, 800, 1000, 1200',
- sizes: '(max-width: 749px) 100vw, 45vw',
- alt: collection.title
-              }}
-            {% else %}
-              <div class="collection-feature-readmore__placeholder">
-                {{ 'collection-1' | placeholder_svg_tag: 'placeholder-svg' }}
-              </div>
-            {% endif %}
-          </div>
-        </div>
-
+      {% if seo_content != blank %}
         <div class="collection-feature-readmore__content">
           <div class="collection-feature-readmore__text-wrap">
-            {% if seo_content != blank %}
-              <div
-                class="collection-feature-readmore__text rte"
-                data-readmore-content
-                aria-expanded="false">
-                {{ seo_content | metafield_tag }}
+
+            <div
+              class="collection-feature-readmore__text rte"
+              data-readmore-content
+              aria-expanded="false">
+
+              <div class="collection-feature-readmore__float-media">
+                <div class="collection-feature-readmore__media-wrap">
+                  {% if section.settings.show_ring %}
+                    <div class="collection-feature-readmore__ring"></div>
+                  {% endif %}
+
+                  {% if section.settings.image != blank %}
+                    {{
+                      section.settings.image
+                      | image_url: width: 1200
+                      | image_tag:
+                        class: 'collection-feature-readmore__image',
+                        loading: 'lazy',
+                        widths: '300, 400, 500, 600, 800, 1000, 1200',
+                        sizes: '(max-width: 749px) 100vw, 420px',
+                        alt: collection.title
+                    }}
+                  {% elsif collection.image != blank %}
+                    {{
+                      collection.image
+                      | image_url: width: 1200
+                      | image_tag:
+                        class: 'collection-feature-readmore__image',
+                        loading: 'lazy',
+                        widths: '300, 400, 500, 600, 800, 1000, 1200',
+                        sizes: '(max-width: 749px) 100vw, 420px',
+                        alt: collection.title
+                    }}
+                  {% else %}
+                    <div class="collection-feature-readmore__placeholder">
+                      {{ 'collection-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                    </div>
+                  {% endif %}
+                </div>
               </div>
-            {% endif %}
+
+              {{ seo_content | metafield_tag }}
+            </div>
 
             <button
               type="button"
@@ -78,10 +80,11 @@
               <span class="readmore-label-more">{{ section.settings.read_more_label }}</span>
               <span class="readmore-label-less">{{ section.settings.read_less_label }}</span>
             </button>
+
           </div>
         </div>
+      {% endif %}
 
-      </div>
     </div>
   </div>
 
@@ -91,69 +94,23 @@
       padding-bottom: var(--section-padding-bottom);
     }
 
-    #collection-feature-{{ section.id }}
-    .collection-feature-readmore__box {
+    #collection-feature-{{ section.id }} .collection-feature-readmore__box {
       background: var(--bg-color);
       border-radius: var(--section-radius);
       padding: 48px var(--section-padding-side);
       overflow: hidden;
     }
 
-    #collection-feature-{{ section.id }}
-    .collection-feature-readmore__grid {
-      display: grid;
-      grid-template-columns: minmax(280px, 1fr) minmax(320px, var(--content-max-width));
-      gap: 56px;
-      align-items: center;
-    }
-
-    #collection-feature-{{ section.id }}
-    .collection-feature-readmore__media-wrap {
-      position: relative;
-      max-width: var(--image-max-width);
-      margin: 0 auto;
-    }
-
-    #collection-feature-{{ section.id }}
-    .collection-feature-readmore__ring {
-      position: absolute;
-      top: 6%;
-      left: 14%;
-      width: 68%;
-      aspect-ratio: 1 / 1;
-      border: 3px solid var(--ring-color);
-      border-radius: 50%;
-      opacity: 0.9;
-      z-index: 0;
-    }
-
-    #collection-feature-{{ section.id }}
-    .collection-feature-readmore__image
-    , #collection-feature-{{ section.id }}
-    .collection-feature-readmore__placeholder {
-      position: relative;
-      z-index: 1;
-      display: block;
-      width: 100%;
-      height: auto;
-      object-fit: contain;
-      max-width: {{ section.settings.image_max_width }}px;
-    }
-
-    #collection-feature-{{ section.id }}
-    .collection-feature-readmore__content {
+    #collection-feature-{{ section.id }} .collection-feature-readmore__content {
       color: var(--text-color);
     }
 
-    #collection-feature-{{ section.id }}
-    .collection-feature-readmore__text-wrap {
+    #collection-feature-{{ section.id }} .collection-feature-readmore__text-wrap {
       position: relative;
     }
 
-    #collection-feature-{{ section.id }}
-    .collection-feature-readmore__text {
+    #collection-feature-{{ section.id }} .collection-feature-readmore__text {
       position: relative;
-      --collapsed-max-height: calc(var(--collapsed-lines-desktop) * 1.65em);
       font-size: 18px;
       line-height: 1.65;
       overflow: hidden;
@@ -161,84 +118,97 @@
       max-height: none;
     }
 
-    #collection-feature-{{ section.id }}
-    .collection-feature-readmore__text.is-collapsible.is-collapsed {
+    #collection-feature-{{ section.id }} .collection-feature-readmore__text.is-collapsible.is-collapsed {
       max-height: var(--collapsed-max-height);
     }
 
-    #collection-feature-{{ section.id }}
-    .collection-feature-readmore__text.is-collapsible.is-collapsed::after {
+    #collection-feature-{{ section.id }} .collection-feature-readmore__text.is-collapsible.is-collapsed::after {
       content: "";
       position: absolute;
       left: 0;
       right: 0;
       bottom: 0;
-      height: 110px;
-      background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, var(--bg-color) 85%);
+      height: 120px;
+      background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, var(--bg-color) 85%);
       pointer-events: none;
     }
 
-    #collection-feature-{{ section.id }}
-    .collection-feature-readmore__text p {
-      margin: 0 0 22px;
+    #collection-feature-{{ section.id }} .collection-feature-readmore__text::after {
+      clear: both;
     }
 
-    #collection-feature-{{ section.id }}.collection-feature-readmore__text p:last-child {
+    #collection-feature-{{ section.id }} .collection-feature-readmore__float-media {
+      float: left;
+      width: min(42%, var(--image-max-width));
+      max-width: var(--image-max-width);
+      margin: 0 var(--image-gap) 18px 0;
+    }
+
+    #collection-feature-{{ section.id }} .collection-feature-readmore__media-wrap {
+      position: relative;
+      width: 100%;
+    }
+
+    #collection-feature-{{ section.id }} .collection-feature-readmore__image,
+    #collection-feature-{{ section.id }} .collection-feature-readmore__placeholder {
+      position: relative;
+      z-index: 1;
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      border-radius: 12px;
+      border: none;
+    }
+
+    #collection-feature-{{ section.id }} .collection-feature-readmore__text p {
+      margin: 0 0 18px;
+    }
+
+    #collection-feature-{{ section.id }} .collection-feature-readmore__text p:last-child {
       margin-bottom: 0;
     }
 
-    #collection-feature-{{ section.id }}
-    .collection-feature-readmore__text h1
-    , #collection-feature-{{ section.id }}
-    .collection-feature-readmore__text h2
-    , #collection-feature-{{ section.id }}
-    .collection-feature-readmore__text h3
-    , #collection-feature-{{ section.id }}
-    .collection-feature-readmore__text h4
-    , #collection-feature-{{ section.id }}
-    .collection-feature-readmore__text h5
-    , #collection-feature-{{ section.id }}
-    .collection-feature-readmore__text h6
-    , #collection-feature-{{ section.id }}
-    .collection-feature-readmore__text ul
-    , #collection-feature-{{ section.id }}
-    .collection-feature-readmore__text ol {
+    #collection-feature-{{ section.id }} .collection-feature-readmore__text h1,
+    #collection-feature-{{ section.id }} .collection-feature-readmore__text h2,
+    #collection-feature-{{ section.id }} .collection-feature-readmore__text h3,
+    #collection-feature-{{ section.id }} .collection-feature-readmore__text h4,
+    #collection-feature-{{ section.id }} .collection-feature-readmore__text h5,
+    #collection-feature-{{ section.id }} .collection-feature-readmore__text h6,
+    #collection-feature-{{ section.id }} .collection-feature-readmore__text ul,
+    #collection-feature-{{ section.id }} .collection-feature-readmore__text ol {
       margin-top: 0;
       margin-bottom: 18px;
     }
 
-    #collection-feature-{{ section.id }}
-    .collection-feature-readmore__toggle {
-      margin-top: 22px;
+    #collection-feature-{{ section.id }} .collection-feature-readmore__toggle {
+      margin: 22px auto 0;
       appearance: none;
       border: 0;
       background: var(--button-bg);
       color: var(--button-color);
       padding: 13px 22px;
-      border-radius: 6px;
+      border-radius: 999px;
       font-size: 16px;
       line-height: 1;
       cursor: pointer;
-      transition: transform 0.2s ease
-      , opacity 0.2s ease;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+      display: block;
     }
 
-    #collection-feature-{{ section.id }}.collection-feature-readmore__toggle:hover {
+    #collection-feature-{{ section.id }} .collection-feature-readmore__toggle:hover {
       transform: translateY(-1px);
     }
 
-    #collection-feature-{{ section.id }}
-    .collection-feature-readmore__toggle .readmore-label-less {
+    #collection-feature-{{ section.id }} .collection-feature-readmore__toggle .readmore-label-less {
       display: none;
     }
 
-    #collection-feature-{{ section.id }}
-    .collection-feature-readmore__toggle.is-expanded .readmore-label-more {
+    #collection-feature-{{ section.id }} .collection-feature-readmore__toggle.is-expanded .readmore-label-more {
       display: none;
     }
 
-    #collection-feature-{{ section.id }}
-    .collection-feature-readmore__toggle.is-expanded .readmore-label-less {
+    #collection-feature-{{ section.id }} .collection-feature-readmore__toggle.is-expanded .readmore-label-less {
       display: inline;
     }
 
@@ -247,216 +217,252 @@
         padding: 36px 24px;
       }
 
-      #collection-feature-{{ section.id }}
-      .collection-feature-readmore__grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
-      }
-
-      #collection-feature-{{ section.id }}
-      .collection-feature-readmore__media-wrap {
-        max-width: min(100%, 560px);
-      }
-
-      #collection-feature-{{ section.id }}
-      .collection-feature-readmore__text {
-        --collapsed-max-height: calc(var(--collapsed-lines-mobile) * 1.65em);
+      #collection-feature-{{ section.id }} .collection-feature-readmore__text {
         font-size: 16px;
+      }
+
+      #collection-feature-{{ section.id }} .collection-feature-readmore__float-media {
+        width: min(46%, var(--image-max-width));
+        margin-right: 18px;
+        margin-bottom: 14px;
+      }
+    }
+
+    @media screen and (max-width: 749px) {
+      #collection-feature-{{ section.id }} .collection-feature-readmore__float-media {
+        float: none;
+        width: 100%;
+        max-width: 100%;
+        margin: 0 0 18px 0;
+      }
+
+      #collection-feature-{{ section.id }} .collection-feature-readmore__media-wrap {
+        max-width: 100%;
       }
     }
   </style>
 
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
-    
-      const section = document.getElementById('collection-feature-{{ section.id }}');
-      if (!section) return;
-    
-      const content = section.querySelector('[data-readmore-content]');
-      const toggle = section.querySelector('[data-readmore-toggle]');
-      if (!content || !toggle) return;
-    
-      function getCollapsedHeight() {
-    const styles = window.getComputedStyle(content);
-    const lineHeight = parseFloat(styles.lineHeight) || 28;
-    const isMobile = window.innerWidth <= 989;
-    
-    const lines = isMobile
-      ? parseInt(getComputedStyle(section).getPropertyValue('--collapsed-lines-mobile'), 10)
-      : parseInt(getComputedStyle(section).getPropertyValue('--collapsed-lines-desktop'), 10);
-    
-    return Math.ceil(lineHeight * lines);
-      }
-    
-      function measure() {
-    
-    content.classList.remove('is-collapsed');
-    content.classList.remove('is-collapsible');
-    content.style.maxHeight = 'none';
-    
-    const collapsedHeight = getCollapsedHeight();
-    const fullHeight = content.scrollHeight;
-    
-    if (fullHeight > collapsedHeight) {
-    
-      content.classList.add('is-collapsible');
-      content.classList.add('is-collapsed');
-      content.style.maxHeight = collapsedHeight + 'px';
-    
-      toggle.hidden = false;
-    
-    } else {
-    
-      content.style.maxHeight = 'none';
-      toggle.hidden = true;
-    
+  document.addEventListener("DOMContentLoaded", function () {
+    const section = document.getElementById('collection-feature-{{ section.id }}');
+    if (!section) return;
+
+    const content = section.querySelector('[data-readmore-content]');
+    const toggle = section.querySelector('[data-readmore-toggle]');
+    const imageWrap = section.querySelector('.collection-feature-readmore__float-media');
+
+    if (!content || !toggle) return;
+
+    function getCollapsedHeight() {
+      const styles = window.getComputedStyle(content);
+      const lineHeight = parseFloat(styles.lineHeight) || 28;
+      const isMobile = window.innerWidth <= 989;
+
+      const lines = isMobile
+        ? parseInt(getComputedStyle(section).getPropertyValue('--collapsed-lines-mobile'), 10)
+        : parseInt(getComputedStyle(section).getPropertyValue('--collapsed-lines-desktop'), 10);
+
+      return Math.ceil(lineHeight * lines);
     }
-      }
-    
-      toggle.addEventListener('click', function () {
-    
-    const isCollapsed = content.classList.contains('is-collapsed');
-    
-    if (isCollapsed) {
-    
+
+    function getMinimumCollapsedHeight() {
+      const textCollapsedHeight = getCollapsedHeight();
+      const imageHeight = imageWrap ? Math.ceil(imageWrap.offsetHeight) : 0;
+
+      return Math.max(textCollapsedHeight, imageHeight);
+    }
+
+    function measure() {
       content.classList.remove('is-collapsed');
-      content.style.maxHeight = content.scrollHeight + 'px';
-      toggle.classList.add('is-expanded');
-    
-    } else {
-    
-      const collapsedHeight = getCollapsedHeight();
-      content.classList.add('is-collapsed');
-      content.style.maxHeight = collapsedHeight + 'px';
-      toggle.classList.remove('is-expanded');
-    
+      content.classList.remove('is-collapsible');
+      content.style.maxHeight = 'none';
+
+      const minCollapsedHeight = getMinimumCollapsedHeight();
+      const fullHeight = Math.ceil(content.scrollHeight);
+
+      section.style.setProperty('--collapsed-max-height', minCollapsedHeight + 'px');
+
+      if (fullHeight > minCollapsedHeight + 5) {
+        content.classList.add('is-collapsible');
+        content.classList.add('is-collapsed');
+        content.style.maxHeight = minCollapsedHeight + 'px';
+
+        toggle.hidden = false;
+        toggle.classList.remove('is-expanded');
+        toggle.setAttribute('aria-expanded', 'false');
+        content.setAttribute('aria-expanded', 'false');
+      } else {
+        content.style.maxHeight = 'none';
+        toggle.hidden = true;
+        toggle.classList.remove('is-expanded');
+        toggle.setAttribute('aria-expanded', 'false');
+        content.setAttribute('aria-expanded', 'true');
+      }
     }
-    
-      });
-    
-      measure();
-    
+
+    toggle.addEventListener('click', function () {
+      const isCollapsed = content.classList.contains('is-collapsed');
+
+      if (isCollapsed) {
+        content.classList.remove('is-collapsed');
+        content.style.maxHeight = content.scrollHeight + 'px';
+        toggle.classList.add('is-expanded');
+        toggle.setAttribute('aria-expanded', 'true');
+        content.setAttribute('aria-expanded', 'true');
+      } else {
+        const minCollapsedHeight = getMinimumCollapsedHeight();
+        section.style.setProperty('--collapsed-max-height', minCollapsedHeight + 'px');
+        content.classList.add('is-collapsed');
+        content.style.maxHeight = minCollapsedHeight + 'px';
+        toggle.classList.remove('is-expanded');
+        toggle.setAttribute('aria-expanded', 'false');
+        content.setAttribute('aria-expanded', 'false');
+      }
     });
-  </script>
+
+    measure();
+
+    window.addEventListener('resize', measure);
+    window.addEventListener('load', measure);
+
+    const images = section.querySelectorAll('img');
+    images.forEach(function (img) {
+      if (!img.complete) {
+        img.addEventListener('load', measure);
+      }
+    });
+  });
+</script>
 </section>
 
 {% schema %}
-  {
-    "name": "Collection SEO Content",
-    "settings": [
-      {
-        "type": "image_picker",
-        "id": "image",
-        "label": "Left image"
-      },
-      {
-        "type": "text",
-        "id": "read_more_label",
-        "label": "Read more label",
-        "default": "Learn More"
-      },
-      {
-        "type": "text",
-        "id": "read_less_label",
-        "label": "Read less label",
-        "default": "Read Less"
-      },
-      {
-        "type": "range",
-        "id": "collapsed_lines_desktop",
-        "label": "Collapsed lines desktop",
-        "min": 3,
-        "max": 20,
-        "step": 1,
-        "default": 8
-      }, {
-        "type": "range",
-        "id": "collapsed_lines_mobile",
-        "label": "Collapsed lines mobile",
-        "min": 3,
-        "max": 20,
-        "step": 1,
-        "default": 6
-      }, {
-        "type": "range",
-        "id": "content_max_width",
-        "label": "Content max width",
-        "min": 400,
-        "max": 900,
-        "step": 20,
-        "unit": "px",
-        "default": 760
-      }, {
-        "type": "range",
-        "id": "image_max_width",
-        "label": "Image max width",
-        "min": 280,
-        "max": 900,
-        "step": 20,
-        "unit": "px",
-        "default": 620
-      }, {
-        "type": "range",
-        "id": "radius",
-        "label": "Box corner radius",
-        "min": 0,
-        "max": 40,
-        "step": 2,
-        "unit": "px",
-        "default": 20
-      }, {
-        "type": "range",
-        "id": "padding_top",
-        "label": "Section top padding",
-        "min": 0,
-        "max": 120,
-        "step": 4,
-        "unit": "px",
-        "default": 36
-      }, {
-        "type": "range",
-        "id": "padding_bottom",
-        "label": "Section bottom padding",
-        "min": 0,
-        "max": 120,
-        "step": 4,
-        "unit": "px",
-        "default": 36
-      }, {
-        "type": "range",
-        "id": "padding_side",
-        "label": "Box side padding",
-        "min": 16,
-        "max": 80,
-        "step": 4,
-        "unit": "px",
-        "default": 44
-      }, {
-        "type": "color",
-        "id": "bg_color",
-        "label": "Background color",
-        "default": "#edf2f4"
-      }, {
-        "type": "color",
-        "id": "text_color",
-        "label": "Text color",
-        "default": "#2f2f2f"
-      }, {
-        "type": "color",
-        "id": "button_bg",
-        "label": "Button background",
-        "default": "#f78b2d"
-      }, {
-        "type": "color",
-        "id": "button_color",
-        "label": "Button text color",
-        "default": "#ffffff"
-      }
-    ],
-    "presets": [
-      {
-        "name": "Collection SEO Content"
-      }
-    ]
-  }
+{
+  "name": "Collection SEO Content",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Left image"
+    },
+    {
+      "type": "text",
+      "id": "read_more_label",
+      "label": "Read more label",
+      "default": "Learn More"
+    },
+    {
+      "type": "text",
+      "id": "read_less_label",
+      "label": "Read less label",
+      "default": "Read Less"
+    },
+    {
+      "type": "range",
+      "id": "collapsed_lines_desktop",
+      "label": "Collapsed lines desktop",
+      "min": 3,
+      "max": 20,
+      "step": 1,
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "collapsed_lines_mobile",
+      "label": "Collapsed lines mobile",
+      "min": 3,
+      "max": 20,
+      "step": 1,
+      "default": 6
+    },
+    {
+      "type": "range",
+      "id": "image_max_width",
+      "label": "Image max width",
+      "min": 200,
+      "max": 700,
+      "step": 20,
+      "unit": "px",
+      "default": 380
+    },
+    {
+      "type": "range",
+      "id": "image_gap",
+      "label": "Image gap from text",
+      "min": 8,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "radius",
+      "label": "Box corner radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Section top padding",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Section bottom padding",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_side",
+      "label": "Box side padding",
+      "min": 16,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 44
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#edf2f4"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#2f2f2f"
+    },
+    {
+      "type": "color",
+      "id": "button_bg",
+      "label": "Button background",
+      "default": "#f78b2d"
+    },
+    {
+      "type": "color",
+      "id": "button_color",
+      "label": "Button text color",
+      "default": "#ffffff"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collection SEO Content"
+    }
+  ]
+}
 {% endschema %}
