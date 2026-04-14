@@ -56,7 +56,7 @@
         "image": "shopify://shop_images/collection-seo-section-image.webp",
         "read_more_label": "Learn More",
         "read_less_label": "Read Less",
-        "collapsed_lines_desktop": 12,
+        "collapsed_lines_desktop": 10,
         "collapsed_lines_mobile": 20,
         "image_max_width": 620,
         "image_gap": 24,
