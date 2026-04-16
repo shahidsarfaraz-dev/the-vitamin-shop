@@ -189,7 +189,10 @@ GLOBAL JSON-LD SCHEMA (Single file)
       "description": {{ collection.description | strip_html | strip_newlines | json }},
       {%- endif -%}
       "isPartOf": { "@id": "{{ shop_url }}#website" },
-      "about": { "@id": "{{ shop_url }}#organization" }
+      "about": { "@id": "{{ shop_url }}#organization" },
+      "mainEntity": {
+        "@id": "{{ shop_url }}{{ collection.url }}#itemlist"
+      }
       {%- if faq_html contains 'Frequently Asked Questions' -%},
       "hasPart": {
         "@id": "{{ request.origin }}{{ request.path }}#faq"
@@ -201,6 +204,7 @@ GLOBAL JSON-LD SCHEMA (Single file)
       "@id": "{{ shop_url }}{{ collection.url }}#itemlist",
       "name": {{ collection.title | append: ' Products' | json }},
       "itemListOrder": "https://schema.org/ItemListOrderAscending",
+      "numberOfItems": {{ collection.products_count }},
       "itemListElement": [
         {%- for product in collection.products -%}
         {
