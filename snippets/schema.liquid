@@ -59,7 +59,7 @@ GLOBAL JSON-LD SCHEMA (Single file)
 {
   "@context": "https://schema.org",
   "@type": "OnlineStore",
-  "@id": "{{ shop_url }}#organization",
+  "@id": "{{ shop_url }}#onlinestore",
   "name": {{ shop.name | json }},
   "url": {{ shop_url | json }},
   "logo": {
@@ -137,9 +137,40 @@ GLOBAL JSON-LD SCHEMA (Single file)
       "@type": "LocalBusiness",
       "@id": "{{ shop_url }}#localbusiness",
       "name": {{ shop.name | json }},
+      "telephone": "+1-250-386-1212",
+      "faxNumber": "+1-250-386-1299",
+      "email": "sales@canadianvitaminshop.com",
       "url": {{ shop_url | json }},
       "image": "https://www.canadianvitaminshop.com/cdn/shop/files/full-logo.svg",
-      "parentOrganization": { "@id": "{{ shop_url }}#organization" }
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "1212 Broad St.",
+        "addressLocality": "Victoria",
+        "addressRegion": "BC",
+        "postalCode": "V8W 2A5",
+        "addressCountry": "CA"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:00",
+          "closes": "17:30"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "09:30",
+          "closes": "17:30"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Sunday",
+          "opens": "11:00",
+          "closes": "17:00"
+        }
+      ],
+      "parentOrganization": { "@id": "{{ shop_url }}#organization" },
     },
     {
       "@type": "WebPage",
