@@ -176,13 +176,13 @@
           "type": "row",
           "disabled": true,
           "settings": {
-            "background": "#457ea3",
-            "item_title": "FAST ACTING PRODUCTS FOR IBS & INFLAMMATION",
-            "item_description": "<p>Don't miss this rare opportunity to get 2 for the price of 1 on two Purica top sellers.  Purica - proudly made on Vancouver Island since 1999</p>",
-            "item_mobile_description": "<p>Don't miss this rare opportunity to get 2 for the price of 1 on two Purica top sellers.  Purica - proudly made on Vancouver Island since 1999</p>",
+            "background": "#b4c97b",
+            "item_title": "",
+            "item_description": "",
+            "item_mobile_description": "",
             "button_text": "Shop Now",
-            "button_url": "https://www.canadianvitaminshop.com/search?q=Purica+Duo-Packs+&options%5Bprefix%5D=last",
-            "image": "shopify://shop_images/Curcumin_and_Probiotic_intensive_-_BOGO_v2_847x462_1.jpg",
+            "button_url": "https://www.canadianvitaminshop.com/search?q=healthology&options%5Bprefix%5D=last&sort_by=relevance&filter.p.vendor=Healthology",
+            "image": "shopify://shop_images/Screenshot_2026-04-20_130542.jpg",
             "text_color": "black"
           }
         },
