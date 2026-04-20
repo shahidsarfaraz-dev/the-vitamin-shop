@@ -518,7 +518,7 @@
         "read_less_text": "Read Less",
         "collapsed_lines": 16,
         "content_width": 900,
-        "text_alignment": "right",
+        "text_alignment": "left",
         "background_color": "#ffffff",
         "heading_color": "#111111",
         "text_color": "#333333",
