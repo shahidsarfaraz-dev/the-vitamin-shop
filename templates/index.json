@@ -120,13 +120,13 @@
           "type": "row",
           "disabled": true,
           "settings": {
-            "background": "#25957e",
-            "item_title": "Plant Sourced Omega-3",
-            "item_description": "<p>Plant sourced omega-3 oil that provides EPA and DHA. Omega-3s promote the maintenance of overall good health, brain function, cardiovascular health and helps lower triglycerides.</p>",
-            "item_mobile_description": "<p>Plant sourced omega-3 oil that provides EPA and DHA. Omega-3s promote the maintenance of overall good health, brain function, cardiovascular health and helps lower triglycerides.</p>",
+            "background": "#904993",
+            "item_title": "Naturally for Her",
+            "item_description": "<p>Plant-based and research-informed formulas designed to complement a woman’s daily routine, supporting balance, vitality, and overall well-being.</p>",
+            "item_mobile_description": "<p>Plant-based and research-informed formulas designed to complement a woman’s daily routine, supporting balance, vitality, and overall well-being.</p>",
             "button_text": "Shop Now",
-            "button_url": "https://www.canadianvitaminshop.com/search?q=nutraverge&options%5Bprefix%5D=last&sort_by=relevance&filter.p.vendor=NutraVege",
-            "image": "shopify://shop_images/NWAD-0993_NutraSea_VitaminShop_1920x694_P3B_002.jpg",
+            "button_url": "https://www.canadianvitaminshop.com/collections/womens-health",
+            "image": "shopify://shop_images/Bnnr_Women_TVS_847x462_Jun26.jpg",
             "text_color": "black"
           }
         },
