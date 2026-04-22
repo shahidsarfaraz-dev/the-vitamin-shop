@@ -177,9 +177,9 @@
           "disabled": true,
           "settings": {
             "background": "#b4c97b",
-            "item_title": "",
-            "item_description": "",
-            "item_mobile_description": "",
+            "item_title": "Discover Everyday Wellness",
+            "item_description": "<p>Discover everyday wellness with Healthology’s premium Canadian natural supplements and trusted support, designed to help you feel your best and live well while building a healthier you every day.</p>",
+            "item_mobile_description": "<p>Discover everyday wellness with Healthology’s premium Canadian natural supplements and trusted support, designed to help you feel your best and live well while building a healthier you every day.</p>",
             "button_text": "Shop Now",
             "button_url": "https://www.canadianvitaminshop.com/search?q=healthology&options%5Bprefix%5D=last&sort_by=relevance&filter.p.vendor=Healthology",
             "image": "shopify://shop_images/Screenshot_2026-04-20_130542.jpg",
