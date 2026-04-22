@@ -134,13 +134,13 @@
           "type": "row",
           "disabled": true,
           "settings": {
-            "background": "#4b016c",
+            "background": "#81c5c3",
             "item_title": "LINE DRIVE - 20% OFF",
             "item_description": "<p>All AOR products on sale 20% off until March 31st! Discount applied once added to cart!</p>",
             "item_mobile_description": "<p>All AOR products on sale 20% off until March 31st! Discount applied once added to cart!</p>",
             "button_text": "Shop Now",
             "button_url": "https://www.canadianvitaminshop.com/search?q=aor&options%5Bprefix%5D=last&sort_by=relevance&filter.p.vendor=AOR",
-            "image": "shopify://shop_images/AOR2.0.png",
+            "image": "shopify://shop_images/WebBnnr-847x462px_BioSil_TVS_MAY26.jpg",
             "text_color": "black"
           }
         },
