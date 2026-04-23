@@ -77,6 +77,19 @@
             "text_color": "black"
           }
         },
+        "row_FYeFBC": {
+          "type": "row",
+          "settings": {
+            "background": "#ce6ca6",
+            "item_title": "Now Available!",
+            "item_description": "<p>Whole Earth & Sea Multi now available in Vegetarian Capsules! </p>",
+            "item_mobile_description": "<p>Whole Earth & Sea Multi now available in Vegetarian Capsules! </p>",
+            "button_text": "Shop Now",
+            "button_url": "https://www.canadianvitaminshop.com/search?q=whole+earth+%26+sea+daily&options%5Bprefix%5D=last",
+            "image": "shopify://shop_images/DgtlGphcs_WES-MultisCaps_APR26-Flyr_1200_Ce_u_Ce630.jpg",
+            "text_color": "black"
+          }
+        },
         "row_NbmMjb": {
           "type": "row",
           "settings": {
@@ -158,20 +171,6 @@
             "text_color": "black"
           }
         },
-        "row_FYeFBC": {
-          "type": "row",
-          "disabled": true,
-          "settings": {
-            "background": "#2d452a",
-            "item_title": "MegaFood Bonus Packs—Stock Up!",
-            "item_description": "<p>Providing a fantastic opportunity for health-conscious individuals to stock up on their favorite supplements at a reduced price.</p>",
-            "item_mobile_description": "<p>Providing a fantastic opportunity for health-conscious individuals to stock up on their favorite supplements at a reduced price.</p>",
-            "button_text": "Shop Now",
-            "button_url": "https://www.canadianvitaminshop.com/search?q=megafood+bonus&options%5Bprefix%5D=last&sort_by=relevance&filter.p.vendor=MegaFood",
-            "image": "shopify://shop_images/MF_26.02_VitaminShop_Feb2026_Banners_847x462_c05ee1f0-643b-42ff-b913-4e4c41bd9db7.jpg",
-            "text_color": "black"
-          }
-        },
         "row_wyiMDY": {
           "type": "row",
           "disabled": true,
@@ -207,13 +206,13 @@
         "row_jTCqyT",
         "row_3Lj9TF",
         "row_MEHf9b",
+        "row_FYeFBC",
         "row_NbmMjb",
         "row_KwtdLt",
         "row_4qRD6e",
         "row_aGr7ee",
         "row_fhAKCF",
         "row_zwFVmF",
-        "row_FYeFBC",
         "row_wyiMDY",
         "row_U7XALN"
       ],
