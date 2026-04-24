@@ -1,1 +1,90 @@
-{"sections":{"banner":{"type":"main-collection-banner","disabled":true,"settings":{"show_collection_description":true,"show_collection_image":false,"color_scheme":"background-1"}},"promotional_banner_zAtN3j":{"type":"promotional-banner","disabled":true,"settings":{"title":"{{ collection.title }}","background_image":"shopify:\/\/shop_images\/image.png"}},"product-grid":{"type":"main-collection-product-grid","settings":{"promo_title":"{{ collection.title }}","sidebar_menu_title":"Popular Categories","sidebar_menu":"vitamins-supplements-sidebar-menu","products_per_page":16,"columns_desktop":4,"image_ratio":"adapt","show_secondary_image":false,"show_brands_filter":true,"show_types_filter":true,"show_rating":false,"enable_quick_add":true,"filter_type":"horizontal","enable_sorting":true,"columns_mobile":"2","padding_top":36,"padding_bottom":36}}},"order":["banner","promotional_banner_zAtN3j","product-grid"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "banner": {
+      "type": "main-collection-banner",
+      "disabled": true,
+      "settings": {
+        "show_collection_description": true,
+        "show_collection_image": false,
+        "color_scheme": "background-1"
+      }
+    },
+    "promotional_banner_zAtN3j": {
+      "type": "promotional-banner",
+      "disabled": true,
+      "settings": {
+        "title": "{{ collection.title }}",
+        "description": "",
+        "background_image": "shopify://shop_images/image.png"
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "settings": {
+        "show_collection_search": false,
+        "promo_title": "{{ collection.title }}",
+        "sidebar_menu_title": "Popular Categories",
+        "sidebar_menu": "vitamins-supplements-sidebar-menu",
+        "products_per_page": 16,
+        "columns_desktop": 4,
+        "image_ratio": "adapt",
+        "show_secondary_image": false,
+        "show_brands_filter": true,
+        "show_types_filter": true,
+        "show_rating": false,
+        "enable_quick_add": true,
+        "filter_type": "horizontal",
+        "enable_sorting": true,
+        "columns_mobile": "2",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "collection_feature_readmore_RBp8Dz": {
+      "type": "collection-feature-readmore",
+      "name": "Collection SEO Content",
+      "settings": {
+        "image": "shopify://shop_images/collection-seo-section-image.webp",
+        "read_more_label": "Learn More",
+        "read_less_label": "Read Less",
+        "collapsed_lines_desktop": 8,
+        "collapsed_lines_mobile": 6,
+        "image_max_width": 380,
+        "image_gap": 24,
+        "radius": 20,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_side": 44,
+        "bg_color": "#edf2f4",
+        "text_color": "#2f2f2f",
+        "button_bg": "#f78b2d",
+        "button_color": "#ffffff"
+      }
+    },
+    "collection_faq_sec_AFFgVi": {
+      "type": "collection-faq-sec",
+      "name": "Collection/Product FAQs",
+      "settings": {
+        "main_title": "Frequently Asked Questions",
+        "headingTag": "h2",
+        "content": ""
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "promotional_banner_zAtN3j",
+    "product-grid",
+    "collection_feature_readmore_RBp8Dz",
+    "collection_faq_sec_AFFgVi"
+  ]
+}
