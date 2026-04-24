@@ -51,6 +51,7 @@
     },
     "collection_feature_readmore_RBp8Dz": {
       "type": "collection-feature-readmore",
+      "disabled": true,
       "name": "Collection SEO Content",
       "settings": {
         "image": "shopify://shop_images/collection-seo-section-image.webp",
@@ -72,6 +73,7 @@
     },
     "collection_faq_sec_AFFgVi": {
       "type": "collection-faq-sec",
+      "disabled": true,
       "name": "Collection/Product FAQs",
       "settings": {
         "main_title": "Frequently Asked Questions",
