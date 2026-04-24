@@ -22,7 +22,7 @@
       "type": "promotional-banner",
       "disabled": true,
       "settings": {
-        "title": "",
+        "title": "{{ collection.title }}",
         "description": "",
         "background_image": "shopify://shop_images/sports-nutrition.png"
       }
