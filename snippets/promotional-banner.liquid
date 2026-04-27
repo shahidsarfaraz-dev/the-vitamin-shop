@@ -34,6 +34,112 @@
       {% endif %}
       {% endif %}
       <div class="promotional-banner-content">
+        <ol class="breadcrumb__list" role="list">
+
+          <li class="breadcrumb__item">
+            <a class="breadcrumb__link link" href="{{ routes.root_url }}">
+              Home
+            </a>
+          </li>
+          <li><span>/</span></li>
+
+          {% assign menu_links = linklists['main-menu'].links %}
+          {% assign current_collection = '/collections/' | append: collection.handle %}
+          {% assign found = false %}
+
+          {% for level1 in menu_links %}
+
+              {% if level1.url == current_collection or level1.url contains current_collection %}
+
+                <li class="breadcrumb__item">
+                  <span class="breadcrumb__link link" aria-current="page">
+                    {{ level1.title }}
+                  </span>
+                </li>
+
+                {% assign found = true %}
+                {% break %}
+
+              {% endif %}
+
+            {% for level2 in level1.links %}
+
+              {% if level2.url == current_collection or level2.url contains current_collection %}
+
+                {% unless level1.url == '#' %}
+                  <li class="breadcrumb__item">
+                    <a class="breadcrumb__link link" href="{{ level1.url }}">
+                      {{ level1.title }}
+                    </a>
+                  </li>
+                  <li><span>/</span></li>
+                {% endunless %}
+
+                <li class="breadcrumb__item">
+                  <span class="breadcrumb__link link" aria-current="page">
+                    {{ level2.title }}
+                  </span>
+                </li>
+
+                {% assign found = true %}
+                {% break %}
+
+              {% endif %}
+
+
+              {% for level3 in level2.links %}
+
+                {% if level3.url == current_collection or level3.url contains current_collection %}
+
+                  {% unless level1.url == '#' %}
+                    <li class="breadcrumb__item">
+                      <a class="breadcrumb__link link" href="{{ level1.url }}">
+                        {{ level1.title }}
+                      </a>
+                    </li>
+                    <li><span>/</span></li>
+                  {% endunless %}
+
+                  <li class="breadcrumb__item">
+                    <a class="breadcrumb__link link" href="{{ level2.url }}">
+                      {{ level2.title }}
+                    </a>
+                  </li>
+                  <li><span>/</span></li>
+
+                  <li class="breadcrumb__item">
+                    <span class="breadcrumb__link link" aria-current="page">
+                      {{ level3.title }}
+                    </span>
+                  </li>
+
+                  {% assign found = true %}
+                  {% break %}
+
+                {% endif %}
+
+              {% endfor %}
+
+              {% if found %}
+                {% break %}{% endif %}
+
+            {% endfor %}
+
+            {% if found %}
+              {% break %}{% endif %}
+
+          {% endfor %}
+
+
+          {% unless found %}
+            <li class="breadcrumb__item">
+              <span class="breadcrumb__link link" aria-current="page">
+                {{ collection.title }}
+              </span>
+            </li>
+          {% endunless %}
+
+        </ol>
         <h1 class="promotional-banner-title">{% if collection_search == true %}{{ active_label | capitalize }}{% else %}{{ section.settings.promo_title }}{% endif %}</h1>
           <div class="promo-description-wrapper">
 

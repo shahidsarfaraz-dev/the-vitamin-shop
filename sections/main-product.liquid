@@ -68,9 +68,82 @@
 
   <div class="product-header fade-in-element">
     <div class="product-grid-breadcrumbs">
-      <a href="/">Home</a> > 
-      <a href="/collections/all-products">Products</a> >
-      <span style="color:#1A8ACC;">{{ product.title }}</span>
+      <a href="/">Home</a>
+      {% comment %} <a href="/collections/all-products">Products</a> /
+      <span style="color:#1A8ACC;">{{ product.title }}</span> {% endcomment %}
+
+
+
+
+         {% assign collection_breadcrumbs = pages['prc-products-breadcrumbs-do-not-delete'].metafields.prc.product_breadcrumbs_collections.value %}
+        {% if collection_breadcrumbs %}
+          {% liquid
+            for condition in collection_breadcrumbs
+              assign apply_this_one = true
+              assign prc_collections = condition.collections
+              assign prc_breadcrumbs = condition.breadcrumbs
+
+              for item in prc_collections
+                assign prc_product_collection_handles = ''
+                for col in product.collections
+                  assign prc_product_collection_handles = prc_product_collection_handles | append: col.handle | append: ','
+                endfor
+                assign prc_product_collection_handles = prc_product_collection_handles | split: ','
+
+                unless prc_product_collection_handles contains item
+                  assign apply_this_one = false
+                  break
+                endunless
+              endfor
+
+              if apply_this_one == true
+                assign collection_breadcrumbs = prc_breadcrumbs
+                break
+              else
+                assign collection_breadcrumbs = false
+              endif
+            endfor
+          %}
+
+          {% if collection_breadcrumbs != false %}
+            {% liquid
+              capture temp
+                assign collection_breadcrumbs = collection_breadcrumbs | reverse
+                for item in collection_breadcrumbs
+                  assign p_item = collections[item]
+                  echo p_item.title
+                  echo '|'
+                  echo p_item.url
+                  echo '>=<'
+                endfor
+              endcapture
+
+              assign crumbs = temp | split: '>=<' | reverse
+            %}
+            {% for crumb in crumbs %}
+              {% assign temp = crumb | split: '|' %}
+              {% assign title = temp[0] %}
+              {% assign url = temp[1] %}
+              <span>/</span>
+              <a
+                class="prc-p-b-a"
+                href="{{ url }}"
+                title="{{ title }}"
+              >
+                <span class="bitem">{{ title }}</span>
+              </a>
+            {% endfor %}
+          {% endif %}
+        {% elsif product.type != blank %}
+          {% assign collection_handle = product.type | handle %}
+          {% if collection_handle != blank %}
+            <span>/</span>
+            <span>{{- product.type | escape | link_to: url }}</span>
+          {% endif %}
+        {% endif %}
+
+        <span>/</span>
+        <span style="color:#1A8ACC;">{{ product.title }}</span>
     </div>    
   </div>
   

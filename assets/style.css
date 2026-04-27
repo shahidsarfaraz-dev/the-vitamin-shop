@@ -4286,3 +4286,22 @@ input[type="checkbox"][id^="popuptoggle"]:checked + .popup-container {
 .template-collection .content-for-layout {
   padding-top: 0;
 }
+
+.breadcrumb__list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+  color: white;
+  list-style: none;
+  padding: 0;
+  margin-bottom: 10px;
+}
+.breadcrumb__list li {
+  margin-left: 0;
+}
+.breadcrumb__list li span,
+.breadcrumb__list li a {
+  color: white;
+  text-decoration: none;
+}
