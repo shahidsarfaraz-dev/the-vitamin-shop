@@ -74,7 +74,7 @@
       "type": "collection-faq-sec",
       "name": "Collection/Product FAQs",
       "settings": {
-        "main_title": "",
+        "main_title": "Frequently Asked Questions",
         "headingTag": "h2",
         "content": ""
       }
