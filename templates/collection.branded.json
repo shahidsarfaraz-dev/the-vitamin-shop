@@ -51,6 +51,7 @@
     },
     "collection_feature_readmore_A7pJUH": {
       "type": "collection-feature-readmore",
+      "disabled": true,
       "name": "Collection SEO Content",
       "settings": {
         "image": "shopify://shop_images/natural-factors-banner-sept-2025-1300x536.png",
