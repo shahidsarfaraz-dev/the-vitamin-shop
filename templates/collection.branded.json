@@ -51,10 +51,9 @@
     },
     "collection_feature_readmore_A7pJUH": {
       "type": "collection-feature-readmore",
-      "disabled": true,
       "name": "Collection SEO Content",
       "settings": {
-        "image": "shopify://shop_images/vitamins-supliments_c4bb0d32-9922-47ea-926e-3195e9232f90.png",
+        "image": "shopify://shop_images/Untitled_design_95.png",
         "read_more_label": "Learn More",
         "read_less_label": "Read Less",
         "collapsed_lines_desktop": 8,
