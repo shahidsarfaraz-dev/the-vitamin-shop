@@ -31,6 +31,20 @@
 
     <div class="vendor-list-content">
       {%- for product_vendor in sorted_vendors -%}
+        {% assign excluded_vendors = section.settings.excluded_vendors | split: "," %}
+        {% assign hide_vendor = false %}
+
+        {% for excluded_vendor in excluded_vendors %}
+          {% assign clean_excluded_vendor = excluded_vendor | strip %}
+          {% if clean_excluded_vendor == product_vendor %}
+            {% assign hide_vendor = true %}
+          {% endif %}
+        {% endfor %}
+
+        {% if hide_vendor %}
+          {% continue %}
+        {% endif %}
+
         {% assign first_letter = product_vendor | slice: 0, 1 | upcase %}
         {% if first_letter != current_letter %}
           {% if current_letter != '' %}
@@ -112,9 +126,15 @@
         "info": "Format: 'vendor one, vendor two, vendor three'" 
       },
       {
+        "type": "textarea",
+        "id": "excluded_vendors",
+        "label": "Hide Vendors",
+        "info": "Add vendor names separated by comma"
+      },
+      {
         "type": "image_picker",
         "id": "canadian_icon",
-        "label": "Maple Leaf Icon",
+        "label": "Maple Leaf Icon"
       }
     ],
     "presets": [
