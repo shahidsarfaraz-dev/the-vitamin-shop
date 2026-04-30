@@ -223,6 +223,25 @@
     "promotional_carousel_PR8UwA": {
       "type": "promotional-carousel",
       "blocks": {
+        "row_dLMe6e": {
+          "type": "row",
+          "settings": {
+            "item_type": "coupon",
+            "show_promo_corner": true,
+            "featured_percentage": 1,
+            "coupon_amount": 5,
+            "use_additional_discount": false,
+            "additional_discount": 1,
+            "item_title": "Powerful Antioxidant!",
+            "item_subtitle": "Save $5.00!",
+            "item_description": "Repairs nerves, balances blood sugar, protects the brain and increases energy formation in the mitochondria.",
+            "button_text": "Shop Now",
+            "button_url": "https://www.canadianvitaminshop.com/products/aor-high-dose-r-lipoic-acid",
+            "background_image": "shopify://shop_images/AOR-lipoic-acid-coupon-may-2026-bg.jpg",
+            "image": "shopify://shop_images/AOR-lipoic-acid-coupon-may-2026.png",
+            "text_color": "black"
+          }
+        },
         "row_zwyPRU": {
           "type": "row",
           "settings": {
@@ -260,31 +279,12 @@
             "image": "shopify://shop_images/naka-silicea-featured-image-April-2026.png",
             "text_color": "black"
           }
-        },
-        "row_dLMe6e": {
-          "type": "row",
-          "settings": {
-            "item_type": "coupon",
-            "show_promo_corner": true,
-            "featured_percentage": 1,
-            "coupon_amount": 5,
-            "use_additional_discount": false,
-            "additional_discount": 1,
-            "item_title": "Versatile Amino Acid",
-            "item_subtitle": "Save $5.00!",
-            "item_description": "Improve sleep quality, support emotional balance, enhance energy production, sharper memory function, and healthy blood sugar management.",
-            "button_text": "Shop Now",
-            "button_url": "shopify://products/aor-glycine",
-            "background_image": "shopify://shop_images/aor-glycine-bg-april-2026.jpg",
-            "image": "shopify://shop_images/aor-glycine-product-april-2026.png",
-            "text_color": "black"
-          }
         }
       },
       "block_order": [
+        "row_dLMe6e",
         "row_zwyPRU",
-        "row_XR36CD",
-        "row_dLMe6e"
+        "row_XR36CD"
       ],
       "settings": {
         "heading": "Canada's Most Trusted Vitamin and Nutritional Supplement Dispensary",
