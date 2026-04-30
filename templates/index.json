@@ -223,6 +223,44 @@
     "promotional_carousel_PR8UwA": {
       "type": "promotional-carousel",
       "blocks": {
+        "row_XR36CD": {
+          "type": "row",
+          "settings": {
+            "item_type": "coupon",
+            "show_promo_corner": true,
+            "featured_percentage": 1,
+            "coupon_amount": 3,
+            "use_additional_discount": false,
+            "additional_discount": 1,
+            "item_title": "Lymphatic Support!",
+            "item_subtitle": "Save $3.00!",
+            "item_description": "Combines 9 targeted herbs that optimize the health of the lymphatic system, featuring herbs that help eliminate waste from the lymphatic and glandular system.",
+            "button_text": "Shop Now",
+            "button_url": "https://www.canadianvitaminshop.com/products/st-francis-herb-farm-lymph-tonic",
+            "background_image": "shopify://shop_images/st-francis-lymph-tonic-featured-image-may-2026-bg.jpg",
+            "image": "shopify://shop_images/st-francis-lymph-tonic-featured-image-may-2026.png",
+            "text_color": "black"
+          }
+        },
+        "row_xgLHfL": {
+          "type": "row",
+          "settings": {
+            "item_type": "featured",
+            "show_promo_corner": true,
+            "featured_percentage": 11,
+            "coupon_amount": 1,
+            "use_additional_discount": false,
+            "additional_discount": 1,
+            "item_title": "No refrigeration required!",
+            "item_subtitle": "Save 11%!",
+            "item_description": "Helps reduce the frequency of digestive discomforts such as constipation, flatulence and abdominal pain.",
+            "button_text": "Shop Now",
+            "button_url": "https://www.canadianvitaminshop.com/products/renew-life-ultimate-flora-extra-care-probiotic-bonus-size",
+            "background_image": "shopify://shop_images/renew-life-probiotic-featured-image-may-2026-bg.jpg",
+            "image": "shopify://shop_images/renew-life-probiotic-featured-image-may-2026.png",
+            "text_color": "black"
+          }
+        },
         "row_BKKHHU": {
           "type": "row",
           "settings": {
@@ -261,7 +299,7 @@
             "text_color": "black"
           }
         },
-        "row_XR36CD": {
+        "row_3mwhFK": {
           "type": "row",
           "settings": {
             "item_type": "featured",
@@ -320,9 +358,11 @@
         }
       },
       "block_order": [
+        "row_XR36CD",
+        "row_xgLHfL",
         "row_BKKHHU",
         "row_FGQ6RW",
-        "row_XR36CD",
+        "row_3mwhFK",
         "row_dLMe6e",
         "row_zwyPRU"
       ],
