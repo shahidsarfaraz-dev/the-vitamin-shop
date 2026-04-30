@@ -21,12 +21,13 @@
       "type": "promotional-banner",
       "name": "Promotional Banner",
       "settings": {
-        "title": "April Savings",
-        "description": "Prices valid 1st to 30th April 2026. <br>Discount applied in cart"
+        "title": "May  Savings",
+        "description": "Prices valid 1st to 31st May 2026. <br>Discount applied in cart"
       }
     },
     "featured_collection_standard_gYKF9g": {
       "type": "featured-collection-standard",
+      "disabled": true,
       "name": "Featured Collection (Standard)",
       "settings": {
         "title": "Natural Factors Stress-Relax - Save $2.00",
@@ -55,6 +56,7 @@
     },
     "featured_collection_standard_6GTnwV": {
       "type": "featured-collection-standard",
+      "disabled": true,
       "name": "Featured Collection (Standard)",
       "settings": {
         "title": "Koope - Save $5.00",
@@ -83,6 +85,7 @@
     },
     "featured_collection_standard_4kEhXh": {
       "type": "featured-collection-standard",
+      "disabled": true,
       "name": "Featured Collection (Standard)",
       "settings": {
         "title": "NutraSea - Save $2.00",
@@ -111,6 +114,7 @@
     },
     "featured_collection_standard_4RkdUf": {
       "type": "featured-collection-standard",
+      "disabled": true,
       "name": "Featured Collection (Standard)",
       "settings": {
         "title": "NutraVege - Save $2.00",
@@ -139,6 +143,7 @@
     },
     "featured_collection_standard_YyedW9": {
       "type": "featured-collection-standard",
+      "disabled": true,
       "name": "Featured Collection (Standard)",
       "settings": {
         "title": "Bio-Strath - Save $3.00",
@@ -167,6 +172,7 @@
     },
     "featured_collection_standard_93WrQJ": {
       "type": "featured-collection-standard",
+      "disabled": true,
       "name": "Featured Collection (Standard)",
       "settings": {
         "title": "Sisu Ester-C Products - Save $3.00",
@@ -195,6 +201,7 @@
     },
     "featured_collection_standard_VLPNBM": {
       "type": "featured-collection-standard",
+      "disabled": true,
       "name": "Featured Collection (Standard)",
       "settings": {
         "title": "Natural Factors Whole Earth & Sea - $2.00 Coupon",
@@ -223,6 +230,7 @@
     },
     "featured_collection_standard_AfCfhw": {
       "type": "featured-collection-standard",
+      "disabled": true,
       "name": "Featured Collection (Standard)",
       "settings": {
         "title": "Preferred Nutrition Gummies - $2.00 Coupon",
@@ -251,6 +259,7 @@
     },
     "featured_collection_standard_rpTPRC": {
       "type": "featured-collection-standard",
+      "disabled": true,
       "name": "Featured Collection (Standard)",
       "settings": {
         "title": "Nature’s Harmony - Save 10%",
@@ -279,6 +288,7 @@
     },
     "featured_collection_standard_hY6xmV": {
       "type": "featured-collection-standard",
+      "disabled": true,
       "name": "Featured Collection (Standard)",
       "settings": {
         "title": "Pure Encapsulations  - Save 10%",
@@ -307,6 +317,7 @@
     },
     "featured_collection_standard_8QgQwt": {
       "type": "featured-collection-standard",
+      "disabled": true,
       "name": "Featured Collection (Standard)",
       "settings": {
         "title": "Good Protein - Save 15%",
@@ -335,6 +346,7 @@
     },
     "featured_collection_standard_DbXyrA": {
       "type": "featured-collection-standard",
+      "disabled": true,
       "name": "Featured Collection (Standard)",
       "settings": {
         "title": "Green Beaver - Save 15%",
@@ -363,7 +375,6 @@
     },
     "featured_collection_standard_CDXFYF": {
       "type": "featured-collection-standard",
-      "disabled": true,
       "name": "Featured Collection (Standard)",
       "settings": {
         "title": "Natural Factors Total Body Collagen - Save $2.00",
@@ -392,7 +403,6 @@
     },
     "featured_collection_standard_DiFpMz": {
       "type": "featured-collection-standard",
-      "disabled": true,
       "name": "Featured Collection (Standard)",
       "settings": {
         "title": "Biosil -Save $2.00",
@@ -421,7 +431,6 @@
     },
     "featured_collection_standard_FjtTb3": {
       "type": "featured-collection-standard",
-      "disabled": true,
       "name": "Featured Collection (Standard)",
       "settings": {
         "title": "Quest - Save 10%",
@@ -450,7 +459,6 @@
     },
     "featured_collection_standard_caNeiJ": {
       "type": "featured-collection-standard",
-      "disabled": true,
       "name": "Featured Collection (Standard)",
       "settings": {
         "title": "Pure Lab - Save $2.00",
@@ -479,7 +487,6 @@
     },
     "featured_collection_standard_NJmccx": {
       "type": "featured-collection-standard",
-      "disabled": true,
       "name": "Featured Collection (Standard)",
       "settings": {
         "title": "Strauss - Save 15%",
@@ -508,7 +515,6 @@
     },
     "featured_collection_standard_CNnK7h": {
       "type": "featured-collection-standard",
-      "disabled": true,
       "name": "Featured Collection (Standard)",
       "settings": {
         "title": "Smith Farms - Save 10%",
