@@ -119,6 +119,19 @@
             "text_color": "black"
           }
         },
+        "row_wyiMDY": {
+          "type": "row",
+          "settings": {
+            "background": "#b4c97b",
+            "item_title": "Discover Everyday Wellness",
+            "item_description": "<p>Discover everyday wellness with Healthology’s premium Canadian natural supplements and trusted support, designed to help you feel your best and live well while building a healthier you every day.</p>",
+            "item_mobile_description": "<p>Discover everyday wellness with Healthology’s premium Canadian natural supplements and trusted support, designed to help you feel your best and live well while building a healthier you every day.</p>",
+            "button_text": "Shop Now",
+            "button_url": "https://www.canadianvitaminshop.com/search?q=healthology&options%5Bprefix%5D=last&sort_by=relevance&filter.p.vendor=Healthology",
+            "image": "shopify://shop_images/Screenshot_2026-04-20_130542.jpg",
+            "text_color": "black"
+          }
+        },
         "row_KwtdLt": {
           "type": "row",
           "disabled": true,
@@ -130,19 +143,6 @@
             "button_text": "Shop Now",
             "button_url": "https://www.canadianvitaminshop.com/search?q=prairie+naturals+superfoods&options%5Bprefix%5D=last&sort_by=relevance&filter.p.vendor=Prairie+Naturals",
             "image": "shopify://shop_images/PN_-_Superfoods_-_Web_Banner_-_April_2026.jpg",
-            "text_color": "black"
-          }
-        },
-        "row_4qRD6e": {
-          "type": "row",
-          "settings": {
-            "background": "#97191a",
-            "item_title": "Shop Canadian Brands",
-            "item_description": "<p>The Vitamin Shop is proudly Canadian and is happy to carry many amazing Canadian brands.</p>",
-            "item_mobile_description": "",
-            "button_text": "Shop Now",
-            "button_url": "shopify://collections/canadian-brands",
-            "image": "shopify://shop_images/TVS-shop-canadian-homepage-banner.jpg",
             "text_color": "black"
           }
         },
@@ -160,28 +160,16 @@
             "text_color": "black"
           }
         },
-        "row_wyiMDY": {
+        "row_4qRD6e": {
           "type": "row",
           "settings": {
-            "background": "#b4c97b",
-            "item_title": "Discover Everyday Wellness",
-            "item_description": "<p>Discover everyday wellness with Healthology’s premium Canadian natural supplements and trusted support, designed to help you feel your best and live well while building a healthier you every day.</p>",
-            "item_mobile_description": "<p>Discover everyday wellness with Healthology’s premium Canadian natural supplements and trusted support, designed to help you feel your best and live well while building a healthier you every day.</p>",
-            "button_text": "Shop Now",
-            "button_url": "https://www.canadianvitaminshop.com/search?q=healthology&options%5Bprefix%5D=last&sort_by=relevance&filter.p.vendor=Healthology",
-            "image": "shopify://shop_images/Screenshot_2026-04-20_130542.jpg",
-            "text_color": "black"
-          }
-        },
-        "row_GgJr7C": {
-          "type": "row",
-          "settings": {
-            "background": "#126752",
-            "item_title": "Item Title",
-            "item_description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>",
+            "background": "#97191a",
+            "item_title": "Shop Canadian Brands",
+            "item_description": "<p>The Vitamin Shop is proudly Canadian and is happy to carry many amazing Canadian brands.</p>",
             "item_mobile_description": "",
             "button_text": "Shop Now",
-            "button_url": "",
+            "button_url": "shopify://collections/canadian-brands",
+            "image": "shopify://shop_images/TVS-shop-canadian-homepage-banner.jpg",
             "text_color": "black"
           }
         },
@@ -209,11 +197,10 @@
         "row_MEHf9b",
         "row_FYeFBC",
         "row_NbmMjb",
-        "row_KwtdLt",
-        "row_4qRD6e",
-        "row_zwFVmF",
         "row_wyiMDY",
-        "row_GgJr7C",
+        "row_KwtdLt",
+        "row_zwFVmF",
+        "row_4qRD6e",
         "row_U7XALN"
       ],
       "settings": {
