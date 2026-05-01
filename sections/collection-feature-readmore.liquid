@@ -38,7 +38,18 @@
                       <div class="collection-feature-readmore__ring"></div>
                     {% endif %}
   
-                    {% if section.settings.image != blank %}
+                    {% if collection.metafields.prc.featured_readmore_image != blank %}
+                      {{
+                        collection.metafields.prc.featured_readmore_image
+                        | image_url: width: 1200
+                        | image_tag:
+                          class: 'collection-feature-readmore__image',
+                          loading: 'lazy',
+                          widths: '300, 400, 500, 600, 800, 1000, 1200',
+                          sizes: '(max-width: 749px) 100vw, 420px',
+                          alt: collection.title
+                      }}
+                    {% elsif section.settings.image != blank %}
                       {{
                         section.settings.image
                         | image_url: width: 1200
@@ -165,7 +176,7 @@
       #collection-feature-{{ section.id }} .collection-feature-readmore__text p:last-child {
         margin-bottom: 0;
       }
-      
+
       #collection-feature-{{ section.id }} .collection-feature-readmore__toggle {
         margin: 22px auto 0;
         appearance: none;
