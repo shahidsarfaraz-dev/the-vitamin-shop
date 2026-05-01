@@ -43,10 +43,10 @@
           "settings": {
             "background": "#81c5c3",
             "item_title": "Biosil Beauty",
-            "item_description": "<p>All AOR products on sale 20% off until March 31st! Discount applied once added to cart!</p>",
-            "item_mobile_description": "<p>All AOR products on sale 20% off until March 31st! Discount applied once added to cart!</p>",
+            "item_description": "<p>Clinically studied to help support the body’s natural collagen production for healthy hair, skin, and nails, in liquid and capsule forms.</p>",
+            "item_mobile_description": "<p>Clinically studied to help support the body’s natural collagen production for healthy hair, skin, and nails, in liquid and capsule forms.</p>",
             "button_text": "Shop Now",
-            "button_url": "https://www.canadianvitaminshop.com/search?q=aor&options%5Bprefix%5D=last&sort_by=relevance&filter.p.vendor=AOR",
+            "button_url": "https://www.canadianvitaminshop.com/search?q=biosil&options%5Bprefix%5D=last&sort_by=relevance&filter.p.vendor=BioSil",
             "image": "shopify://shop_images/WebBnnr-847x462px_BioSil_TVS_MAY26.jpg",
             "text_color": "black"
           }
