@@ -86,7 +86,7 @@ body.tvs-theme .h2{
 }
 body.tvs-theme h3,
 body.tvs-theme .h3{
-  font-size: 28px;
+  font-size: 26px;
 }
 
 body.tvs-theme .section-title{
@@ -161,7 +161,7 @@ body.tvs-theme .wishlist-alert.active{
     display: flex;
   }
   body.tvs-theme h2{
-    font-size: 36px;
+    font-size: 32px;
   }  
 }
 
