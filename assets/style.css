@@ -70,19 +70,23 @@ body.tvs-theme .h3,
 body.tvs-theme .h4,
 body.tvs-theme .h5{
   letter-spacing: 0;
-  margin-top: 0;
-  margin-bottom: 20px;
+  margin: 1rem 0;
   color: #000;
   font-family: "Figtree", sans-serif !important;
   line-height: 1.25;
 }
+body.tvs-theme ul,
+body.tvs-theme p {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
 body.tvs-theme h2,
 body.tvs-theme .h2{
-  font-size: 32px;
+  font-size: 28px;
 }
 body.tvs-theme h3,
 body.tvs-theme .h3{
-  font-size: 22px;
+  font-size: 28px;
 }
 
 body.tvs-theme .section-title{
@@ -157,7 +161,7 @@ body.tvs-theme .wishlist-alert.active{
     display: flex;
   }
   body.tvs-theme h2{
-    font-size: 40px;
+    font-size: 36px;
   }  
 }
 
@@ -4296,6 +4300,7 @@ input[type="checkbox"][id^="popuptoggle"]:checked + .popup-container {
   list-style: none;
   padding: 0;
   margin-bottom: 10px;
+  margin-top: 0;
 }
 .breadcrumb__list li {
   margin-left: 0;
