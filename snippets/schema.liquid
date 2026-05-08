@@ -53,15 +53,15 @@
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "@id": "{{ shop_url }} #website",
+    "@id": "{{ shop_url }}#website",
     "url": {{ shop_url | json }},
     "name": {{ shop.name | json }},
     "publisher": {
-      "@id": "{{ shop_url }} #organization"
+      "@id": "{{ shop_url }}#organization"
     },
     "potentialAction": {
       "@type": "SearchAction",
-      "target": "{{ shop_url }} /search?q={search_term_string}",
+      "target": "{{ shop_url }}/search?q={search_term_string}",
       "query-input": "required name=search_term_string"
     }
   }
@@ -72,7 +72,7 @@
   {
     "@context": "https://schema.org",
     "@type": "OnlineStore",
-    "@id": "{{ shop_url }} #onlinestore",
+    "@id": "{{ shop_url }}#onlinestore",
     "name": {{ shop.name | json }},
     "url": {{ shop_url | json }},
     "logo": {
@@ -96,8 +96,8 @@
           {%- endif -%},
           "hasMerchantReturnPolicy": {
             "@type": "MerchantReturnPolicy",
-            "@id": "{{ shop_url }} /policies/refund-policy#returnpolicy",
-            "merchantReturnLink": "{{ shop_url }} /policies/refund-policy",
+            "@id": "{{ shop_url }}/policies/refund-policy#returnpolicy",
+            "merchantReturnLink": "{{ shop_url }}/policies/refund-policy",
             "applicableCountry": "CA",
             "returnPolicyCountry": "CA",
             "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
@@ -122,12 +122,12 @@
       "@graph": [
               {
           "@type": "Organization",
-          "@id": "{{ shop_url }} #organization",
+          "@id": "{{ shop_url }}#organization",
           "name": {{ shop.name | json }},
           "url": {{ shop_url | json }},
           "logo": {
             "@type": "ImageObject",
-            "@id": "{{ shop_url }} #logo",
+            "@id": "{{ shop_url }}#logo",
             "url": "https://www.canadianvitaminshop.com/cdn/shop/files/full-logo.svg",
             "contentUrl": "https://www.canadianvitaminshop.com/cdn/shop/files/full-logo.svg"
           }
@@ -142,7 +142,7 @@
                 {%- endif -%}
               }, {
                 "@type": "LocalBusiness",
-                "@id": "{{ shop_url }} #localbusiness",
+                "@id": "{{ shop_url }}#localbusiness",
                 "name": {{ shop.name | json }},
                 "telephone": "+1-250-386-1212",
                 "faxNumber": "+1-250-386-1299",
@@ -182,21 +182,21 @@
                   }
                 ],
                 "parentOrganization": {
-                  "@id": "{{ shop_url }} #organization"
+                  "@id": "{{ shop_url }}#organization"
                 }
               }, {
                 "@type": "WebPage",
-                "@id": "{{ shop_url }} #webpage",
+                "@id": "{{ shop_url }}#webpage",
                 "url": {{ shop_url | json }},
                 "name": {{ shop.name | json }},
                 "isPartOf": {
-                  "@id": "{{ shop_url }} #website"
+                  "@id": "{{ shop_url }}#website"
                 },
                 "about": {
-                  "@id": "{{ shop_url }} #organization"
+                  "@id": "{{ shop_url }}#organization"
                 },
                 "primaryImageOfPage": {
-                  "@id": "{{ shop_url }} #logo"
+                  "@id": "{{ shop_url }}#logo"
                 }
               }
             ]
@@ -211,12 +211,12 @@
       "@graph": [
                   {
           "@type": "Organization",
-          "@id": "{{ shop_url }} #organization",
+          "@id": "{{ shop_url }}#organization",
           "name": {{ shop.name | json }},
           "url": {{ shop_url | json }},
           "logo": {
             "@type": "ImageObject",
-            "@id": "{{ shop_url }} #logo",
+            "@id": "{{ shop_url }}#logo",
             "url": "https://www.canadianvitaminshop.com/cdn/shop/files/full-logo.svg",
             "contentUrl": "https://www.canadianvitaminshop.com/cdn/shop/files/full-logo.svg"
           }
@@ -231,29 +231,29 @@
                 {%- endif -%}
               }, {
                 "@type": "CollectionPage",
-                "@id": "{{ shop_url }} {{ collection.url }} #collectionpage",
+                "@id": "{{ shop_url }}{{ collection.url }}#collectionpage",
                 "url": {{ shop_url | append: collection.url | json }},
                 "name": {{ collection.title | json }},
                 {%- if collection.description != blank -%}
                   "description": {{ collection.description | strip_html | strip_newlines | json }},
                   {%- endif -%}
                   "isPartOf": {
-                    "@id": "{{ shop_url }} #website"
+                    "@id": "{{ shop_url }}#website"
                   },
                   "about": {
-                    "@id": "{{ shop_url }} #organization"
+                    "@id": "{{ shop_url }}#organization"
                   },
                   "mainEntity": {
-                    "@id": "{{ shop_url }} {{ collection.url }} #itemlist"
+                    "@id": "{{ shop_url }}{{ collection.url }}#itemlist"
                   }
                     {%- if faq_html contains 'Frequently Asked Questions' -%},
                     "hasPart" : {
-                      "@id": "{{ request.origin }} {{ request.path }} #faq"
+                      "@id": "{{ request.origin }}{{ request.path }}#faq"
                     }
                     {%- endif -%}
                   }, {
                     "@type": "ItemList",
-                    "@id": "{{ shop_url }} {{ collection.url }} #itemlist",
+                    "@id": "{{ shop_url }}{{ collection.url }}#itemlist",
                     "name": {{ collection.title | append: ' Products' | json }},
                     "itemListOrder": "https://schema.org/ItemListOrderAscending",
                     "numberOfItems": {{ collection.products_count }},
@@ -280,12 +280,12 @@
       "@graph": [
                   {
           "@type": "Organization",
-          "@id": "{{ shop_url }} #organization",
+          "@id": "{{ shop_url }}#organization",
           "name": {{ shop.name | json }},
           "url": {{ shop_url | json }},
           "logo": {
             "@type": "ImageObject",
-            "@id": "{{ shop_url }} #logo",
+            "@id": "{{ shop_url }}#logo",
             "url": "https://www.canadianvitaminshop.com/cdn/shop/files/full-logo.svg",
             "contentUrl": "https://www.canadianvitaminshop.com/cdn/shop/files/full-logo.svg"
           }
@@ -301,22 +301,22 @@
               },
               {
                 "@type": "WebPage",
-                "@id": "{{ shop_url }} {{ article.url }} #webpage",
+                "@id": "{{ shop_url }}{{ article.url }}#webpage",
                 "url": {{ shop_url | append: article.url | json }},
                 "name": {{ article.title | json }},
                 "isPartOf": {
-                  "@id": "{{ shop_url }} #website"
+                  "@id": "{{ shop_url }}#website"
                 },
                 "about": {
-                  "@id": "{{ shop_url }} #organization"
+                  "@id": "{{ shop_url }}#organization"
                 },
                 "primaryImageOfPage": {
-                  "@id": "{{ shop_url }} {{ article.url }} #primaryimage"
+                  "@id": "{{ shop_url }}{{ article.url }}#primaryimage"
                 }
               },
               {
                 "@type": "BreadcrumbList",
-                "@id": "{{ shop_url }} {{ article.url }} #breadcrumb",
+                "@id": "{{ shop_url }}{{ article.url }}#breadcrumb",
                 "itemListElement": [
                   {
                     "@type": "ListItem",
@@ -338,14 +338,14 @@
               },
               {
                 "@type": "ImageObject",
-                "@id": "{{ shop_url }} {{ article.url }} #primaryimage",
+                "@id": "{{ shop_url }}{{ article.url }}#primaryimage",
                 "url": {% if article.image %} {{ article.image | image_url: width: 1200 | prepend: "https:" | json }}{% else %}{{ "https://www.canadianvitaminshop.com/cdn/shop/files/full-logo.svg" | json }}{% endif %},
                 "contentUrl": {% if article.image %} {{ article.image | image_url: width: 1200 | prepend: "https:" | json }}{% else %}{{ "https://www.canadianvitaminshop.com/cdn/shop/files/full-logo.svg" | json }}{% endif %}
               }, {
                 "@type": "BlogPosting",
-                "@id": "{{ shop_url }} {{ article.url }} #article",
+                "@id": "{{ shop_url }}{{ article.url }}#article",
                 "mainEntityOfPage": {
-                  "@id": "{{ shop_url }} {{ article.url }} #webpage"
+                  "@id": "{{ shop_url }}{{ article.url }}#webpage"
                 },
                 "headline": {{ article.title | json }},
                 "url": {{ shop_url | append: article.url | json }},
@@ -361,13 +361,13 @@
                     "name": {{ article.author | json }}
                   },
                   "publisher": {
-                    "@id": "{{ shop_url }} #organization"
+                    "@id": "{{ shop_url }}#organization"
                   },
                   "articleSection": {{ blog.title | json }},
                   "inLanguage": {{ request.locale.iso_code | default: "en" | json }},
                   "isPartOf": {
                     "@type": "Blog",
-                    "@id": "{{ shop_url }} {{ blog.url }} #blog",
+                    "@id": "{{ shop_url }}{{ blog.url }}#blog",
                     "name": {{ blog.title | json }},
                     "url": {{ shop_url | append: blog.url | json }}
                   },
@@ -392,7 +392,7 @@
       "@graph": [
                     {
           "@type": "BreadcrumbList",
-          "@id": "{{ shop_url }} {{ product.url }} #breadcrumb",
+          "@id": "{{ shop_url }}{{ product.url }}#breadcrumb",
           "itemListElement": [
               {
               "@type": "ListItem",
@@ -421,7 +421,7 @@
             ]
           }, {
             "@type": "Product",
-            "@id": "{{ shop_url }} {{ product.url }} #product",
+            "@id": "{{ shop_url }}{{ product.url }}#product",
             "name": {{ product.title | json }},
             "url": {{ shop_url | append: product.url | json }},
             {%- if product.featured_image -%}
@@ -450,11 +450,11 @@
                         "priceCurrency": {{ cart.currency.iso_code | json }},
                         "price": {{ variant.price | money_without_currency | replace: ',', '' | json }},
                         "priceValidUntil": {{ price_valid_until | json }},
-                        "availability": "https://schema.org/{% if variant.available %} InStock{% else %}OutOfStock{% endif %}",
+                        "availability": "https://schema.org/{% if variant.available %}InStock{% else %}OutOfStock{% endif %}",
                         "itemCondition": "https://schema.org/NewCondition",
                         "sku": {{ variant.sku | default: variant.id | json }},
                         "seller": {
-                          "@id": "{{ shop_url }} #organization"
+                          "@id": "{{ shop_url }}#organization"
                         }
                           {%- if variant.barcode != blank -%},
                           "gtin": {{ variant.barcode | json }}
