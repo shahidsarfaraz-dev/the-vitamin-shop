@@ -13,7 +13,9 @@
             <div class="product-thumbnails-new">
               {% for image in product.images %}
                 <div>
-                  <img class="thumbnail" src="{{ image | image_url: height: 600 }}" width="auto" height="600" alt="Thumbnail of {{ image.alt }}" data-image-id="{{ image.id }}" data-variant-ids="{% for variant in product.variants %}{% if variant.featured_image and variant.featured_image.id == image.id %}{{ variant.id }},{% endif %}{% endfor %}" />
+                  <img class="thumbnail" src="{{ image | image_url: width: 150, format: 'webp' }}" width="150" 
+         height="150" 
+         loading="lazy" alt="Thumbnail of {{ image.alt }}" data-image-id="{{ image.id }}" data-variant-ids="{% for variant in product.variants %}{% if variant.featured_image and variant.featured_image.id == image.id %}{{ variant.id }},{% endif %}{% endfor %}" />
                 </div>
               {% endfor %}
             </div>
@@ -22,7 +24,8 @@
           </div>
         <div class="product-main-image">
           {% assign initial_variant = product.selected_or_first_available_variant %}
-          <img id="main-image" src="{{ initial_variant.featured_image | image_url: height: 600 }}" width="auto" height="600" alt="{{ initial_variant.title }}" />
+          <img id="main-image" src="{{ initial_variant.featured_image | image_url: width: 800, format: 'webp' }}" width="800" 
+       height="800" alt="{{ initial_variant.title }}" loading="eager" />
         </div>
       </div>
     </div>

@@ -51,7 +51,7 @@
           <a class="d-block card__product-image" href="{{ card_product.url }}">
             <img
               class="d-block"
-              src="{%- if card_product.featured_media -%}{{ card_product.featured_media | image_url }}{% else %}{{ 'tvs-website-placeholder-image-3.jpg' | asset_url }}{% endif %}"
+              src="{%- if card_product.featured_media -%}{{ card_product.featured_media | image_url: width: 1500, format: 'webp' }}{% else %}{{ 'tvs-website-placeholder-image-3.jpg' | asset_url }}{% endif %}"
               alt=""
             >
           </a>

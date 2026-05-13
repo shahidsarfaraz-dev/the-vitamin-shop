@@ -41,7 +41,7 @@
                   {{ block.settings.text }}
                 </div>
               {%- when 'image_picker' -%}
-                <img class="richtext-image" src="{{ block.settings.richtext_image | image_url }}" width="" height="" alt="" />
+                <img class="richtext-image" src="{{ block.settings.richtext_image | image_url: width: 1500, format: 'webp' }}" width="" height="" alt="" />
               {%- when 'button' -%}
                 <div
                   class="rich-text__buttons{% if block.settings.button_label != blank and block.settings.button_label_2 != blank %} rich-text__buttons--multiple{% endif %}"

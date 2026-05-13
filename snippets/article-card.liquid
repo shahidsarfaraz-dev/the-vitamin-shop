@@ -50,7 +50,7 @@
       style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;"
     >
       {%- if article.image -%}
-        <div class="card__thumbnail-img" style="background-image: url({{ article.image.src | image_url }});"></div>
+        <div class="card__thumbnail-img" style="background-image: url({{ article.image.src | image_url: width: 1500, format: 'webp' }});"></div>
       {%- endif -%}
       <div class="card__content">
         <div class="card__information">

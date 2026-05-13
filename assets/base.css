@@ -2993,3 +2993,10 @@ details-disclosure > details {
     outline: transparent solid 1px;
   }
 }
+
+
+/* Global safety rule to prevent image stretching */
+img {
+  height: auto !important;
+  max-width: 100%;
+}

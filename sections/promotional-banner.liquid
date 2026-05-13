@@ -8,8 +8,8 @@
     </div>
     
     <div class="promotional-banner-container">
-      <div class="promotional-banner-mobile-background" style="background-image: url({{ section.settings.mobile_background_image | default: section.settings.background_image | image_url }});">{{ section.settings.title }}</div>
-      {% if section.settings.background_image %}<img class="promotional-banner-image" src="{{ section.settings.background_image | image_url }}">{% endif %}
+      <div class="promotional-banner-mobile-background" style="background-image: url({{ section.settings.mobile_background_image | default: section.settings.background_image | image_url: width: 1500, format: 'webp' }});">{{ section.settings.title }}</div>
+      {% if section.settings.background_image %}<img class="promotional-banner-image" src="{{ section.settings.background_image | image_url: width: 1500, format: 'webp' }}">{% endif %}
       <div class="promotional-banner-content">
         <h1 class="promotional-banner-title">{{ section.settings.title }}</h1>
         <div class="promotional-banner-description">{{ collection.description }}{% if collection.description %} {{ section.settings.title }}{% else %} {{ section.settings.description }}{% endif %}</div>

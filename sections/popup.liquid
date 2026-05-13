@@ -6,7 +6,7 @@
     {%- if section.settings.button_text == blank and section.settings.text != blank -%}
       <a href="{{- section.settings.link }}" class="popup-content">
         {%- if section.settings.image != blank %}
-          <img src="{{- section.settings.image | image_url }}" alt="" width="" height="" />
+          <img src="{{- section.settings.image | image_url: width: 1500, format: 'webp' }}" alt="" width="" height="" />
         {% endif %}
         <span class="popup-textarea {{ section.settings.color_scheme }}">
           {%- if section.settings.heading %}
@@ -29,7 +29,7 @@
     {%- else -%}
       <div class="popup-content">
         {%- if section.settings.image != blank %}
-          <img src="{{- section.settings.image | image_url }}" alt="" width="" height="" />
+          <img src="{{- section.settings.image | image_url: width: 1500, format: 'webp' }}" alt="" width="" height="" />
         {% endif %}
         <span class="popup-textarea {{ section.settings.color_scheme }}">
           {% if blank != section.settings.heading %}
