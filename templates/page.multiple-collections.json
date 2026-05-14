@@ -27,7 +27,6 @@
     },
     "featured_collection_standard_CDXFYF": {
       "type": "featured-collection-standard",
-      "disabled": true,
       "name": "Featured Collection (Standard)",
       "settings": {
         "title": "Natural Factors RegenerLife - Save $2.00",
@@ -56,7 +55,6 @@
     },
     "featured_collection_standard_JMVCjg": {
       "type": "featured-collection-standard",
-      "disabled": true,
       "name": "Featured Collection (Standard)",
       "settings": {
         "title": "NutriStart - Save 10%",
@@ -85,7 +83,6 @@
     },
     "featured_collection_standard_mdDGHx": {
       "type": "featured-collection-standard",
-      "disabled": true,
       "name": "Featured Collection (Standard)",
       "settings": {
         "title": "A Vogel - Save $3.00",
@@ -114,7 +111,6 @@
     },
     "featured_collection_standard_RVztRi": {
       "type": "featured-collection-standard",
-      "disabled": true,
       "name": "Featured Collection (Standard)",
       "settings": {
         "title": "MegaFood - Save $5.00",
@@ -143,7 +139,6 @@
     },
     "featured_collection_standard_8aAKMe": {
       "type": "featured-collection-standard",
-      "disabled": true,
       "name": "Featured Collection (Standard)",
       "settings": {
         "title": "Botanica - Save $5.00",
@@ -172,7 +167,6 @@
     },
     "featured_collection_standard_Wb4jyV": {
       "type": "featured-collection-standard",
-      "disabled": true,
       "name": "Featured Collection (Standard)",
       "settings": {
         "title": "Platinum Naturals Activ-X - Save $4.00",
@@ -201,7 +195,6 @@
     },
     "featured_collection_standard_nMfbTf": {
       "type": "featured-collection-standard",
-      "disabled": true,
       "name": "Featured Collection (Standard)",
       "settings": {
         "title": "Sambucas - Save $2.00",
