@@ -16,8 +16,8 @@
           "type": "row",
           "settings": {
             "background": "#5a0101",
-            "item_title": "Live Now: Save an Extra 10% sitewide",
-            "item_description": "<p>Up to <strong>35% total savings</strong> on select products. Applied in cart online, in-store, and by phone.</p>",
+            "item_title": "Up to 35% OFF Select Products!",
+            "item_description": "<p>Applied at checkout online, in-store, and by phone.</p>",
             "item_mobile_description": "<p>Up to <strong>35% total savings </strong>on select products!</p>",
             "button_text": "Shop Now",
             "button_url": "",
