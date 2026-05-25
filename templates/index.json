@@ -12,6 +12,19 @@
     "slideshow_cards_KRETQp": {
       "type": "slideshow-cards",
       "blocks": {
+        "row_UQ6U7d": {
+          "type": "row",
+          "settings": {
+            "background": "#5a0101",
+            "item_title": "Live Now: Save an Extra 10% sitewide",
+            "item_description": "<p>Up to <strong>35% total savings</strong> on select products. Applied in cart online, in-store, and by phone.</p>",
+            "item_mobile_description": "<p>Up to <strong>35% total savings </strong>on select products!</p>",
+            "button_text": "Shop Now",
+            "button_url": "",
+            "image": "shopify://shop_images/Sept_2025_flash_sale_revised-7.png",
+            "text_color": "black"
+          }
+        },
         "row_XGUfyX": {
           "type": "row",
           "settings": {
@@ -189,6 +202,7 @@
         }
       },
       "block_order": [
+        "row_UQ6U7d",
         "row_XGUfyX",
         "row_aGr7ee",
         "row_fhAKCF",
