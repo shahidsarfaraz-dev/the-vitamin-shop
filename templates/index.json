@@ -14,6 +14,7 @@
       "blocks": {
         "row_UQ6U7d": {
           "type": "row",
+          "disabled": true,
           "settings": {
             "background": "#5a0101",
             "item_title": "Up to 35% OFF Select Products!",
