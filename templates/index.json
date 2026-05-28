@@ -251,13 +251,11 @@
             "coupon_amount": 1,
             "use_additional_discount": false,
             "additional_discount": 1,
-            "item_title": "No refrigeration required!",
-            "item_subtitle": "Save 11%!",
-            "item_description": "Helps reduce the frequency of digestive discomforts such as constipation, flatulence and abdominal pain.",
+            "item_title": "L-Theanine with Magnesium",
+            "item_subtitle": "Save $3!",
+            "item_description": "Promotes a state of relaxation so that you can stay focused and productive.",
             "button_text": "Shop Now",
-            "button_url": "https://www.canadianvitaminshop.com/products/renew-life-ultimate-flora-extra-care-probiotic-bonus-size",
-            "background_image": "shopify://shop_images/renew-life-probiotic-featured-image-may-2026-bg.jpg",
-            "image": "shopify://shop_images/renew-life-probiotic-featured-image-may-2026.png",
+            "button_url": "shopify://products/canprev-l-theanine-with-magnesium",
             "text_color": "black"
           }
         },
