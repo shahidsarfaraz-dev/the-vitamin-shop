@@ -277,6 +277,8 @@
             "item_description": "Derived from non-GMO vegan sources (beets and/or corn) that have been fermented using bacterial cultures. L-Glutamine supports the immune system following periods of physical stress and assisting in muscle cell repair after exercise.",
             "button_text": "Shop Now",
             "button_url": "shopify://products/iron-vegan-fermented-l-glutamine",
+            "background_image": "shopify://shop_images/2026.06-TVS-June-Savings-Jamieson-Bg.jpg",
+            "image": "shopify://shop_images/2026.06-TVS-June-Savings-Jamieson-Product.png",
             "text_color": "black"
           }
         },
