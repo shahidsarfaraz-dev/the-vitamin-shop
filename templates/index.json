@@ -264,17 +264,15 @@
           "settings": {
             "item_type": "coupon",
             "show_promo_corner": true,
-            "featured_percentage": 1,
-            "coupon_amount": 2,
+            "featured_percentage": 12,
+            "coupon_amount": 1,
             "use_additional_discount": false,
             "additional_discount": 1,
-            "item_title": "Daily Green Essentials!",
-            "item_subtitle": "Save $2.00!",
-            "item_description": "Provides a spectrum of nutrients from concentrated superfruits, land, and sea greens with the addition of pre- and probiotic support.",
+            "item_title": "Fermented L-Glutamine",
+            "item_subtitle": "Save 12%!",
+            "item_description": "Derived from non-GMO vegan sources (beets and/or corn) that have been fermented using bacterial cultures. L-Glutamine supports the immune system following periods of physical stress and assisting in muscle cell repair after exercise.",
             "button_text": "Shop Now",
-            "button_url": "https://www.canadianvitaminshop.com/products/north-coast-naturals-ultimate-daily-greens-chocolate",
-            "background_image": "shopify://shop_images/ncn-greens-chocolate-coupon-may-2026-bg.jpg",
-            "image": "shopify://shop_images/ncn-greens-chocolate-coupon-may-2026.png",
+            "button_url": "shopify://products/iron-vegan-fermented-l-glutamine",
             "text_color": "black"
           }
         },
@@ -299,6 +297,7 @@
         },
         "row_3mwhFK": {
           "type": "row",
+          "disabled": true,
           "settings": {
             "item_type": "featured",
             "show_promo_corner": true,
@@ -318,6 +317,7 @@
         },
         "row_dLMe6e": {
           "type": "row",
+          "disabled": true,
           "settings": {
             "item_type": "coupon",
             "show_promo_corner": true,
@@ -337,6 +337,7 @@
         },
         "row_zwyPRU": {
           "type": "row",
+          "disabled": true,
           "settings": {
             "item_type": "coupon",
             "show_promo_corner": true,
