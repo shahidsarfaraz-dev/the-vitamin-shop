@@ -29,7 +29,7 @@
         "row_XGUfyX": {
           "type": "row",
           "settings": {
-            "background": "#F10505",
+            "background": "#f10505",
             "item_title": "June Savings Are Here!",
             "item_description": "<p>Stock up on your favourite health essentials and enjoy big savings all month long! Don’t miss out on exclusive deals – click below to shop now!</p>",
             "item_mobile_description": "<p>Stock up on your favourite health essentials and enjoy big savings all month long! Don’t miss out on exclusive deals – click below to shop now!</p>",
@@ -281,17 +281,15 @@
           "settings": {
             "item_type": "coupon",
             "show_promo_corner": true,
-            "featured_percentage": 1,
-            "coupon_amount": 3,
+            "featured_percentage": 20,
+            "coupon_amount": 1,
             "use_additional_discount": false,
             "additional_discount": 1,
-            "item_title": "Delicious Whole Foods!",
-            "item_subtitle": "Save $3.00!",
-            "item_description": "Delivers whole body protection from oxidative stress with over 40 fruit concentrates, plant oils, and phytonutrients in every scoop.",
+            "item_title": "Creatine Monohydrate 3000 mg",
+            "item_subtitle": "Save 20%!",
+            "item_description": "This product contains high-quality creatine monohydrate, a naturally occurring compound that can increase lean muscle mass when paired with a resistance training program.",
             "button_text": "Shop Now",
             "button_url": "https://www.canadianvitaminshop.com/products/progressive-phytoberry",
-            "background_image": "shopify://shop_images/progressive-phytoberry-coupon-may-2026-bg.jpg",
-            "image": "shopify://shop_images/progressive-phytoberry-coupon-may-2026.png",
             "text_color": "black"
           }
         },
