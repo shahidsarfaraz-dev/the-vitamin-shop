@@ -195,6 +195,7 @@
     },
     "featured_collection_standard_nMfbTf": {
       "type": "featured-collection-standard",
+      "disabled": true,
       "name": "Featured Collection (Standard)",
       "settings": {
         "title": "Sambucas - Save $2.00",
@@ -223,6 +224,7 @@
     },
     "featured_collection_standard_AWmKbE": {
       "type": "featured-collection-standard",
+      "disabled": true,
       "name": "Featured Collection (Standard)",
       "settings": {
         "title": "Natural Factors Total Body Collagen - Save $2.00",
@@ -251,6 +253,7 @@
     },
     "featured_collection_standard_DiFpMz": {
       "type": "featured-collection-standard",
+      "disabled": true,
       "name": "Featured Collection (Standard)",
       "settings": {
         "title": "Biosil -Save $2.00",
@@ -279,6 +282,7 @@
     },
     "featured_collection_standard_FjtTb3": {
       "type": "featured-collection-standard",
+      "disabled": true,
       "name": "Featured Collection (Standard)",
       "settings": {
         "title": "Quest - Save 10%",
@@ -307,6 +311,7 @@
     },
     "featured_collection_standard_caNeiJ": {
       "type": "featured-collection-standard",
+      "disabled": true,
       "name": "Featured Collection (Standard)",
       "settings": {
         "title": "Pure Lab - Save $2.00",
@@ -335,6 +340,7 @@
     },
     "featured_collection_standard_NJmccx": {
       "type": "featured-collection-standard",
+      "disabled": true,
       "name": "Featured Collection (Standard)",
       "settings": {
         "title": "Strauss - Save 15%",
@@ -363,6 +369,7 @@
     },
     "featured_collection_standard_CNnK7h": {
       "type": "featured-collection-standard",
+      "disabled": true,
       "name": "Featured Collection (Standard)",
       "settings": {
         "title": "Smith Farms - Save 10%",
