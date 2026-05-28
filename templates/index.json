@@ -289,7 +289,7 @@
             "item_subtitle": "Save 20%!",
             "item_description": "This product contains high-quality creatine monohydrate, a naturally occurring compound that can increase lean muscle mass when paired with a resistance training program.",
             "button_text": "Shop Now",
-            "button_url": "https://www.canadianvitaminshop.com/products/progressive-phytoberry",
+            "button_url": "shopify://products/naka-creatine-3000-mg",
             "text_color": "black"
           }
         },
