@@ -239,6 +239,8 @@
             "item_description": "Helps reduce the symptoms of stress.",
             "button_text": "Shop Now",
             "button_url": "shopify://products/aor-cortisol-adapt",
+            "background_image": "shopify://shop_images/2026.06-TVS-June-Savings-AOR-Bg.jpg",
+            "image": "shopify://shop_images/2026.06-TVS-June-Savings-AOR-Product.png",
             "text_color": "black"
           }
         },
