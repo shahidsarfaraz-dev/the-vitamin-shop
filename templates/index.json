@@ -258,6 +258,8 @@
             "item_description": "Promotes a state of relaxation so that you can stay focused and productive.",
             "button_text": "Shop Now",
             "button_url": "shopify://products/canprev-l-theanine-with-magnesium",
+            "background_image": "shopify://shop_images/2026.06-TVS-June-Savings-CanPrev-Bg.jpg",
+            "image": "shopify://shop_images/2026.06-TVS-June-Savings-CanPrev-Product.png",
             "text_color": "black"
           }
         },
