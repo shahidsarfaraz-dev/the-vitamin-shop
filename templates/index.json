@@ -247,10 +247,10 @@
         "row_xgLHfL": {
           "type": "row",
           "settings": {
-            "item_type": "featured",
-            "show_promo_corner": true,
-            "featured_percentage": 11,
-            "coupon_amount": 1,
+            "item_type": "coupon",
+            "show_promo_corner": false,
+            "featured_percentage": 1,
+            "coupon_amount": 3,
             "use_additional_discount": false,
             "additional_discount": 1,
             "item_title": "L-Theanine with Magnesium",
