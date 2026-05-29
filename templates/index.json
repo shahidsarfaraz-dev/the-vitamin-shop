@@ -266,7 +266,7 @@
         "row_BKKHHU": {
           "type": "row",
           "settings": {
-            "item_type": "coupon",
+            "item_type": "featured",
             "show_promo_corner": true,
             "featured_percentage": 12,
             "coupon_amount": 1,
