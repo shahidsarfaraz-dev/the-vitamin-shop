@@ -285,7 +285,7 @@
         "row_FGQ6RW": {
           "type": "row",
           "settings": {
-            "item_type": "coupon",
+            "item_type": "featured",
             "show_promo_corner": true,
             "featured_percentage": 20,
             "coupon_amount": 1,
