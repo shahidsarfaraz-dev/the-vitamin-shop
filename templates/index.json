@@ -248,7 +248,7 @@
           "type": "row",
           "settings": {
             "item_type": "coupon",
-            "show_promo_corner": false,
+            "show_promo_corner": true,
             "featured_percentage": 1,
             "coupon_amount": 3,
             "use_additional_discount": false,
