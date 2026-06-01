@@ -41,7 +41,6 @@
         },
         "row_aGr7ee": {
           "type": "row",
-          "disabled": true,
           "settings": {
             "background": "#ef6d18",
             "item_title": "Trusted Curcumin",
@@ -57,13 +56,13 @@
           "type": "row",
           "disabled": true,
           "settings": {
-            "background": "#81c5c3",
-            "item_title": "Biosil Beauty",
-            "item_description": "<p>Clinically studied to help support the body’s natural collagen production for healthy hair, skin, and nails, in liquid and capsule forms.</p>",
-            "item_mobile_description": "<p>Clinically studied to help support the body’s natural collagen production for healthy hair, skin, and nails, in liquid and capsule forms.</p>",
+            "background": "#9454a4",
+            "item_title": "Men’s Health",
+            "item_description": "<p>Support energy, metabolism, muscle strength, and prostate health with targeted nutrition designed to help men stay active, strong, and resilient every day.</p>",
+            "item_mobile_description": "<p>Support energy, metabolism, muscle strength, and prostate health with targeted nutrition designed to help men stay active, strong, and resilient every day.</p>",
             "button_text": "Shop Now",
-            "button_url": "https://www.canadianvitaminshop.com/search?q=biosil&options%5Bprefix%5D=last&sort_by=relevance&filter.p.vendor=BioSil",
-            "image": "shopify://shop_images/WebBnnr-847x462px_BioSil_TVS_MAY26.jpg",
+            "button_url": "https://www.canadianvitaminshop.com/search?q=ultimate&options%5Bprefix%5D=last&sort_by=relevance&filter.p.vendor=Ultimate",
+            "image": "shopify://shop_images/WebBnnr-847x462px_TVS_Ultimate_JUN26_E.jpg",
             "text_color": "black"
           }
         },
@@ -110,6 +109,7 @@
         },
         "row_FYeFBC": {
           "type": "row",
+          "disabled": true,
           "settings": {
             "background": "#ce6ca6",
             "item_title": "Now Available!",
