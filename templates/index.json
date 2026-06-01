@@ -67,14 +67,13 @@
         },
         "row_jTCqyT": {
           "type": "row",
-          "disabled": true,
           "settings": {
             "background": "#6a845f",
-            "item_title": "Chewy Wellness",
-            "item_description": "<p>A colourful range of flavourful gummies designed for everyday nutrition, combining convenience, taste, and thoughtfully selected ingredients.</p>",
-            "item_mobile_description": "<p>A colourful range of flavourful gummies designed for everyday nutrition, combining convenience, taste, and thoughtfully selected ingredients.</p>",
+            "item_title": "Botanica Line Drive",
+            "item_description": "<p>Discover Botanica’s collection of finely crafted, organic plant-based supplements for your unique path to wellness.</p>",
+            "item_mobile_description": "<p>Discover Botanica’s collection of finely crafted, organic plant-based supplements for your unique path to wellness.</p>",
             "button_text": "Shop Now",
-            "button_url": "https://www.canadianvitaminshop.com/search?q=preferred+nutrition+gummies&options%5Bprefix%5D=last&sort_by=relevance&filter.p.vendor=Preferred+Nutrition",
+            "button_url": "https://www.canadianvitaminshop.com/search?q=botanica&options%5Bprefix%5D=last&sort_by=relevance&filter.p.vendor=Botanica",
             "image": "shopify://shop_images/BT_26.05_VitaminShop_Web_Banner.jpg",
             "text_color": "black"
           }
