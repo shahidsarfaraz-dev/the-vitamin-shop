@@ -41,19 +41,21 @@
         },
         "row_aGr7ee": {
           "type": "row",
+          "disabled": true,
           "settings": {
-            "background": "#904993",
-            "item_title": "Naturally for Her",
-            "item_description": "<p>Plant-based and research-informed formulas designed to complement a woman’s daily routine, supporting balance, vitality, and overall well-being.</p>",
-            "item_mobile_description": "<p>Plant-based and research-informed formulas designed to complement a woman’s daily routine, supporting balance, vitality, and overall well-being.</p>",
+            "background": "#ef6d18",
+            "item_title": "Trusted Curcumin",
+            "item_description": "<p>Supports everyday wellness with  antioxidants. Helps relieve knee<br/>osteoarthritis joint pain and supports muscle, immune, and digestive health<br/>after physical stress.</p>",
+            "item_mobile_description": "<p>Supports everyday wellness with  antioxidants. Helps relieve knee<br/>osteoarthritis joint pain and supports muscle, immune, and digestive health<br/>after physical stress.</p>",
             "button_text": "Shop Now",
-            "button_url": "https://www.canadianvitaminshop.com/collections/womens-health",
-            "image": "shopify://shop_images/Bnnr_Women_TVS_847x462_Jun26.jpg",
+            "button_url": "https://www.canadianvitaminshop.com/search?q=theracumiun&options%5Bprefix%5D=last",
+            "image": "shopify://shop_images/Bnnr_CCRich_TVS_847x462_E.jpg",
             "text_color": "black"
           }
         },
         "row_fhAKCF": {
           "type": "row",
+          "disabled": true,
           "settings": {
             "background": "#81c5c3",
             "item_title": "Biosil Beauty",
