@@ -149,6 +149,7 @@
         },
         "row_wyiMDY": {
           "type": "row",
+          "disabled": true,
           "settings": {
             "background": "#b4c97b",
             "item_title": "Discover Everyday Wellness",
