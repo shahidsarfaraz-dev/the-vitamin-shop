@@ -80,12 +80,11 @@
         },
         "row_3Lj9TF": {
           "type": "row",
-          "disabled": true,
           "settings": {
             "background": "#4a5b55",
-            "item_title": "Purica Savings!",
-            "item_description": "",
-            "item_mobile_description": "",
+            "item_title": "THE FUTURE OF MUSHROOMS IS HERE",
+            "item_description": "<p>Purica has some special offers this month, and be sure not to miss the new Power Cordyceps - the most potent cordyceps in the world.</p>",
+            "item_mobile_description": "<p>Purica has some special offers this month, and be sure not to miss the new Power Cordyceps - the most potent cordyceps in the world.</p>",
             "button_text": "Shop Now",
             "button_url": "https://www.canadianvitaminshop.com/collections/purica",
             "image": "shopify://shop_images/Purica26.jpg",
