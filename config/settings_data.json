@@ -446,8 +446,8 @@
   },
   "platform_customizations": {
     "custom_css": [
-      "#judgeme_product_reviews {padding: 0 95px; margin-top: 20px;}",
-      "@media screen and (max-width: 749px) {#judgeme_product_reviews {padding: 0 20px; text-align: center; } .jdgm-review-widget .jdgm-rev-widg__header {text-align: center; } .jdgm-histogram {margin: 0 auto; } .jdgm-rev-widg__summary {text-align: center; }}"
+      "#judgeme_product_reviews {padding: 95px; margin-top: 20px;}",
+      "@media screen and (max-width: 749px) {#judgeme_product_reviews {padding: 0; margin: 20px auto; }}"
     ]
   }
 }
