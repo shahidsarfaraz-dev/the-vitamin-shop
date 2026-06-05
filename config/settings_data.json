@@ -443,5 +443,10 @@
         }
       }
     }
+  },
+  "platform_customizations": {
+    "custom_css": [
+      "#judgeme_product_reviews {padding: 0 40px; margin-top: 20px;}"
+    ]
   }
 }
