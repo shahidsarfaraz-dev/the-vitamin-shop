@@ -446,9 +446,7 @@
   },
   "platform_customizations": {
     "custom_css": [
-      "#judgeme_product_reviews {padding: 0 95px; margin-top: 20px;}",
-      ".jdgm-popup-modal__product-image {max-height: none !important; height: auto !important;}",
-      ".jdgm-popup-modal__product-info {overflow: visible !important;}"
+      "#judgeme_product_reviews {padding: 0 95px; margin-top: 20px;}"
     ]
   }
 }
