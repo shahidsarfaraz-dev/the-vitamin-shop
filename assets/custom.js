@@ -1,27 +1,3 @@
-function throttle(fn, wait) {
-  var last = 0;
-  var timer = null;
-  return function() {
-    var now = Date.now();
-    var remaining = wait - (now - last);
-    var context = this;
-    var args = arguments;
-    if (remaining <= 0) {
-      clearTimeout(timer);
-      timer = null;
-      last = now;
-      fn.apply(context, args);
-    } else {
-      clearTimeout(timer);
-      timer = setTimeout(function() {
-        last = Date.now();
-        timer = null;
-        fn.apply(context, args);
-      }, remaining);
-    }
-  };
-}
-
 $( document ).ready(function() {
   $(".product-accordion-group input:checkbox").on('click', function() {
     var $box = $(this);
@@ -145,9 +121,9 @@ $(document).ready(function() {
 
   checkIfInView();
 
-  $(window).on('scroll', throttle(function() {
+  $(window).on('scroll', function() {
       checkIfInView();
-  }, 100));
+  });
   
 });
 
@@ -224,9 +200,9 @@ $(document).ready(function() {
 
     calculateAndApplyDistance();
 
-    $(window).scroll(throttle(function() {
+    $(window).scroll(function() {
         calculateAndApplyDistance();
-    }, 100));
+    });
 
     $(window).resize(function() {
         calculateAndApplyDistance();
@@ -634,15 +610,15 @@ $(document).ready(function () {
     $placeholder.height($header.outerHeight()); // Update placeholder height
   });
 
-  $(window).scroll(throttle(function () {
+  $(window).scroll(function () {
     if ($(window).scrollTop() >= headerOffset) {
       $header.css({ position: "fixed", top: 0 });
-      $placeholder.show();
+      $placeholder.show(); // Show placeholder to prevent content jump
     } else {
       $header.css({ position: "relative", top: "auto" });
-      $placeholder.hide();
+      $placeholder.hide(); // Hide placeholder when header is not fixed
     }
-  }, 50));
+  });
 
   // Initial placeholder height
   $placeholder.height($header.outerHeight());
