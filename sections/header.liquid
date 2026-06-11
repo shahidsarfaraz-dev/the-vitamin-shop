@@ -203,9 +203,9 @@
         {% assign menu_items = linklists[block.settings.menu].links %}
         <li>
           <div class="mobile-menu-custom-parent-title">
-            <a id="mobileMenuParent" href="{{ block.settings.url }}">{{ block.settings.title | escape }} {% render 'icon-caret' %}</a>
+            <a class="mobile-menu-parent-link" href="{{ block.settings.url }}">{{ block.settings.title | escape }} {% render 'icon-caret' %}</a>
           </div>
-          <ul id="mobileMenuChild" class="mobile-menu-custom-childlinks">
+          <ul class="mobile-menu-custom-childlinks">
             <li class="mobile-menu-backlink">
               <button type="button" class="back-link">Back</button>
             </li>
@@ -215,7 +215,7 @@
                 <div class="mobile-menu-custom-parent-title">
                   <a href="{{ link.url }}">{{ link.title | escape }} {% render 'icon-caret' %}</a>
                 </div>
-                <ul id="mobileMenuChild" class="mobile-menu-custom-childlinks">
+                <ul class="mobile-menu-custom-childlinks">
                   <li class="mobile-menu-backlink">
                     <button type="button" class="back-link">Back</button>
                   </li>
@@ -239,9 +239,9 @@
         {% assign menu_items = linklists[block.settings.menu].links %}
         <li>
           <div class="mobile-menu-custom-parent-title">
-            <a id="mobileMenuParent" href="{{ block.settings.url }}">{{ block.settings.title | escape }} {% render 'icon-caret' %}</a>
+            <a class="mobile-menu-parent-link" href="{{ block.settings.url }}">{{ block.settings.title | escape }} {% render 'icon-caret' %}</a>
           </div>
-          <ul id="mobileMenuChild" class="mobile-menu-custom-childlinks mobile-menu-type-2">
+          <ul class="mobile-menu-custom-childlinks mobile-menu-type-2">
             <li class="mobile-menu-backlink">
               <button type="button" class="back-link">Back</button>
             </li>
@@ -258,9 +258,9 @@
         {% assign menu_items = linklists[block.settings.menu].links %}
         <li>
           <div class="mobile-menu-custom-parent-title">
-            <a id="mobileMenuParent" href="{{ block.settings.url }}">{{ block.settings.title | escape }} {% render 'icon-caret' %}</a>
+            <a class="mobile-menu-parent-link" href="{{ block.settings.url }}">{{ block.settings.title | escape }} {% render 'icon-caret' %}</a>
           </div>
-          <ul id="mobileMenuChild" class="mobile-menu-custom-childlinks mobile-menu-type-3">
+          <ul class="mobile-menu-custom-childlinks mobile-menu-type-3">
             <li class="mobile-menu-backlink">
               <button type="button" class="back-link">Back</button>
             </li>
@@ -641,7 +641,7 @@
                     {% assign collection_slug = collection_title | replace: "--", "-" %}
                     {% assign collection = collections[collection_slug] %}
                     {% assign navigation_image = collection.metafields.custom.navigation_image %}
-                   <details id="" class="top-level-menu-item parent-menu-item-{{ parent_link_slug }} parent-menu-item-type-2">
+                   <details class="top-level-menu-item parent-menu-item-{{ parent_link_slug }} parent-menu-item-type-2">
                      <summary class="header__menu-item list-menu__item link focus-inset header__parent-link">
                        <span class="{%- if link.child_active %}header__active-menu-item{% endif %} {% if block.settings.make_button %}menu-style-button{% endif %}"><a href="{{ block.settings.url }}">{{ block.settings.title | escape }}</a></span>
                        {% render 'icon-caret' %}
@@ -682,7 +682,7 @@
             {% assign menu_items = linklists[block.settings.menu].links %}
               <li class="list-item">
                   <header-menu>
-                   <details id="" class="top-level-menu-item parent-menu-item-{{ parent_link_slug }} parent-menu-item-type-3">
+                   <details class="top-level-menu-item parent-menu-item-{{ parent_link_slug }} parent-menu-item-type-3">
                      <summary class="header__menu-item list-menu__item link focus-inset header__parent-link">
                        <span class="{%- if link.child_active %}header__active-menu-item{% endif %} {% if block.settings.make_button %}menu-style-button{% endif %}"><a href="{{ block.settings.url }}">{{ block.settings.title | escape }}</a></span>
                        {% render 'icon-caret' %}
