@@ -42,11 +42,4 @@ $(document).ready(function () {
     }
   });
 
-  var formId = $('.newsletter-modal').data("form-id");
-  $('div[data-forms-id="forms-root-' + formId +'"]').last().each(function () {
-      if ($(this).length && $('.newsletter-modal-right .newsletter-modal-form').length) {
-          $(this).prependTo('.newsletter-modal-right .newsletter-modal-form');
-      }
-  });
-  
 });

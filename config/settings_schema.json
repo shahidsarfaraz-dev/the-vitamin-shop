@@ -1627,13 +1627,6 @@
       },
       {
         "type": "text",
-        "label": "Form ID",
-        "info": "Eg: 301148",
-        "id": "form_id",
-        "default": "301148"
-      },
-      {
-        "type": "text",
         "label": "Button Text",
         "id": "newlsetter_modal_button_text",
         "default": "Get 10% off your first order!"
