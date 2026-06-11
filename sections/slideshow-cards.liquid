@@ -7,7 +7,14 @@
               <li class="hero-carousel-item fade-in-element">
                 <div class="hero-carousel-item-inner">
                   <div class="hero-carousel-item-top">
-                    <img src="{{ block.settings.image | image_url }}" width="" height="" alt="" />
+                    {%- if block.settings.image != blank -%}
+                      {%- assign hero_img_height = block.settings.image.width | divided_by: block.settings.image.aspect_ratio -%}
+                      {%- if forloop.first -%}
+                        <img src="{{ block.settings.image | image_url: width: 1200 }}" width="{{ block.settings.image.width }}" height="{{ hero_img_height }}" alt="{{ block.settings.image.alt | escape }}" loading="eager" fetchpriority="high" />
+                      {%- else -%}
+                        <img src="{{ block.settings.image | image_url: width: 1200 }}" width="{{ block.settings.image.width }}" height="{{ hero_img_height }}" alt="{{ block.settings.image.alt | escape }}" loading="lazy" />
+                      {%- endif -%}
+                    {%- endif -%}
                   </div>
                   <div class="hero-carousel-item-bottom">
                     <div class="hero-carousel-content" style="background: {{ block.settings.background }}">

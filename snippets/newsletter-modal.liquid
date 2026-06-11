@@ -1,5 +1,5 @@
 {% if settings.show_newsletter_modal == true and template != 'collection.wholesale' %}
-<div class="newsletter-modal" style="display:none" data-form-id="{{ settings.form_id }}">
+<div class="newsletter-modal" style="display:none">
   <button class="newsletter-modal-open">
     <h3>{{ settings.newlsetter_modal_button_text }} <span class="gg-close" id="close_nl_modal_btn"></span></h3>
   </button>
@@ -29,33 +29,5 @@
   </div>
 </div>
 <input type="hidden" value="{{ settings.refresh_time }}" id="refresh_time">
-<style>
-  div[data-forms-id="forms-root-{{ settings.form_id }}"] {
-    --inline-container-min-height: 0 !important;
-    min-height: 0 !important;
-  }
-  div[data-forms-id="forms-root-{{ settings.form_id }}"] #app-embed {
-    text-align: left !important;
-  }
-  div[data-forms-id="forms-root-{{ settings.form_id }}"] #email {
-    text-align: left !important;
-  }
-  div[data-forms-id="forms-root-{{ settings.form_id }}"] button {
-    font-weight: 600 !important;
-  }
-</style>
 <script src="{{ 'newsletter-modal.js' | asset_url }}" defer="defer"></script>
-{% else %}
-<style>
-  div[data-forms-id="forms-root-{{ settings.form_id }}"] {
-    display:none !important;
-  }
-</style>
-{% endif %}
-{% if customer and customer.accepts_marketing %}
-<style>
-  div[data-forms-id="forms-root-{{ settings.wholesale_lock_form_id }}"] {
-    display:none !important;
-  }
-</style>
 {% endif %}

@@ -1155,6 +1155,7 @@ const onResize = () => {
     mainContent.style.setProperty('--header-height', `${announcementHeights}px`)
   }
 }
+onResize()
 window.addEventListener('load', onResize)
 window.addEventListener('resize', onResize)
 window.addEventListener('load', () => {

@@ -155,7 +155,10 @@
                   {% endif %}  
                 {% endif %}
                 {% endcomment %}
-                <img class="footer-block__newsletter-image" src="{{ section.settings.newsletter_graphic | image_url }}" width="" height=""/>
+                {%- if section.settings.newsletter_graphic != blank -%}
+                  {%- assign newsletter_img_height = section.settings.newsletter_graphic.width | divided_by: section.settings.newsletter_graphic.aspect_ratio -%}
+                  <img class="footer-block__newsletter-image" src="{{ section.settings.newsletter_graphic | image_url: width: 400 }}" width="{{ section.settings.newsletter_graphic.width }}" height="{{ newsletter_img_height }}" alt="{{ section.settings.newsletter_graphic.alt | escape }}" loading="lazy" />
+                {%- endif -%}
               </div>
               <div class="footer-block__newsletter-column newsletter-signup" style="background-image: url({{ 'newsletter-signup.jpg' | asset_url }});">
             
@@ -298,7 +301,7 @@
     </div>
     <div class="footer__content-bottom-wrapper page-width{% if section.settings.enable_country_selector == false and section.settings.enable_language_selector == false %} footer__content-bottom-wrapper--center{% endif %}">
       <div class="logo-column">
-        <img src="{{ 'footer-logo.svg' | asset_url }}"/>
+        <img src="{{ 'footer-logo.svg' | asset_url }}" width="189" height="189" alt="The Vitamin Shop" loading="lazy" />
       </div>
       <div class="footer-menus-container">
         <div class="footer-menus">
@@ -333,9 +336,9 @@
         </ul>
         {%- if section.settings.show_social and has_social_icons -%}
         <ul class="copyright-social">
-          <li><a href="https://www.facebook.com/canadianvitaminshop/" class="facebook" target="_blank"><img src="{{ 'facebook.svg' | asset_url }}"/></a></li>
-          <li><a href="https://www.instagram.com/canadianvitaminshop/" class="instagram" target="_blank"><img src="{{ 'instagram.svg' | asset_url }}"/></a></li>
-          <li><a href="https://twitter.com/cdnvitaminshop" class="twitter" target="_blank"><img src="{{ 'twitter.svg' | asset_url }}"/></a></li>
+          <li><a href="https://www.facebook.com/canadianvitaminshop/" class="facebook" target="_blank"><img src="{{ 'facebook.svg' | asset_url }}" width="20" height="32" alt="Facebook" loading="lazy" /></a></li>
+          <li><a href="https://www.instagram.com/canadianvitaminshop/" class="instagram" target="_blank"><img src="{{ 'instagram.svg' | asset_url }}" width="19" height="19" alt="Instagram" loading="lazy" /></a></li>
+          <li><a href="https://twitter.com/cdnvitaminshop" class="twitter" target="_blank"><img src="{{ 'twitter.svg' | asset_url }}" width="20" height="20" alt="Twitter" loading="lazy" /></a></li>
         </ul>
         {%- endif -%}
       </div>

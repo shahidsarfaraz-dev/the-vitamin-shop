@@ -54,7 +54,7 @@
       "disabled": true,
       "name": "Collection SEO Content",
       "settings": {
-        "image": "shopify://shop_images/natural-factors-banner-sept-2025-1300x536.png",
+        "image": "shopify://shop_images/vitamins-supliments_c4bb0d32-9922-47ea-926e-3195e9232f90.png",
         "read_more_label": "Learn More",
         "read_less_label": "Read Less",
         "collapsed_lines_desktop": 8,
@@ -76,7 +76,7 @@
       "disabled": true,
       "name": "Collection/Product FAQs",
       "settings": {
-        "main_title": "Frequently Asked Questions",
+        "main_title": "",
         "headingTag": "h2",
         "content": ""
       }

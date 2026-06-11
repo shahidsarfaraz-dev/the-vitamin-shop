@@ -16,6 +16,24 @@
 
   Usage:
   {% render 'simple-product', show_vendor: section.settings.show_vendor %}
+
+  ============================================================
+  USAGE MAP — simple-product.liquid
+  ============================================================
+  Lighter variant of card-product. Used only where a row/minimal
+  layout is needed instead of the standard card format.
+  Default to card-product for any new product grid context.
+
+  Call sites:
+  - sections/newsletter-collection-product-grid.liquid     Newsletter collection grid (row layout)
+
+  Testing checklist (run for any change to this file):
+  - Newsletter collection grid: cards render correctly in row layout
+  - Product title, price, and image display correctly
+  - Mobile viewport
+
+  Full usage map and checklist: https://www.notion.so/Product-Card-Components-35d2eb1a50e080e1b168fd30dd488688
+  ============================================================
 {% endcomment %}
 
 {{ 'simple-product.css' | asset_url | stylesheet_tag }}

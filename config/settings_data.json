@@ -292,11 +292,6 @@
         "type": "shopify://apps/alia/blocks/customer-app-frame/51f1d398-3e41-44da-b81e-defd5804b292",
         "disabled": false,
         "settings": {}
-      },
-      "14060646107696862457": {
-        "type": "shopify://apps/judge-me-reviews/blocks/judgeme_core/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-        "disabled": false,
-        "settings": {}
       }
     }
   },
@@ -443,11 +438,5 @@
         }
       }
     }
-  },
-  "platform_customizations": {
-    "custom_css": [
-      "#judgeme_product_reviews {padding: 95px; margin-top: 20px;}",
-      "@media screen and (max-width: 749px) {#judgeme_product_reviews {padding: 0 20px; }}"
-    ]
   }
 }

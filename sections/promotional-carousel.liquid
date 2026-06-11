@@ -24,7 +24,10 @@
                     </div>
                   {% endif %}
                   <div class="carousel-item-top" style="background-image:url({{ block.settings.background_image | image_url }});">
-                    <img src="{{ block.settings.image | image_url }}" width="" height="" alt="" />
+                    {%- if block.settings.image != blank -%}
+                      {%- assign promo_img_height = block.settings.image.width | divided_by: block.settings.image.aspect_ratio -%}
+                      <img src="{{ block.settings.image | image_url: width: 600 }}" width="{{ block.settings.image.width }}" height="{{ promo_img_height }}" alt="{{ block.settings.image.alt | escape }}" loading="lazy" />
+                    {%- endif -%}
                   </div>
                   <div class="carousel-item-bottom">
                     <div class="carousel-content">
