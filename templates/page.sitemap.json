@@ -17,7 +17,7 @@
         "padding_bottom": 52
       }
     },
-    "custom_liquid_q3YQUb": {
+    "custom_liquid_6WUdkA": {
       "type": "custom-liquid",
       "name": "t:sections.custom-liquid.presets.name",
       "settings": {
@@ -30,6 +30,6 @@
   },
   "order": [
     "main",
-    "custom_liquid_q3YQUb"
+    "custom_liquid_6WUdkA"
   ]
 }

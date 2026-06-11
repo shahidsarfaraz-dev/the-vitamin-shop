@@ -3,7 +3,7 @@
 
 <style>
   .single-image-banner {
-    background-image: url({{ section.settings.image | image_url: width: 1500, format: 'webp' }});
+    background-image: url({{ section.settings.image | image_url }});
     {% if section.settings.use_ranged_pos == true %}
     background-position: {{ section.settings.image_position_percentage }}%;
     {% else %}

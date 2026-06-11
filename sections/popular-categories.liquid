@@ -6,7 +6,7 @@
         {% for block in section.blocks %}
          <li class="fade-in-element">
            <a href="{{ block.settings.collection.url }}">
-             <span class="category-list-image" style="background-image: url({{ block.settings.image | image_url: width: 1500, format: 'webp' }});">{{ block.settings.collection.title }}</span>
+             <span class="category-list-image" style="background-image: url({{ block.settings.image | image_url }});">{{ block.settings.collection.title }}</span>
              <span class="category-list-title">{% if block.settings.custom_title != "" %}{{ block.settings.custom_title }}{% else %}{{ block.settings.collection.title }}{% endif %}</span>
            </a>
          </li>

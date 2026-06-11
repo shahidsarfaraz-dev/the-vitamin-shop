@@ -1,3 +1,38 @@
+{%- comment -%}
+  ============================================================
+  sections/header.liquid — Structure Overview
+  ============================================================
+  This is the most complex section in the codebase. It handles:
+    - Desktop navigation with three custom dropdown types (see below)
+    - Mobile menu with hardcoded Home link and optional Wholesale button
+    - Mobile quick-access icon row (hardcoded: sale, favourites/wishlist, phone, flyers, coupons)
+    - Search bar (inline, supports predictive search)
+    - Cart icon — toggles js-show-ajax-cart on body to open the cart drawer
+    - Wishlist counter — reads customer.metafields.custom.wishlist
+    - Wholesale button — visibility controlled by settings.toggle_map
+    - Sticky header — StickyHeader custom element (see {%- javascript -%} block)
+
+  Desktop dropdown types (only active when menu_type_desktop == 'dropdown'):
+    main-menu-item-1  Standard   Hierarchical text links with optional sidebar image panel
+    main-menu-item-2  Icons      Flat link list with optional metafield icons (custom.navigation_image)
+    main-menu-item-3  Grid       Brand logo/image grid using link.object.image (collection image)
+
+  The fallback (menu_type_desktop == 'mega') uses section.settings.menu.links directly
+  and renders a standard mega-menu — block types are not involved.
+
+  Key dependencies:
+    - settings.toggle_map                  Controls Wholesale button visibility (mobile + desktop)
+    - settings.cart_type                   'drawer' loads cart-drawer assets; 'notification' renders cart-notification snippet
+    - settings.predictive_search_enabled   Switches between predictive-search and search-form components
+    - section.settings.menu_type_desktop   'dropdown' or 'mega' — determines which nav branch renders
+    - section.settings.sticky_header_type  Controls sticky behaviour and logo-shrink animation
+    - customer.metafields.custom.wishlist  Wishlist item count shown in mobile quick-access icon row
+
+  Full structure map and testing checklist:
+  https://www.notion.so/Header-35d2eb1a50e0806bb1d9dbd4eac86418
+  ============================================================
+{%- endcomment -%}
+
 <link rel="stylesheet" href="{{ 'component-list-menu.css' | asset_url }}" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="{{ 'component-search.css' | asset_url }}" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="{{ 'component-menu-drawer.css' | asset_url }}" media="print" onload="this.media='all'">
@@ -138,6 +173,23 @@
   </symbol>
 </svg>
 
+{%- comment -%}
+  ============================================================
+  MOBILE MENU
+  ============================================================
+  Custom mobile navigation. Rendered before the sticky-header wrapper
+  so it sits outside that element and is not affected by sticky behaviour.
+
+  Hardcoded items (not configurable from the theme editor):
+    - Wholesale button — visibility controlled by settings.toggle_map;
+      links to /collections/wholesale when logged in, otherwise opens wholesale modal
+    - Home link — always present as the first nav item
+
+  Menu items are driven by section blocks (main-menu-item-1, -2, -3).
+  All three types render as a slide-in list with a Back button.
+  See DESKTOP NAVIGATION section below for block type descriptions.
+  ============================================================
+{%- endcomment -%}
 <div class="mobile-menu-custom">
   <ul class="mobile-menu-custom-parent">
       {% if settings.toggle_map == true %}
@@ -222,6 +274,20 @@
   </ul>
 </div>
       
+{%- comment -%}
+  ============================================================
+  HEADER TOP BAR  (sticky-header wrapper)
+  ============================================================
+  Contains:
+    - Logo — desktop (left column) and mobile duplicate (right column)
+    - Mobile cart + account icons
+    - Hamburger menu drawer toggle (tablet and below)
+    - Mobile quick-access icon row (hardcoded — see comment below)
+    - Inline search bar with predictive search support
+    - Login / Account button
+    - Desktop cart icon — click toggles js-show-ajax-cart on body
+  ============================================================
+{%- endcomment -%}
 <{% if section.settings.sticky_header_type != 'none' %}sticky-header data-sticky-type="{{ section.settings.sticky_header_type }}"{% else %}div{% endif %} class="header-wrapper color-{{ section.settings.color_scheme }} gradient{% if section.settings.show_line_separator %} header-wrapper--border-bottom{% endif %}">
   <header class="header header--{{ section.settings.logo_position }} header--mobile-{{ section.settings.mobile_logo_position }} {% if section.settings.menu != blank %} header--has-menu{% endif %}">
       <div class="header-top page-width">
@@ -300,6 +366,17 @@
           </div>
           <div class="header-top-search">
 
+            {%- comment -%}
+              MOBILE QUICK-ACCESS ICON ROW
+              Hardcoded — not configurable from the theme editor.
+              Links and destinations:
+                Sale / gift card  →  /collections/sale/
+                Favourites        →  /pages/favourites/  (includes wishlist count badge)
+                Phone             →  tel:18883861211
+                Flyers            →  /pages/flyers/
+                Coupons           →  /pages/coupons/
+              Wishlist count reads: customer.metafields.custom.wishlist.value | size
+            {%- endcomment -%}
             <div class="header-mobile-menu-icons">
               <ul>
                 <li><a href="/collections/sale/"><img src="{{ 'mobile-menu-gift-card.svg' | asset_url }}"/></a></li>
@@ -371,7 +448,7 @@
               {%- endif -%}              
               
             </div>
-            <a href="{% if customer %}{{ routes.account_url }}{% else %}{{ routes.storefront_login_url }}{% endif %}" class="button header-login-button"><img src="{{ 'user.svg' | asset_url }}"/>
+            <a href="{% if customer %}{{ routes.account_url }}{% else %}{{ routes.account_login_url }}{% endif %}" class="button header-login-button"><img src="{{ 'user.svg' | asset_url }}"/>
               {% if customer %}
                 Account
               {% else %}
@@ -469,6 +546,26 @@
 
       <div class="header-seperator"></div>
 
+    {%- comment -%}
+      ============================================================
+      DESKTOP NAVIGATION
+      ============================================================
+      Two branches controlled by section.settings.menu_type_desktop:
+
+      1. 'dropdown' (block-based) — uses section blocks; three block types:
+           main-menu-item-1  Standard   Hierarchical text links up to 3 levels deep.
+                                        Optional sidebar image panel (block.settings.image).
+           main-menu-item-2  Icons      Flat list of category links. Each link can show a small
+                                        icon from link.object.metafields.custom.navigation_image.
+                                        Optional "Shop All" link (block.settings.shop_all_url).
+           main-menu-item-3  Grid       Brand logo/image grid using link.object.image.
+                                        Optional CTA button (block.settings.button_text / button_url).
+         Wholesale button also rendered in this branch (settings.toggle_map controls visibility).
+
+      2. 'mega' (fallback) — uses section.settings.menu.links directly.
+         Standard two/three-level mega-menu. Block types not involved.
+      ============================================================
+    {%- endcomment -%}
     {%- if section.settings.menu != blank -%}
       {%- if section.settings.menu_type_desktop == 'dropdown' -%}
 
@@ -478,12 +575,14 @@
           <ul class="list-menu list-menu--inline" role="list">
           {% for block in section.blocks %}
             {% case block.type %}
+              {%- comment -%} Block type: Standard dropdown (main-menu-item-1)
+                Hierarchical text links up to 3 levels deep. Optional sidebar image panel (block.settings.image). {%- endcomment -%}
               {% when 'main-menu-item-1' %}
               {% assign menu_items = linklists[block.settings.menu].links %}
               <li class="list-item">
                   <header-menu>
                     {% assign parent_link_title = link.title | downcase |  replace: " ", "-" | replace: "&", "" %}
-                    {% assign parent_link_slug = parent_link_title | replace: "--", "-" %}            
+                    {% assign parent_link_slug = parent_link_title | replace: "--", "-" %}
                     {% assign collection_title = link.title | downcase |  replace: " ", "-" | replace: "&", "" %}
                     {% assign collection_slug = collection_title | replace: "--", "-" %}
                     {% assign collection = collections[collection_slug] %}
@@ -529,12 +628,15 @@
                     </details>
                   </header-menu>
               </li>
+            {%- comment -%} Block type: Icons dropdown (main-menu-item-2)
+              Flat link list. Optional icon per link from link.object.metafields.custom.navigation_image.
+              Optional "Shop All" link at the bottom (block.settings.shop_all_url). {%- endcomment -%}
             {% when 'main-menu-item-2' %}
             {% assign menu_items = linklists[block.settings.menu].links %}
               <li class="list-item">
                   <header-menu>
                     {% assign parent_link_title = link.title | downcase |  replace: " ", "-" | replace: "&", "" %}
-                    {% assign parent_link_slug = parent_link_title | replace: "--", "-" %}            
+                    {% assign parent_link_slug = parent_link_title | replace: "--", "-" %}
                     {% assign collection_title = link.title | downcase |  replace: " ", "-" | replace: "&", "" %}
                     {% assign collection_slug = collection_title | replace: "--", "-" %}
                     {% assign collection = collections[collection_slug] %}
@@ -573,6 +675,9 @@
                     </details>
                   </header-menu>
               </li>
+            {%- comment -%} Block type: Grid dropdown (main-menu-item-3)
+              Brand logo/image grid using link.object.image (collection image).
+              Optional CTA button at the bottom (block.settings.button_text + button_url). {%- endcomment -%}
             {% when 'main-menu-item-3' %}
             {% assign menu_items = linklists[block.settings.menu].links %}
               <li class="list-item">
@@ -597,6 +702,7 @@
               {% endcase %}
             {%- endfor -%}
           </ul>
+          {%- comment -%} Wholesale button — desktop, visibility controlled by settings.toggle_map {%- endcomment -%}
           <div class="header-button-wrapper">
             {% if settings.toggle_map == true %}
               <a class="menu-style-button wholesale-button{% unless customer %} open-wholesale-modal{% endunless %}" href="{% if customer %}/collections/wholesale{% else %}#{% endif %}">Wholesale</a>
@@ -680,6 +786,10 @@
                     
 </{% if section.settings.sticky_header_type != 'none' %}sticky-header{% else %}div{% endif %}>
                     
+{%- comment -%}
+  Mouseover/mouseleave handlers for desktop dropdown menus.
+  Opens and closes <details> elements on hover by toggling the 'open' attribute.
+{%- endcomment -%}
 <script>
   let items = document.querySelector(".header__inline-menu").querySelectorAll(".top-level-menu-item");
   items.forEach(item => {
@@ -814,6 +924,10 @@
 
 {%- render 'schema' -%}
 
+{%- comment -%}
+  Cart icon click handlers — desktop (#cart-icon-bubble) and mobile (#cart-icon-mobile).
+  Toggle js-show-ajax-cart class on document.body to open/close the cart drawer.
+{%- endcomment -%}
 <script>
   document.querySelector("#cart-icon-bubble").addEventListener("click", function() {
     document.body.classList.toggle("js-show-ajax-cart");

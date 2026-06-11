@@ -23,7 +23,6 @@
       "disabled": true,
       "settings": {
         "title": "{{ collection.title }}",
-        "description": "",
         "background_image": "shopify://shop_images/sports-nutrition.png"
       }
     },
