@@ -16,6 +16,55 @@
 
   Usage:
   {% render 'card-product', show_vendor: section.settings.show_vendor %}
+
+  ============================================================
+  USAGE MAP — card-product.liquid
+  ============================================================
+  HIGH IMPACT: this snippet renders in 17 places.
+  A change here affects ALL contexts simultaneously.
+
+  Call sites:
+  - sections/main-collection-product-grid.liquid               Standard collection grid
+  - sections/main-collection-product-grid-no-scroll.liquid     Collection grid (no-scroll variant)
+  - sections/main-collection-product-grid-ca-brands.liquid     Canadian Brands collection
+  - sections/newsletter-collection-product-grid.liquid         Newsletter collection grid (show_quick_add: true)
+  - sections/wholesale-collection-product-grid.liquid          Wholesale collection grid
+  - sections/main-search.liquid                                Global search results (/search)
+  - sections/collection-search.liquid                          Collection-scoped search (search.collection template)
+  - sections/main-product.liquid                               Complementary products block (slideshow on PDP)
+  - sections/related-products.liquid                           Related products section
+  - sections/featured-collection.liquid                        Featured collection — real products (line 78) + empty placeholder (line 91)
+  - sections/featured-collection-standard.liquid               Featured collection (standard variant) — same two-call pattern
+  - sections/collage.liquid                                    Collage section (single product per block)
+  - sections/newsletter-additional-products.liquid             Newsletter additional products (show_quick_add: true)
+  - sections/wholesale-search.liquid                           Wholesale search results
+  - sections/flyer-coupons.liquid                              Flyer coupons page
+  - sections/coupons.liquid                                    Coupons page
+  - sections/product-card-template.liquid                      Headless product card (product.card template, layout: false)
+
+  Testing checklist (run for any change to this file):
+  - Standard collection page: cards render, images load, prices correct
+  - Collection page (no-scroll variant)
+  - Canadian Brands collection
+  - Global search (/search)
+  - Collection-scoped search: cards update on filter
+  - Product page: complementary products slideshow renders
+  - Product page: related products section renders
+  - Featured collection: both section variants, including empty state placeholder
+  - Collage section
+  - Newsletter collection grid
+  - Newsletter additional products
+  - Wholesale collection grid
+  - Wholesale search
+  - Coupons page
+  - Flyer coupons page
+  - Quick add button (where show_quick_add: true is passed)
+  - Wishlist button: heart icon present and functional
+  - Secondary image hover (where show_secondary_image: true)
+  - Mobile: spot-check all of the above
+
+  Full usage map and checklist: https://www.notion.so/Product-Card-Components-35d2eb1a50e080e1b168fd30dd488688
+  ============================================================
 {% endcomment %}
 
 {{ 'component-rating.css' | asset_url | stylesheet_tag }}
