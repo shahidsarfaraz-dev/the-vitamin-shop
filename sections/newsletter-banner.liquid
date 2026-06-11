@@ -7,7 +7,10 @@
       <div class="newsletter-banner__top">
           {% for block in top_columns %}
           <div class="newsletter-banner__column">
-            <img src="{{ block.settings.top_image | image_url }}"/>
+            {%- if block.settings.top_image != blank -%}
+              {%- assign top_img_height = block.settings.top_image.width | divided_by: block.settings.top_image.aspect_ratio -%}
+              <img src="{{ block.settings.top_image | image_url: width: 200 }}" width="{{ block.settings.top_image.width }}" height="{{ top_img_height }}" alt="{{ block.settings.top_image.alt | escape }}" loading="lazy" />
+            {%- endif -%}
             <div>
               <h3>{{ block.settings.top_heading }}</h3>
               {{ block.settings.top_description }}
@@ -18,7 +21,10 @@
       <div class="newsletter-banner__bottom">
           {% for block in bottom_columns %}
           <div class="newsletter-banner__column">
-            <img src="{{ block.settings.bottom_image | image_url }}"/>
+            {%- if block.settings.bottom_image != blank -%}
+              {%- assign bottom_img_height = block.settings.bottom_image.width | divided_by: block.settings.bottom_image.aspect_ratio -%}
+              <img src="{{ block.settings.bottom_image | image_url: width: 200 }}" width="{{ block.settings.bottom_image.width }}" height="{{ bottom_img_height }}" alt="{{ block.settings.bottom_image.alt | escape }}" loading="lazy" />
+            {%- endif -%}
             <span>{{ block.settings.bottom_heading }}</span> &nbsp;
             <a href="tel:{{ block.settings.bottom_description }}">{{ block.settings.bottom_description }}</a>
           </div>
