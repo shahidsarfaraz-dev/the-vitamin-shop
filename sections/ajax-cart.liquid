@@ -1,7 +1,7 @@
 {{ 'component-ajax-cart.css' | asset_url | stylesheet_tag }}
 
 <div class="ajax-cart-wrapper" style="display:none">
-  <span class="gg-close close-ajax-cart"></span>
+  <button class="gg-close close-ajax-cart" aria-label="{{ 'sections.cart.close' | t }}"></button>
   <div class="ajax-cart" data-ajax-cart-section>
     <div class="loading-overlay__spinner ajax-cart-spinner" style="display: none">
        <svg
@@ -86,7 +86,7 @@
               <div class="ajax-cart-quantity">
                 <ajax-cart-quantity>
                   <!-- "Minus one" button -->
-                  <a data-ajax-cart-quantity-minus class="ajax-quant-btn"
+                  <a data-ajax-cart-quantity-minus class="ajax-quant-btn" aria-label="{{ 'products.product.quantity.decrease' | t: product: line_item.product.title }}"
                     href="{{ routes.cart_change_url }}?line={{ line_item_index }}&quantity={{ line_item.quantity | minus: 1 }}" >
                     <img src="{{ 'math-minus.svg' | asset_url }}" {% if line_item.quantity < 2 %}style="background: #bbb"{% endif %}>
                   </a>
@@ -99,7 +99,7 @@
                     form="my-ajax-cart-form" />
           
                   <!-- "Plus one" button -->
-                  <a data-ajax-cart-quantity-plus class="ajax-quant-btn"
+                  <a data-ajax-cart-quantity-plus class="ajax-quant-btn" aria-label="{{ 'products.product.quantity.increase' | t: product: line_item.product.title }}"
                     href="{{ routes.cart_change_url }}?line={{ line_item_index }}&quantity={{ line_item.quantity | plus: 1 }}">
                     <img src="{{ 'math-plus.svg' | asset_url }}">
                   </a>
@@ -119,7 +119,7 @@
               <div><strong>{{ line_item.final_line_price | money }}</strong>{% unless item_discount <= 0 or item_discount == blank %}<br><span style="font-size: 12px; text-align: right; display:block;"><s>{{ item_discount | plus: line_item.final_line_price | money_without_trailing_zeros }}</s></span>{% endunless %}</div>
             {% endif %}
             <!-- "Remove item" button -->
-            <a data-ajax-cart-request-button href="{{ line_item.url_to_remove }}">
+            <a data-ajax-cart-request-button href="{{ line_item.url_to_remove }}" aria-label="Remove {{ line_item.product.title | escape }} from cart">
               <img src="{{ 'trash.svg' | asset_url }}">
             </a>
           </div>

@@ -337,8 +337,8 @@
 
             <div class="header-top-user-options-container">
               <ul class="mobile-top-menu">
-                <li class="header-option-mobile"><a class="header-option-cart" id="cart-icon-mobile" role="button" aria-haspopup="dialog"><img src="{{ 'cart.svg' | asset_url }}"></a> <span class="cart-item-count mobile-only{% if cart.item_count == 0 %} visibility-hidden{% endif %}" data-ajax-cart-section>{{ cart.item_count }}</span></li>
-                <li class="header-option-mobile"><a class="header-option-account" href="/account/"><img src="{{ 'user-dark.svg' | asset_url }}"></a></li>
+                <li class="header-option-mobile"><a class="header-option-cart" id="cart-icon-mobile" role="button" aria-haspopup="dialog" aria-label="Open cart"><img src="{{ 'cart.svg' | asset_url }}"></a> <span class="cart-item-count mobile-only{% if cart.item_count == 0 %} visibility-hidden{% endif %}" data-ajax-cart-section>{{ cart.item_count }}</span></li>
+                <li class="header-option-mobile"><a class="header-option-account" href="/account/" aria-label="Account"><img src="{{ 'user-dark.svg' | asset_url }}"></a></li>
               </ul>
               <ul class="desktop-top-menu">
               {% for block in section.blocks %}
@@ -379,11 +379,11 @@
             {%- endcomment -%}
             <div class="header-mobile-menu-icons">
               <ul>
-                <li><a href="/collections/sale/"><img src="{{ 'mobile-menu-gift-card.svg' | asset_url }}"/></a></li>
-                <li><a href="/pages/favourites/" class="header-mobile-menu-icons__favourites"><img src="{{ 'mobile-menu-favourites.svg' | asset_url }}"/> {% if customer.metafields.custom.wishlist %}<span class="cart-item-count">{{ customer.metafields.custom.wishlist.value | size }}</span>{% endif %}</a></li>
-                <li><a href="tel:18883861211"><img src="{{ 'mobile-menu-call.svg' | asset_url }}"/></a></li>
-                <li><a href="/pages/flyers/"><img src="{{ 'mobile-menu-flyer.svg' | asset_url }}"/></a></li>
-                <li><a href="/pages/coupons/"><img src="{{ 'mobile-menu-coupon.svg' | asset_url }}"/></a></li>
+                <li><a href="/collections/sale/" aria-label="Sale"><img src="{{ 'mobile-menu-gift-card.svg' | asset_url }}"/></a></li>
+                <li><a href="/pages/favourites/" class="header-mobile-menu-icons__favourites" aria-label="Favourites"><img src="{{ 'mobile-menu-favourites.svg' | asset_url }}"/> {% if customer.metafields.custom.wishlist %}<span class="cart-item-count">{{ customer.metafields.custom.wishlist.value | size }}</span>{% endif %}</a></li>
+                <li><a href="tel:18883861211" aria-label="Call us at 1-888-386-1211"><img src="{{ 'mobile-menu-call.svg' | asset_url }}"/></a></li>
+                <li><a href="/pages/flyers/" aria-label="Flyers"><img src="{{ 'mobile-menu-flyer.svg' | asset_url }}"/></a></li>
+                <li><a href="/pages/coupons/" aria-label="Coupons"><img src="{{ 'mobile-menu-coupon.svg' | asset_url }}"/></a></li>
               </ul>
             </div>
             
@@ -455,7 +455,7 @@
                 Login
               {% endif %}
             </a>
-            <div style="position: relative;"><div role="button" aria-haspopup="dialog" id="cart-icon-bubble" class="header-option-cart desktop-only" style="cursor:pointer"><img id="cart-icon-bubble-img" src="{{ 'cart.svg' | asset_url }}"> Cart</div> <span class="cart-item-count desktop-only{% if cart.item_count == 0 %} visibility-hidden{% endif %}" data-ajax-cart-section>{{ cart.item_count }}</span></div>
+            <div style="position: relative;"><div role="button" tabindex="0" aria-haspopup="dialog" id="cart-icon-bubble" class="header-option-cart desktop-only" style="cursor:pointer"><img id="cart-icon-bubble-img" src="{{ 'cart.svg' | asset_url }}"> Cart</div> <span class="cart-item-count desktop-only{% if cart.item_count == 0 %} visibility-hidden{% endif %}" data-ajax-cart-section>{{ cart.item_count }}</span></div>
           </div>
         </div>
       </div>
@@ -931,6 +931,12 @@
 <script>
   document.querySelector("#cart-icon-bubble").addEventListener("click", function() {
     document.body.classList.toggle("js-show-ajax-cart");
+  });
+  document.querySelector("#cart-icon-bubble").addEventListener("keydown", function(e) {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      document.body.classList.toggle("js-show-ajax-cart");
+    }
   });
   
   document.querySelector("#cart-icon-mobile").addEventListener("click", function() {
